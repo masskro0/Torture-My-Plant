@@ -6,13 +6,14 @@
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css">
   </head>
+    <body>
     
     <div class="wrapper">
             <nav>
                 <ul>
                     <li ><a class="frontpagetext" href="">Torture My Plant</a></li>
-                    <li class="right"><a href="">Login</a></li>
-                    <li class="right"x><a href="">Create Account</a></li>
+                    <li class="right"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+                    <li class="right"x><a href="#">Create Account</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,9 +27,49 @@
         <img class="rechterpfeil" src="img/rechterpfeil.png" width=10%>
         <button class="accept">I want this one!</button>
     </div>
+    
+    
+     <!--Loginscreen-->
+    
+   
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+
+      <p class="logintext">Login</p>
+    <div class="container">
+      <label for="uname"><b>Username or E-Mail</b></label>
+      <input type="text" placeholder="Username/E-Mail-Adress..." name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Password..." name="psw" required>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Keep me logged in
+        </label>
+      <button class="accept" class="loginbutton" type="submit">Login</button>
       
-     
+    </div>
+  </form>
+</div>
       
+    </body>
+    
+    
+    <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
     
     
 </html>
