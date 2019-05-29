@@ -37,11 +37,14 @@ nav  a{
     text-decoration: none;
     font-size: 48px;
     font-weight: bolder;
-    padding-left: 10px;
+    padding-left: 55px;
 }
 
 #livestream{
     background-color: lightblue;
+    position:absolute;
+    max-width: 79%;
+    top: 10%;
     display: block;
     padding-bottom: 10px;
 }
@@ -55,6 +58,7 @@ nav  a{
 }
 
 .pflanze{
+    margin-top: 15px;
     position: relative;
     display: block;
     margin-left: auto;
@@ -63,13 +67,13 @@ nav  a{
 
 .linkerpfeil{
   position: absolute;
-  top: 45%;
+  top: 32%;
   left: 20%;
 }
 
 .rechterpfeil{
     position: absolute;
-    top: 45%;
+    top: 32%;
     right: 20%;
 }
 
@@ -83,9 +87,23 @@ nav  a{
     background-color: limegreen;
     border-radius: 8px;
     border-width: thick;
+    width: 20%
 }
 
 
+
+.Homebutton{
+    position: absolute;
+    background-color: #eaeafa;
+    padding-bottom: 3px;
+}
+
+.Homeicon{
+    position: absolute;
+    width: 11%;
+    left: 0%
+    
+}
 
 
 /**************** Loginscreen *****************/
@@ -147,6 +165,7 @@ button:hover {
     position: relative;
     display: block;
     margin-top: 10px;
+    width: 20%;
 }
 
 /* The Close Button */

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torture some plants. It's up to you how.</title>
+    <link rel="stylesheet" type="text/css" href="styles/index_loggedin.css">
+  </head>
+    <body>
+    
+    <div class="wrapper">
+            <nav>
+                <ul>
+                    <div class="Homebutton">
+                    <li><a href="#"><img class="Homeicon" src="img/planticon.png"></a></li>
+                    <li><a class="frontpagetext" href="">Torture My Plant</a></li>
+                    </div>
+                    <li class="right"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+                    <li class="right"x><a href="signup.html">Create Account</a></li>
+                    <!--------Neu--------------->
+                    <li><img class="Coins" src="img/coins.png"></li>
+                    <li><p class="Cointext">1000</p></li>
+                    <li><a><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
+                    <div class="rectangle"></div>
+                    <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
+                </ul>
+            </nav>
+        </div>
+    
+    
+    
+    <div id="livestream">
+        <iframe class="stream" src="http://10.90.1.247:8081" height=600 width=800></iframe>
+        <img class="pflanze" src="img/pflanze.jpg" width=30%>
+        <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
+        <img class="rechterpfeil" src="img/rechterpfeil.png" width=10%>
+        <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
+    </div>
+    
+    
+     <!--Loginscreen-->
+    
+   
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+
+      <p class="logintext">Login</p>
+    <div class="container">
+      <label for="uname"><b>Username or E-Mail</b></label>
+      <input type="text" placeholder="Username/E-Mail-Adress..." name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Password..." name="psw" required>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Keep me logged in
+        </label>
+      <button class="accept" class="loginbutton" type="submit">Login</button>
+      
+    </div>
+  </form>
+</div>
+      
+    </body>
+    
+    
+    <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+    
+    
+</html>
