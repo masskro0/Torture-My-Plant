@@ -87,6 +87,7 @@ nav  a{
     background-color: limegreen;
     border-radius: 8px;
     border-width: thick;
+    border-color:black;
     width: 20%
 }
 

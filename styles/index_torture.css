@@ -3,10 +3,6 @@ body{
     margin-right: 10%;
 }
 
-
-.wrapper{
-}
-
 nav ul{
     list-style-type: none;
     margin: 0px;
@@ -455,13 +451,13 @@ iframe{
 
 .tortureul li{
     float:right;
-    border: 4px solid #888;
+    border: 5px solid black;
     margin-left: 45px;
 }
 
 .Timerbox{
     position: absolute;
-    height: 46px;
+    height: 48px;
     width: 150px;
     background-color: darkgrey;
     left: 37%;
@@ -470,8 +466,8 @@ iframe{
 
 .Timericon{
     position: absolute;
-    width: 2.7%;
-    top: 80.3%;
+    width: 2.8%;
+    top: 80.4%;
     left: 37.1%;
     z-index: 1;
 }
