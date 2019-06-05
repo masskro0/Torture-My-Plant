@@ -65,7 +65,7 @@ if(isset($_POST['submit'])) {
         array_push($errors, "Passwords do not match");
         #die('Passwords do not match');
     }
-    
+    // Check, if passwords have the right length
     if (strlen($_POST['password1']) > 30 || strlen($_POST['password1']) < 5) {
         array_push($errors, "Password must be between 5 and 30 characters long");
 	   #die('Password must be between 5 and 30 characters long!');
@@ -73,7 +73,7 @@ if(isset($_POST['submit'])) {
     
     // Allow only JPEG format
     $verifyimg = getimagesize($_FILES['image']['tmp_name']);
-    if($verifyimg['mime'] != 'image/jpeg') {
+    if(($verifyimg['mime'] != 'image/jpeg') && !(empty($_FILES['image']['tmp_name']))) {
         array_push($errors, "Only JPEG images are allowed");
     }   
     
@@ -116,20 +116,24 @@ if(isset($_POST['submit'])) {
         mkdir("/home/michael/Schreibtisch/new/$lastuserid");
         
         // Upload image
-        // Choose directory
-        $uploaddir = "/home/michael/Schreibtisch/new/$lastuserid/";
-        $uploadfile = $uploaddir . basename($_FILES['image']['name']);
-
-        
-        if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-        echo "Image succesfully uploaded.";
+        if(empty($_FILES['image']['name'])){
+            $uploadfile = NULL;
         } else {
-        echo "Image uploading failed.";
+            // Choose directory
+            $uploaddir = "/home/michael/Schreibtisch/new/$lastuserid/";
+            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+            
+            
+            if(move_uploaded_file($_FILES['image']['name'], $uploadfile)) {
+            echo "Image succesfully uploaded.";
+            } else {
+            echo "Image uploading failed.";
+            }
         }
         
         if($stmt = $connect->prepare('INSERT INTO User (username, email, password, profile_picture) VALUES(?, ?, ?, ?)')){
             $password = password_hash($_POST['password1'], PASSWORD_DEFAULT);
-            $stmt->bind_param('sss', $_POST['username'], $_POST['email'], $password, $uploadfile);
+            $stmt->bind_param('ssss', $_POST['username'], $_POST['email'], $password, $uploadfile);
             $stmt->execute();
             
             $stmt_username->close();
