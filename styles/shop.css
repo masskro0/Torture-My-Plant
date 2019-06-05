@@ -94,6 +94,8 @@ nav  a{
 }
 .screen{
     margin-top: 160px;
+    background-color: lightblue;
+    padding-left: 20px;
 }
 
 .Header{
