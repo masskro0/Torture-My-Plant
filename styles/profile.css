@@ -24,12 +24,13 @@ nav  a{
 .frontpagetext{
     color:black;
     text-decoration: none;
-    font-size: 48px;
+    font-size: 44px;
     font-weight: bolder;
     padding-left: 55px;
 }
 
 .Homebutton{
+    top: 15px;
     position: absolute;
     background-color: #eaeafa;
     padding-bottom: 3px;
@@ -37,25 +38,26 @@ nav  a{
 
 .Homeicon{
     position: absolute;
-    width: 11%;
-    left: 0%    
+    width: 10%;
+    margin-top: 2px;
+    left: 0%;
 }
 
 .rectangle {
-  position: absolute;
-    top: 1.5%;
+    position: absolute;
+    top: 14px;
     left: 67%;
-  height: 55px;
-  width: 160px;
-  background-color: lightblue;
+    height: 55px;
+    width: 165px;
+    background-color: lightblue;
     z-index: -1;
 }
 .profilepic{
     position: absolute;
     display: block;
-    left: 84.87%;
-    top: 1%;
-    width: 3.5%;
+    left: 84.8%;
+    top: 7px;
+    width: 53px;
     border: 5px solid black;
 }
 
@@ -63,8 +65,8 @@ nav  a{
     position: absolute;
     display: block;
     left: 67%;
-    width: 4%;
-    top: 1%;
+    width: 60px;
+    top: 11px;
 }
 
 .Shoptext{
@@ -72,15 +74,16 @@ nav  a{
     display: block;
     font-weight: bold;
     position: absolute;
-    left: 72%;
-    top: -1%;
+    left: 71.5%;
+    top: -7px;
 }
 
 .Coins{
     position: absolute;
+    display: block;
     left: 53%;
-    top: 2.9%;
-    width: 2%;
+    top: 24px;
+    width: 30px;
     
 }
 
@@ -90,12 +93,12 @@ nav  a{
     font-weight: bold;
     position: absolute;
     left: 56%;
-    top: -1%;
+    top: -7px;
 }
 
 .MyProfile{
     position: absolute;
-    top: 10%;
+    top: 80px;
     font-size: 40px;
     font-weight: 400;
     left: 45%;
@@ -113,12 +116,12 @@ nav  a{
 }
 .Username{
     position: absolute;
-    top: 22%;
+    top: 165px;
     left: 30%;
 }
 .Plantstortured{
     position: absolute;
-    top: 28%;
+    top: 210px;
     left: 30%;
 }
 .Profiletext{    
@@ -144,7 +147,7 @@ nav  a{
     background-color: lightgrey;
     position: absolute;
     width: 79%;
-    height: 80%;
+    height: 640px;
     z-index: -1;
     margin-top: 60px;
 }

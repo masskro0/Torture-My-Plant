@@ -42,11 +42,11 @@ nav  a{
 
 #livestream{
     background-color: lightblue;
-    position:absolute;
+    position: absolute;
     max-width: 79%;
-    top: 10%;
     display: block;
     padding-bottom: 10px;
+    top: 90px;
 }
 
 .stream{
@@ -101,7 +101,8 @@ nav  a{
 
 .Homeicon{
     position: absolute;
-    width: 11%;
+    width: 10%;
+    margin-top: 2px;
     left: 0%
     
 }

@@ -15,7 +15,7 @@
     
     <body>
         
-        <a href="index.html"><img class="linkerpfeil" src="img/linkerpfeil.png" width=10%></a>
+        <a href="index.html"><img class="linkerpfeil" src="img/linkerpfeil.png"></a>
         
         <p class="Header">Sign Up</p>
         

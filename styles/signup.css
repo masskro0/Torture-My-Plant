@@ -4,17 +4,21 @@ body{
 }
 
 .linkerpfeil{
-  position: absolute;
-  left: 18.8%;
-  width: 3%;
-  margin-bottom: 10px;
+    position: relative;
+    left: 10%;
+    top: 8px;
+    width: 50px;
+    margin-bottom: 10px;
 }
 
 .Header{
     position: relative;
+    left: 40%;
+    top: -15px;
+    display: inline;
     font-size: 32px;
     margin-top: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     padding: 0px;
     font-weight: bold;
     text-align: center;
@@ -36,8 +40,8 @@ input{
 
 .profilepic{
     position: absolute;
-    left: 73%;
-    top: 15%;
+    left: 72.7%;
+    top: 116px;
     width: 120px;
     height: 120px;
     border: 5px solid black;
@@ -46,7 +50,7 @@ input{
 .uploadbutton{
     position: absolute;
     left:71%;
-    top: 33.5%;
+    top: 260px;
 }
 
 input[type=text], input[type=password] {
@@ -97,8 +101,8 @@ figure{
    overflow:hidden; /*hide bounds of image */
    margin:0;   /*reset margin of figure tag*/
     position: absolute;
-     left: 73%;
-    top: 15%;
+     left: 72.7%;
+    top: 116px;
     border: 5px solid black;
     
 }

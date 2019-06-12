@@ -112,22 +112,23 @@ if(isset($_POST['submit'])) {
         while($row = mysqli_fetch_assoc($result)) {
             $lastuserid = $row["user_id"]+1;
         }
+    
         // Make directory for the user
         mkdir("/home/michael/Schreibtisch/new/$lastuserid");
         
-        // Upload image
+        // Check if no image was chosen
         if(empty($_FILES['image']['name'])){
             $uploadfile = NULL;
         } else {
             // Choose directory
             $uploaddir = "/home/michael/Schreibtisch/new/$lastuserid/";
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
-            
-            
-            if(move_uploaded_file($_FILES['image']['name'], $uploadfile)) {
+            // Upload image
+            if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
             echo "Image succesfully uploaded.";
             } else {
             echo "Image uploading failed.";
+                $uploadfile = NULL;
             }
         }
         

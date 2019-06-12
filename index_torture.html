@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/index_torture.css">
+      
+    <script>
+        function tool(str) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "client.php?q=" + str, true);
+        xmlhttp.send();
+        }
+    
+    </script>
+      
   </head>
     <body>
     
@@ -16,7 +26,7 @@
                     <li><a class="frontpagetext" href="">Torture My Plant</a></li>
                     </div>
                     <li class="right"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
-                    <li class="right"x><a href="signup.html">Create Account</a></li>
+                    <li class="right"x><a href="signup.php">Create Account</a></li>
                     <li><img class="Coins" src="img/coins.png"></li>
                     <li><p class="Cointext">1000</p></li>
                     <li><a><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
@@ -47,12 +57,12 @@
 <!-- The Modal -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
+class="close">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
-
-      <p class="logintext">Login</p>
+  <form class="modal-content animate">
+     
+    <p class="logintext">Login</p>
     <div class="container">
       <label for="uname"><b>Username or E-Mail</b></label>
       <input type="text" placeholder="Username/E-Mail-Adress..." name="uname" required>
@@ -87,11 +97,11 @@ class="closetorture" title="Close Modal">&times;</span>
             <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
             <button class="Quittorture" >Quit Torture</button>
             <ul class="tortureul">
-            <li><img class="drill" src="img/drill.png"></li>
-            <li><img class="wind" src="img/wind.png"></li>
-            <li><img class="acid" src="img/acid.png"></li>
-            <li><img class="bolt" src="img/bolt.png"></li>
-            <li><img class="fire" src="img/fire.png"></li>
+            <li><img class="drill" src="img/drill.png" onclick="tool(5)"></li>
+            <li><img class="wind" src="img/wind.png" onclick="tool(4);"></li>
+            <li><img class="acid" src="img/acid.png" onclick="tool(3)"></li>
+            <li><img class="bolt" src="img/bolt.png" onclick="tool(2)"></li>
+            <li><img class="fire" src="img/fire.png"  onclick="tool(1)"></li>
             </ul>
             <img class="Timericon" src="img/timer.png">
             <div class="Timerbox"></div>

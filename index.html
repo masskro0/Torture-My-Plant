@@ -41,19 +41,19 @@
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" action="login.php" method="POST">
 
       <p class="logintext">Login</p>
     <div class="container">
-      <label for="uname"><b>Username or E-Mail</b></label>
-      <input type="text" placeholder="Username/E-Mail-Adress..." name="uname" required>
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Username..." name="username" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Password..." name="psw" required>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Password..." name="password" required>
         <label>
             <input type="checkbox" checked="checked" name="remember"> Keep me logged in
         </label>
-      <button class="accept" class="loginbutton" type="submit">Login</button>
+      <input class="accept" class="loginbutton" type="submit" value="Login">
       
     </div>
   </form>
