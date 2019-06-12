@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <script>
+        /* Asynchronous call of the validation script login.php to display without refreshing the page. Refreshes the pages if everything is ok. */
+        function validate() {
+        var text;
+        var uname = document.getElementById('username');
+        var psw = document.getElementById('password');
+        var xmlhttp = new XMLHttpRequest();
+        
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                window.text = this.responseText;
+                document.getElementById("error").innerHTML = this.responseText;
+                var str = this.responseText;
+                if(str.length ==0){ window.location.replace("index_torture.html");
+                }
+            }
+        };
+        xmlhttp.open("POST", "login.php", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send("username=" + uname.value + "&password=" + psw.value);
+        }
+        
+    
+    </script>
   </head>
     <body>
     
@@ -41,28 +65,25 @@
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="login.php" method="POST">
-
+  <form class="modal-content animate" method="POST" action="" >
       <p class="logintext">Login</p>
     <div class="container">
+        <div class ="error" id="error"></div>
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Username..." name="username" required>
-
+      <input type="text" placeholder="Username..." name="username" id="username" required>
       <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Password..." name="password" required>
+      <input type="password" placeholder="Password..." name="password" id="password" required>
         <label>
             <input type="checkbox" checked="checked" name="remember"> Keep me logged in
         </label>
-      <input class="accept" class="loginbutton" type="submit" value="Login">
+      <input name="submit" type="button" class="accept loginbutton" value="Login" onclick="validate()" >
       
     </div>
   </form>
 </div>
-      
-    </body>
-    
-    
-    <script>
+</body>
+        
+<script>
 // Get the modal
 var modal = document.getElementById('id01');
 
@@ -73,6 +94,5 @@ window.onclick = function(event) {
   }
 }
 </script>
-    
-    
+
 </html>

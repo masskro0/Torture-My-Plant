@@ -203,3 +203,17 @@ button:hover {
   from {transform: scale(0)}
   to {transform: scale(1)}
 } 
+
+.error {
+    position: relative;
+    left: 0%;
+  width: 79.4%;
+    padding-top 0px;
+  margin: 8px 0px;
+ 
+  color: #a94442; 
+  /*background: #f2dede; 
+     border: 1px solid #a94442; 
+  border-radius: 5px; */
+  text-align: left;
+}
