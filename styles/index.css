@@ -27,7 +27,7 @@ nav  a{
 }
 
 .right{
-    margin-top: 10px;
+    margin-top: 24px;
     float: right;
     margin-right: 20px;
 }
@@ -174,8 +174,9 @@ button:hover {
 .close {
   /* Position it in the top right corner outside of the modal */
   position: absolute;
-  right: 386px;
-  top: 1;
+  /*right: 386px;*/
+  left: 72.5%;
+  top: 100px;
   color: #000;
   font-size: 50px;
   font-weight: bold;

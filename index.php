@@ -26,9 +26,8 @@
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send("username=" + uname.value + "&password=" + psw.value);
         }
-        
-    
     </script>
+
   </head>
     <body>
     
@@ -76,7 +75,7 @@ class="close" title="Close Modal">&times;</span>
         <label>
             <input type="checkbox" checked="checked" name="remember"> Keep me logged in
         </label>
-      <input name="submit" type="button" class="accept loginbutton" value="Login" onclick="validate()" >
+      <input name="submit" type="button" class="accept loginbutton enter" id="submitform" value="Login" onclick="validate()" >
       
     </div>
   </form>
@@ -93,6 +92,14 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+ // Pressing enter submits the user input
+var input = document.getElementById("password");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("submitform").click();
+  }
+});
 </script>
 
 </html>

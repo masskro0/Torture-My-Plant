@@ -14,11 +14,15 @@
   </head>
     
     <body>
+
+        <div class="headleiste">
+                    <a href="index.php"><img class="linkerpfeil" src="img/linkerpfeil.png"></a>
+            <div class="kind">
         
-        <a href="index.html"><img class="linkerpfeil" src="img/linkerpfeil.png"></a>
         
         <p class="Header">Sign Up</p>
-        
+        </div>
+        </div>
         <div class="screen">
         
         <form method="post" action="" enctype="multipart/form-data">
@@ -30,7 +34,7 @@
             <figure>
             <img id="uploaded" src="#"/>
             </figure>
-            <input type="button" class="uploadbutton" value="Upload Profile Picture" onclick="document.getElementById('file').click();">     
+            <input type="button" class="uploadbutton accept" value="Upload Profile Picture" onclick="document.getElementById('file').click();">     
                             
             <label for="username"><b>Username</b></label>
             <input type="text" placeholder="Username..." name="username" required>

@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
     $errors = array(); 
     // Login info for the MySQL database
     $host = 'localhost';
-    $user = 'root';
+    $user = 'user';
     $pswd = 'password';
     $db_name = 'website';
     // Connect to the database
@@ -104,14 +104,14 @@ if(isset($_POST['submit'])) {
         }
     
         // Make directory for the user
-        mkdir("/home/michael/Schreibtisch/new/$lastuserid");
+        mkdir("/home/pi/Desktop/upload/$lastuserid");
         
         // Check if no image was chosen
         if(empty($_FILES['image']['name'])){
             $uploadfile = NULL;
         } else {
             // Choose directory
-            $uploaddir = "/home/michael/Schreibtisch/new/$lastuserid/";
+            $uploaddir = "/home/pi/Desktop/upload/$lastuserid/";
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
             // Upload image
             if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
@@ -131,7 +131,7 @@ if(isset($_POST['submit'])) {
             $stmt_email->close();
             $connect->close();
             $stmt->close();
-            header("Location: index.html");
+            header("Location: index.php");
             die();
         }
 	

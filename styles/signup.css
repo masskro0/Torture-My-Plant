@@ -3,18 +3,18 @@ body{
     margin-right: 10%;
 }
 
-.linkerpfeil{
-    position: relative;
-    left: 10%;
-    top: 8px;
-    width: 50px;
-    margin-bottom: 10px;
+.headleiste {
+    text-align: center;
+    margin-top: 50px;
 }
-
+.kind{
+    display:inline-block;
+}
 .Header{
     position: relative;
-    left: 40%;
+   /* left: 43%;*/
     top: -15px;
+
     display: inline;
     font-size: 32px;
     margin-top: 0px;
@@ -23,7 +23,13 @@ body{
     font-weight: bold;
     text-align: center;
 }
-
+.linkerpfeil{
+    position: absolute;
+    left: 17%;
+    top: 30px;
+    width: 50px;
+    margin-bottom: 10px;
+}
 .screen{
     background-color: lightblue;
     max-width: 80%;
@@ -47,11 +53,7 @@ input{
     border: 5px solid black;
 }
 
-.uploadbutton{
-    position: absolute;
-    left:71%;
-    top: 260px;
-}
+
 
 input[type=text], input[type=password] {
   width: 80%;
@@ -73,12 +75,21 @@ input[type=text], input[type=password] {
     border-width: thick;
     width: 20%;
 }
+.uploadbutton{
+    position: absolute;
+    left: 70.3%;
+    width: 12%;
+    top: 250px;
+    height: 35px;
+    background-color: dodgerblue;
+    font-size: 16px;
+}
 .error {
     position: relative;
     left: 0%;
   width: 79.4%; 
     padding-left: 5px;
-    padding-top 0px;
+    padding-top: 0px;
   margin: 8px 0px;
   border: 1px solid #a94442; 
   color: #a94442; 

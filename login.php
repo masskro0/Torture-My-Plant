@@ -16,7 +16,7 @@ function test_input($data) {
     $errors2 = array(); 
     // Login info for the MySQL database
     $host = 'localhost';
-    $user = 'root';
+    $user = 'user';
     $pswd = 'password';
     $db_name = 'website';
     // Connect to the database
