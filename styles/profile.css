@@ -13,7 +13,9 @@ nav ul{
 nav li{
     float:left;
 }
-
+a{
+    text-decoration: none;  
+}
 nav  a{
     display:block;
     padding-left: 40px;
@@ -55,7 +57,7 @@ nav  a{
 .profilepic{
     position: absolute;
     display: block;
-    left: 86%;
+    left: 84.8%;
     top: 7px;
     width: 53px;
     border: 5px solid black;
@@ -129,7 +131,7 @@ nav  a{
 }
 .Normal{
     position: relative;
-    display: block;
+    display: inline;
     margin-top: 30px;
     margin-left: 15px;
     font-size: 30px;
@@ -149,4 +151,5 @@ nav  a{
     z-index: -1;
     margin-top: 95px;
     padding-bottom: 15px;
+    width: 98.7%;
 }

@@ -74,5 +74,4 @@ function test_input($data) {
     }
         $stmt->close();
 //}
-//}
 ?>

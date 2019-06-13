@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!doctype html>
 <html>
   <head>
@@ -9,9 +8,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css">
-      
     <script>
-         /* Asynchronous call of the validation script login.php to display without refreshing the page. Refreshes the pages if everything is ok. */
+        /* Asynchronous call of the validation script login.php to display without refreshing the page. Refreshes the pages if everything is ok. */
         function validate() {
         var text;
         var uname = document.getElementById('username');
@@ -31,14 +29,14 @@ session_start();
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send("username=" + uname.value + "&password=" + psw.value);
         }
+        
         function tool(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "client.php?q=" + str, true);
         xmlhttp.send();
         }
-    
     </script>
-      
+
   </head>
     <body>
     
@@ -49,10 +47,10 @@ session_start();
                     <li><a href="#"><img class="Homeicon" src="img/planticon.png"></a></li>
                     <li><a class="frontpagetext" href="">Torture My Plant</a></li>
                     </div>
-                    <?php if($_SESSION['loggedin'] === TRUE){ ?>
+                   <?php if($_SESSION['loggedin'] === TRUE){ ?>
                         <li><img class="Coins" src="img/coins.png"></li>
                         <li><p class="Cointext">1000</p></li>
-                        <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" ></a></li>
+                        <li><a><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
                         <div class="rectangle"></div>
                         <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
                         <?php } else{ ?>
@@ -61,9 +59,13 @@ session_start();
                    <?php } ?>
                 </ul>
             </nav>
-        </div>    
+        </div>
     
+    
+        <a class="logout" href="logout.php">logout</a>
+        
     <div id="livestream">
+        <iframe class="stream" src="http://localhost:8081" height=600 width=800></iframe>
         <img class="pflanze" src="img/pflanze.jpg" width=30%>
         <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
         <img class="rechterpfeil" src="img/rechterpfeil.png" width=10%>
@@ -73,23 +75,23 @@ session_start();
         <?php } else{ ?>
         <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
         <?php } ?>
-        <!--<img class="Lock" src="img/lock.png">-->
+        
     </div>
     
     
      <!--Loginscreen-->
     
+   
 <!-- The Modal -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
-class="close">&times;</span>
+class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
   <form class="modal-content animate" method="POST" action="" >
-     
-    <p class="logintext">Login</p>
+      <p class="logintext">Login</p>
     <div class="container">
-      <div class ="error" id="error"></div>
+        <div class ="error" id="error"></div>
       <label for="username"><b>Username</b></label>
       <input type="text" placeholder="Username..." name="username" id="username" required>
       <label for="password"><b>Password</b></label>
@@ -98,19 +100,11 @@ class="close">&times;</span>
             <input type="checkbox" checked="checked" name="remember"> Keep me logged in
         </label>
       <input name="submit" type="button" class="accept loginbutton enter" id="submitform" value="Login" onclick="validate()" >
-      
-    </div>
+      </div> 
   </form>
 </div>
         
-        
-       <!-- Bonus screen -->
-        <div class="Yellowbox"></div>
-        <img class="Bonusjpg" src="img/bonusscreen.jpg">
-        <p class="Bonustexttop">Grab your daily bonus!</p>
-        <p class="Bonustextcoins">+ 1000</p>
-      
-        <!-- Torture Screen -->
+    <!-- Torture Screen -->
 <div id="id02" class="Torture">
   <span onclick="document.getElementById('id02').style.display='none'" onclick="liveshow()"
 class="closetorture" title="Close Modal">&times;</span>
@@ -133,13 +127,13 @@ class="closetorture" title="Close Modal">&times;</span>
     </div>
 </div>
         
-        
-    </body>
     
-  
+</body>
+        
 <script>
-// Get the modal
+// Get the modal for the login screen
 var modal = document.getElementById('id01');
+// ... for the torture screen
 var modal2 = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
@@ -148,24 +142,20 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+// Same for the torture screen
 window.onclick = function(event) {
   if (event.target == modal2) {
     modal.style.display = "none";
   }
 }
-var input = document.getElementById("username");
-var input2 = document.getElementById("password");
+// Pressing enter submits the user input
+var input = document.getElementById("password");
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
    event.preventDefault();
    document.getElementById("submitform").click();
   }
 });
-input2.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("submitform").click();
-  }
-});    
 </script>
+
 </html>

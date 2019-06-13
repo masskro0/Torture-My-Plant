@@ -1,3 +1,4 @@
+<?php include('getinfo.php'); ?>
 <!doctype html>
 <html>
   <head>
@@ -12,7 +13,7 @@
                 <ul>
                     <div class="Homebutton">
                     <li><a href="index.html"><img class="Homeicon" src="img/planticon.png"></a></li>
-                    <li><a class="frontpagetext" href="index.html">Torture My Plant</a></li>
+                    <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins.png"></li>
                     <li><p class="Cointext">1000</p></li>
@@ -25,10 +26,11 @@
             <h1 class="MyProfile">My Profile</h1>
             <div class="Profileelements">
                 <img class="Userpicture" src="img/profilepic.png">
-                <p class="Profiletext Username">User_xy</p>
-                <p class="Profiletext Plantstortured">Plants tortured: 30</p>
+                <p class="Profiletext Username"><?php echo $row['username']; ?></p>
+                <p class="Profiletext Plantstortured">Plants tortured: <?php echo $row['plants_tortured']; ?></p><br>
                 <button class="Normal">Edit Profile</button>
-                <button class="Normal Logout">Logout</button>
+                <br>
+                <a href="logout.php"><button class="Normal Logout" href="logout.php">Logout</button></a><br>
                 <button class="Normal Delete">Delete Profile</button>
                 </div>
         </div>

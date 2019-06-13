@@ -3,6 +3,10 @@ body{
     margin-right: 10%;
 }
 
+
+.wrapper{
+}
+
 nav ul{
     list-style-type: none;
     margin: 0px;
@@ -23,7 +27,7 @@ nav  a{
 }
 
 .right{
-    margin-top: 10px;
+    margin-top: 24px;
     float: right;
     margin-right: 20px;
 }
@@ -31,7 +35,7 @@ nav  a{
 .frontpagetext{
     color:black;
     text-decoration: none;
-    font-size: 44px;
+    font-size: 48px;
     font-weight: bolder;
     padding-left: 55px;
 }
@@ -45,13 +49,20 @@ nav  a{
     top: 90px;
 }
 
+.stream{
+    position: relative;
+    left: 25%;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .pflanze{
+    margin-top: 15px;
     position: relative;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
 }
 
 .linkerpfeil{
@@ -76,13 +87,13 @@ nav  a{
     background-color: limegreen;
     border-radius: 8px;
     border-width: thick;
+    border-color:black;
     width: 20%
 }
 
 
 
 .Homebutton{
-    top: 15px;
     position: absolute;
     background-color: #eaeafa;
     padding-bottom: 3px;
@@ -92,7 +103,8 @@ nav  a{
     position: absolute;
     width: 10%;
     margin-top: 2px;
-    left: 0%;
+    left: 0%
+    
 }
 
 
@@ -129,7 +141,7 @@ button:hover {
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.85); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
   padding-top: 100px;
 }
 
@@ -162,8 +174,9 @@ button:hover {
 .close {
   /* Position it in the top right corner outside of the modal */
   position: absolute;
-  right: 386px;
-  top: 1;
+  /*right: 386px;*/
+  left: 72.5%;
+  top: 100px;
   color: #000;
   font-size: 50px;
   font-weight: bold;
@@ -190,10 +203,20 @@ button:hover {
 @keyframes animatezoom {
   from {transform: scale(0)}
   to {transform: scale(1)}
-}
+} 
 
-.right{
-    display:none;
+.error {
+    position: relative;
+    left: 0%;
+  width: 79.4%;
+    padding-top 0px;
+  margin: 8px 0px;
+ 
+  color: #a94442; 
+  /*background: #f2dede; 
+     border: 1px solid #a94442; 
+  border-radius: 5px; */
+  text-align: left;
 }
 
 .rectangle {
@@ -249,80 +272,12 @@ button:hover {
     top: -7px;
 }
 
-.pflanze{
-  filter: brightness(140%) contrast(30%);
-}
-
-.Lock{
-    position: absolute;
-    width: 15%;
-    left: 42.5%;
-    top: 25%;
-}
-
-.accept{
-    display:none;
-}
-
-.Unavailable{
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    font-size: 30px;
-    background-color: red;
-    border-radius: 8px;
-    border-width: thick;
-    width: 20%
-}
-
-
-.Bonusjpg{
-    position: absolute;
-    clip: rect(0px 1204px 664px 0px); 
-    height: auto;
-    display: block;
-    z-index: 2;
-    max-width: 100%;
-    top: 0.8%;
-    filter: blur(3px) opacity(45%);
-
-}
-
-.Bonustexttop{
+.logout{
     position: absolute;
     z-index: 2;
-    font-weight: bold;
-    font-size: 60px;
-    margin-left: 20%;
-    margin-right: auto;
+    top: 90%;
 }
 
-.Yellowbox{
-  position: absolute;
-    top: 0.8%;
-   width: 79.2%;
-    height: 84.4%;
-  background-color: #e9f29b;
-    z-index: 1;
-}
-
-.Bonustextcoins{
-    position: absolute;
-    z-index: 2;
-    font-weight: bold;
-    font-size: 52px;
-    left: 40%;
-    top: 40%; 
-}
-
-.Coins{
-    z-index: 3;
-    width: 3%;
-    top: 47.5%;
-    left: 51%;
-}
 /*********Neu in diesem Dokument********/
 
 .Bonusjpg{

@@ -104,14 +104,14 @@ if(isset($_POST['submit'])) {
         }
     
         // Make directory for the user
-        mkdir("/home/pi/Desktop/upload/$lastuserid");
+        mkdir("/home/michael/Schreibtisch/new/$lastuserid");
         
         // Check if no image was chosen
         if(empty($_FILES['image']['name'])){
             $uploadfile = NULL;
         } else {
             // Choose directory
-            $uploaddir = "/home/pi/Desktop/upload/$lastuserid/";
+            $uploaddir = "/home/michael/Schreibtisch/new/$lastuserid/";
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
             // Upload image
             if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
@@ -126,7 +126,12 @@ if(isset($_POST['submit'])) {
             $password = password_hash($_POST['password1'], PASSWORD_DEFAULT);
             $stmt->bind_param('ssss', $_POST['username'], $_POST['email'], $password, $uploadfile);
             $stmt->execute();
-            
+            // Session information
+            session_regenerate_id();
+            $_SESSION['loggedin'] = TRUE;
+            $_SESSION['name'] = $_POST['username'];
+            $_SESSION['user_id'] = $user_id;
+            // Close all statements
             $stmt_username->close();
             $stmt_email->close();
             $connect->close();
