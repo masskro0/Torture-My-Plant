@@ -1,5 +1,8 @@
 <?php
 session_start();
+if ($_SESSION['loggedin'] === FALSE || !isset($_SESSION['loggedin'])){
+    header('Location: logout.php');
+}
 ?>
 
 <!doctype html>
@@ -49,7 +52,7 @@ session_start();
                     <li><a href="#"><img class="Homeicon" src="img/planticon.png"></a></li>
                     <li><a class="frontpagetext" href="">Torture My Plant</a></li>
                     </div>
-                    <?php if($_SESSION['loggedin'] === TRUE){ ?>
+                    <?php if($_SESSION['loggedin'] === TRUE){  ?>
                         <li><img class="Coins" src="img/coins.png"></li>
                         <li><p class="Cointext">1000</p></li>
                         <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" ></a></li>

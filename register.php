@@ -8,7 +8,8 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
-
+echo 'yes';
+die();
 if(isset($_POST['submit'])) {
     session_start();
     // Array to display errors
@@ -104,14 +105,14 @@ if(isset($_POST['submit'])) {
         }
     
         // Make directory for the user
-        mkdir("/home/michael/Schreibtisch/new/$lastuserid");
+        mkdir("/var/www/upload/$lastuserid");
         
         // Check if no image was chosen
         if(empty($_FILES['image']['name'])){
             $uploadfile = NULL;
         } else {
             // Choose directory
-            $uploaddir = "/home/michael/Schreibtisch/new/$lastuserid/";
+            $uploaddir = "/var/www/upload/$lastuserid/";
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
             // Upload image
             if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
