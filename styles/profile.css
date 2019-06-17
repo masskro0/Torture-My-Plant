@@ -153,3 +153,18 @@ nav  a{
     padding-bottom: 15px;
     width: 98.7%;
 }
+figure{
+    width: 18.7%; 
+    height: 18.7%;
+    overflow:hidden; 
+    position: relative;
+    border: 8px solid black;
+    top: 70px;
+    margin-left: 15px;
+    margin-bottom: 70px;
+}
+
+figure img{
+   width: 100%;
+    margin:-21.875% 0;
+}

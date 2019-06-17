@@ -1,4 +1,5 @@
-<?php include('getinfo.php'); ?>
+<?php include('getinfo.php');
+?>
 <!doctype html>
 <html>
   <head>
@@ -25,7 +26,15 @@
                 
             <h1 class="MyProfile">My Profile</h1>
             <div class="Profileelements">
+                <?php if($row['profile_picture'] !== NULL){
+                ?>
+                <figure>
+                <?php echo "<img src=\"$path\">";  ?>
+                </figure>
+                <?php } else{ ?>
                 <img class="Userpicture" src="img/profilepic.png">
+                <?php } ?>
+                
                 <p class="Profiletext Username"><?php echo $row['username']; ?></p>
                 <p class="Profiletext Plantstortured">Plants tortured: <?php echo $row['plants_tortured']; ?></p><br>
                 <button class="Normal">Edit Profile</button>
