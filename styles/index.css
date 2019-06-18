@@ -55,15 +55,25 @@ nav  a{
 }
 
 .linkerpfeil{
+  transition: arrow-shadow .3s;
   position: absolute;
   top: 32%;
   left: 20%;
 }
 
 .rechterpfeil{
+    transition: arrow-shadow .3s;
     position: absolute;
     top: 32%;
     right: 20%;
+}
+/*shadow not working, lol*/
+.linkerpfeil:hover{
+    arrow-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+.rechterpfeil:hover{
+    arrow-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
 .accept{
