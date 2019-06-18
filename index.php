@@ -36,8 +36,8 @@ session_start();
         xmlhttp.open("GET", "client.php?q=" + str, true);
         xmlhttp.send();
         }
-    
     </script>
+
       
   </head>
     <body>
@@ -63,10 +63,22 @@ session_start();
             </nav>
         </div>    
     
+    
+    <!--Slideshow and Buttons-->
     <div id="livestream">
-        <img class="pflanze" src="img/pflanze.jpg" width=30%>
-        <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
-        <img class="rechterpfeil" src="img/rechterpfeil.png" width=10%>
+        
+            <img class="pflanze" src="img/plant1.jpg" width=30%>
+            <img class="pflanze" src="img/plant2.jpg" width=30%>
+            <img class="pflanze" src="img/plant3.jpg" width=30%>
+            <img class="pflanze" src="img/plant4.jpg" width=30%>
+        <!--arrow left-->
+        <a onclick="plusDivs(-1)">
+            <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
+        </a>
+        <!--arrow right-->
+        <a onclick="plusDivs(1)">
+            <img class="rechterpfeil" src="img/rechterpfeil.png" width=10%>
+        </a>
         
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
         <button class="accept" onclick="document.getElementById('id02').style.display='block'">Torture Me!</button>
@@ -135,7 +147,31 @@ class="closetorture" title="Close Modal">&times;</span>
         
         
     </body>
+
+
     
+<!-- slidescript -->
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n){
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n){
+    var i;
+    var x = document.getElementsByClassName("pflanze")
+    console.log(x.length);
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++){
+        x[i].style.display = "none";
+    }
+    x[slideIndex-1].style.display = "block";
+}
+</script>
+
   
 <script>
 // Get the modal
