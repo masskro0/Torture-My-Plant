@@ -104,53 +104,60 @@ if(isset($_POST['submit'])) {
     
     // Insert new account
     if($stmt_username->num_rows === 0 && $stmt_email->num_rows === 0 && count($errors) == 0) {        
-        // Get user id
-        $sql = "SELECT user_id FROM User ORDER BY user_id DESC LIMIT 0, 1";
-        $lastuserid = 0;
-        $result = mysqli_query($connect, $sql);
-        while($row = mysqli_fetch_assoc($result)) {
-            $lastuserid = $row["user_id"]+1;
-        }
-    
-        // Make directory for the user
-        mkdir("/var/www/html/upload/$lastuserid");
         
-        // Check if no image was chosen
-        if(empty($_FILES['image']['name'])){
-            $uploadfile = NULL;
-        } else {
-            // Choose directory
-            $uploaddir = "/var/www/html/upload/$lastuserid/";
-            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
-            // Upload image
-            if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-            echo "Image succesfully uploaded.";
-            } else {
-            echo "Image uploading failed.";
-                $uploadfile = NULL;
-            }
-        }
-        
-        if($stmt = $connect->prepare('INSERT INTO User (username, email, password, profile_picture) VALUES(?, ?, ?, ?)')){
+
+        if($stmt = $connect->prepare('INSERT INTO User (username, email, password) VALUES(?, ?, ?)')){
             $password = password_hash($_POST['password1'], PASSWORD_DEFAULT);
-            $stmt->bind_param('ssss', $_POST['username'], $_POST['email'], $password, $uploadfile);
+            $stmt->bind_param('sss', $_POST['username'], $_POST['email'], $password);
             $stmt->execute();
             // Session information
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
-            $_SESSION['user_id'] = $lastuserid;
+            
             // Close all statements
             $stmt_username->close();
             $stmt_email->close();
-            $connect->close();
             $stmt->close();
+            // Get the user id and upload the image
+            $sql = "SELECT user_id FROM User WHERE username = '".$_POST['username']."'";
+            $lastuserid = 0;
+            $result = mysqli_query($connect, $sql);
+            while($row = mysqli_fetch_assoc($result)) {
+                $lastuserid = $row["user_id"];
+            }
+
+            // Make directory for the user
+            mkdir("/var/www/html/upload/$lastuserid");
+
+            // Check if no image was chosen
+            if(empty($_FILES['image']['name'])){
+                $uploadfile = NULL;
+            } else {
+                // Choose directory
+                $uploaddir = "/var/www/html/upload/$lastuserid/";
+                // Rename the file to '1' so the server doesn't have to store more than 1 picture
+                $uploadfile = $uploaddir . '1';
+                // Upload image
+                if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+                echo "Image succesfully uploaded.";
+                } else {
+                echo "Image uploading failed.";
+                    $uploadfile = NULL;
+                }
+            }
+            if($stmt = $connect->prepare("UPDATE User SET profile_picture = '".$uploadfile."' WHERE user_id = '".$lastuserid."'")){
+                $stmt->execute();
+                $stmt->close();
+            }
+            $_SESSION['user_id'] = $lastuserid;
+            $connect->close();
+            
             header("Location: index.php");
             die();
         }
 	
         else{
-
             echo 'A problem occured with registrating a new user.';
             $stmt_username->close();
             $stmt_email->close();

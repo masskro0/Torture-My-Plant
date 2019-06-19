@@ -100,8 +100,9 @@ if(isset($_POST['submit'])) {
         $stmt_username->execute();
         $res = $stmt_username->get_result();
         $row = $res->fetch_assoc();
+        $str_id = ''.$row['user_id'];
         // res has to be 0 if it's a non existing username; if it's the own user's name, then proceed
-        if ($res->num_rows > 0 && ($row['user_id'] !== $_SESSION['user_id'])){            
+        if ($res->num_rows > 0 && ($str_id !== $_SESSION['user_id'])){            
             // Username already exists
             $stmt_username->close();
             array_push($errors, "This username is already taken. Please choose another one");
@@ -114,8 +115,9 @@ if(isset($_POST['submit'])) {
         $stmt_email->execute();
         $res = $stmt_email->get_result();
         $row = $res->fetch_assoc();
+        $str_id = ''.$row['user_id'];
         // res has to be 0 if it's a non existing username; if it's the own user's email, then proceed
-        if ($res->num_rows > 0 && ($row['user_id'] !== $_SESSION['user_id'])){            
+        if ($res->num_rows > 0 && ($str_id !== $_SESSION['user_id'])){            
                 // Username already exists
                 $stmt_email->close();
                 array_push($errors, "This e-mail adress is already taken");
@@ -154,7 +156,7 @@ if(isset($_POST['submit'])) {
         } else {
             // Choose directory
             $uploaddir = "/var/www/html/upload/$lastuserid/";
-            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+            $uploadfile = $uploaddir . '1';
             // Upload image
             if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
             echo "Image succesfully uploaded.";

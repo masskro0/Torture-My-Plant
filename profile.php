@@ -29,7 +29,7 @@
                 <?php if($row['profile_picture'] !== NULL){
                 ?>
                 <figure>
-                <?php echo "<img src=\"$path\">";  ?>
+                <?php echo "<img src=\"$path\">"; ?>
                 </figure>
                 <?php } else{ ?>
                 <img class="Userpicture" src="img/profilepic.png">
@@ -40,7 +40,7 @@
                 <a href="profile_edit.php"><button class="Normal">Edit Profile</button></a>
                 <br>
                 <a href="logout.php"><button class="Normal Logout" href="logout.php">Logout</button></a><br>
-                <button class="Normal Delete">Delete Profile</button>
+                <a href="delete_profile.php"><button class="Normal Delete">Delete Profile</button></a>
                 </div>
         </div>
     </body>
