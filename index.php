@@ -38,6 +38,7 @@ session_start();
         xmlhttp.open("GET", "client.php?q=" + str, true);
         xmlhttp.send();
         }
+    
         
         <!-- method for starting tortore, gets plant number, opens torture screen -->
         function startTorture(str) {
@@ -48,7 +49,6 @@ session_start();
             console.log('plant ' + str + ' selected');
         }
     </script>
-
       
   </head>
     <body>
@@ -74,14 +74,12 @@ session_start();
             </nav>
         </div>    
     
-    
-    <!--Slideshow and Buttons-->
     <div id="livestream">
         <!--plant images, should most likely be placed inside a container-->
-        <img class="pflanze" src="img/plant1.jpg" width=30%>
-        <img class="pflanze" src="img/plant2.jpg" width=30%>
-        <img class="pflanze" src="img/plant3.jpg" width=30%>
-        <img class="pflanze" src="img/plant4.jpg" width=30%>
+        <img class="pflanze" src="img/plant1.jpg" width="30%">
+        <img class="pflanze" src="img/plant2.jpg" width="30%">
+        <img class="pflanze" src="img/plant3.jpg" width="30%">
+        <img class="pflanze" src="img/plant4.jpg" width="30%">
         <!--arrow left-->
         <a onclick="plusDivs(-1)">
             <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
@@ -173,8 +171,8 @@ class="closetorture" title="Close Modal">&times;</span>
 </div>
         
         
-    </body>
-
+</body>
+    
 
     
 <!-- slidescript -->
@@ -204,8 +202,9 @@ function showDivs(n){
     y[slideIndex-1].style.display = "block";
 }
 </script>
-
-  
+    
+    
+    
 <script>
 /* Open the login screen */
 var modal = document.getElementById('id01');

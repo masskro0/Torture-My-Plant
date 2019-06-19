@@ -39,7 +39,7 @@ nav  a{
 #livestream{
     background-color: lightblue;
     position: absolute;
-    max-width: 79%;
+    width: 79%;
     display: block;
     padding-bottom: 10px;
     top: 90px;
@@ -55,26 +55,19 @@ nav  a{
 }
 
 .linkerpfeil{
-  transition: arrow-shadow .3s;
   position: absolute;
   top: 32%;
   left: 20%;
+    cursor:pointer;
 }
 
 .rechterpfeil{
-    transition: arrow-shadow .3s;
     position: absolute;
     top: 32%;
     right: 20%;
-}
-/*shadow not working, lol*/
-.linkerpfeil:hover{
-    arrow-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    cursor:pointer;
 }
 
-.rechterpfeil:hover{
-    arrow-shadow: 0 0 11px rgba(33, 33, 33, .2);
-}
 
 .accept{
     position: relative;

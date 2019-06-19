@@ -64,25 +64,24 @@
             
             <div class="greyscreen">
             <h1 class="EditProfile">Edit Your Profile</h1>
-               
-             <div class="screen"> 
-                 
-                 
-            <form form method="post" action="" enctype="multipart/form-data">
-                <div class ="error" id="error"></div>
-
-                 <img class="Profilepicture" src="img/profilepic.png">
+                <img class="Profilepicture" src="img/profilepic.png">
                 <input type="file" name="image" onchange="readURL(this);" accept="image/jpeg" style="display:none;" id="file">
                 <figure>
                     <?php if ($path !== NULL){
                         echo "<img class=\"figimg\" id=\"figimg\" src=\"$path\">";
                     } ?>
                     <img id="uploaded" src="">
-
+                
                 </figure>
                 <input type="button" class="Normal" value="Change Profile Picture" onclick="document.getElementById('file').click();"> 
-                            
+                
+                
+             <div class="screen"> 
+                 
+                 
+            <form form method="post" action="" enctype="multipart/form-data">
             
+            <div class ="error" id="error"></div>
             <label for="username"><b>Enter username</b></label>
             <?php echo "<input type=\"text\" placeholder=\"Enter new username...\" name=\"username\" id=\"username\" value=\"$uname\" required>";
             ?>
@@ -96,7 +95,7 @@
             <label for="password"><b>Repeat New Password</b></label>
             <input type="password" placeholder="Repeat your new password..." name="password_new2" id="password_new2" required>
             
-            <input name="submit" type="submit" class="Accept Normal" id="submitform" value="Accept Changes">
+            <input name="submit" type="button" class="Accept Normal" id="submitform" value="Accept Changes" onclick="validate()" >
             </form>
              </div>
             
