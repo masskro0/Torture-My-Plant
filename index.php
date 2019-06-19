@@ -38,8 +38,17 @@ session_start();
         xmlhttp.open("GET", "client.php?q=" + str, true);
         xmlhttp.send();
         }
-    
+        
+        <!-- method for starting tortore, gets plant number, opens torture screen -->
+        function startTorture(str) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "client.php?q=" + str, true);
+            xmlhttp.send();
+            document.getElementById('id02').style.display='block';
+            console.log('plant ' + str + ' selected');
+        }
     </script>
+
       
   </head>
     <body>
@@ -65,15 +74,43 @@ session_start();
             </nav>
         </div>    
     
+    
+    <!--Slideshow and Buttons-->
     <div id="livestream">
-        <img class="pflanze" src="img/pflanze.jpg" width=30%>
-        <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
-        <img class="rechterpfeil" src="img/rechterpfeil.png" width=10%>
+        <!--plant images, should most likely be placed inside a container-->
+        <img class="pflanze" src="img/plant1.jpg" width=30%>
+        <img class="pflanze" src="img/plant2.jpg" width=30%>
+        <img class="pflanze" src="img/plant3.jpg" width=30%>
+        <img class="pflanze" src="img/plant4.jpg" width=30%>
+        <!--arrow left-->
+        <a onclick="plusDivs(-1)">
+            <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
+        </a>
+        <!--arrow right-->
+        <a onclick="plusDivs(1)">
+            <img class="rechterpfeil" src="img/rechterpfeil.png" width=10%>
+        </a>
         
+        <!-- 4 buttons for plant selection, either send message or open login window -->
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
-        <button class="accept" onclick="document.getElementById('id02').style.display='block'">Torture Me!</button>
-        <?php } else{ ?>
-        <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
+            <button class="accept" onclick="startTorture(1)">Torture Me1!</button>
+            <?php } else{ ?>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me1!</button>
+        <?php } ?>
+        <?php if($_SESSION['loggedin'] === TRUE){ ?>
+            <button class="accept" onclick="startTorture(2)">Torture Me2!</button>
+            <?php } else{ ?>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me2!</button>
+        <?php } ?>
+        <?php if($_SESSION['loggedin'] === TRUE){ ?>
+            <button class="accept" onclick="startTorture(3)">Torture Me3!</button>
+            <?php } else{ ?>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me3!</button>
+        <?php } ?>
+        <?php if($_SESSION['loggedin'] === TRUE){ ?>
+            <button class="accept" onclick="startTorture(4)">Torture Me4!</button>
+            <?php } else{ ?>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me4!</button>
         <?php } ?>
         <!--<img class="Lock" src="img/lock.png">-->
     </div>
@@ -137,7 +174,37 @@ class="closetorture" title="Close Modal">&times;</span>
         
         
     </body>
+
+
     
+<!-- slidescript -->
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n){
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n){
+    var i;
+    <!-- x array of plant images, y array of buttons for triggering robot-->
+    var x = document.getElementsByClassName("pflanze")
+    var y = document.getElementsByClassName("accept")
+    
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    <!-- hide all elements -->
+    for (i = 0; i < x.length; i++){
+        x[i].style.display = "none";
+        y[i].style.display = "none";
+    }
+    <!-- display selected element -->
+    x[slideIndex-1].style.display = "block";
+    y[slideIndex-1].style.display = "block";
+}
+</script>
+
   
 <script>
 /* Open the login screen */
