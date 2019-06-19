@@ -23,7 +23,9 @@ session_start();
                 window.text = this.responseText;
                 document.getElementById("error").innerHTML = this.responseText;
                 var str = this.responseText;
-                if(str.length ==0){ window.location.replace("index.php");
+                // Refresh page if there are no errors
+                if(str.length ==0){ 
+                    window.location.replace("index.php");
                 }
             }
         };
@@ -94,9 +96,9 @@ class="close">&times;</span>
       <input type="text" placeholder="Username..." name="username" id="username" required>
       <label for="password"><b>Password</b></label>
       <input type="password" placeholder="Password..." name="password" id="password" required>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Keep me logged in
-        </label>
+      <label>
+          <input type="checkbox" checked="checked" name="remember"> Keep me logged in
+      </label>
       <input name="submit" type="button" class="accept loginbutton enter" id="submitform" value="Login" onclick="validate()" >
       
     </div>
@@ -138,21 +140,22 @@ class="closetorture" title="Close Modal">&times;</span>
     
   
 <script>
-// Get the modal
+/* Open the login screen */
 var modal = document.getElementById('id01');
-var modal2 = document.getElementById('id02');
-
-// When the user clicks anywhere outside of the modal, close it
+/* When the user clicks anywhere outside of the modal, close it */
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
+/* Open the torture screen */
+var modal2 = document.getElementById('id02');
 window.onclick = function(event) {
   if (event.target == modal2) {
     modal.style.display = "none";
   }
 }
+/* Submit the form if the user hits the enter key */
 var input = document.getElementById("username");
 var input2 = document.getElementById("password");
 input.addEventListener("keyup", function(event) {

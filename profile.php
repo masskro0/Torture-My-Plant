@@ -37,7 +37,7 @@
                 
                 <p class="Profiletext Username"><?php echo $row['username']; ?></p>
                 <p class="Profiletext Plantstortured">Plants tortured: <?php echo $row['plants_tortured']; ?></p><br>
-                <button class="Normal">Edit Profile</button>
+                <a href="profile_edit.php"><button class="Normal">Edit Profile</button></a>
                 <br>
                 <a href="logout.php"><button class="Normal Logout" href="logout.php">Logout</button></a><br>
                 <button class="Normal Delete">Delete Profile</button>

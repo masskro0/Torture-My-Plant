@@ -20,6 +20,9 @@ nav  a{
     font-size: 20px;
     color: black;
 }
+a{
+    text-decoration: none;
+}
 
 .frontpagetext{
     color:black;
@@ -55,7 +58,7 @@ nav  a{
 .profilepic{
     position: absolute;
     display: block;
-    left: 86%;
+    left: 84.8%;
     top: 7px;
     width: 53px;
     border: 5px solid black;
@@ -108,9 +111,9 @@ nav  a{
     position: relative;
     display: inline;
     width: 18.7%;
-    height: 18.7%;
+    height: 18.6%;
     border: 8px solid black;
-    margin-top: 60px;
+    margin-top: 70px;
     margin-left: 15px;
 }
 .Normal{
@@ -152,10 +155,12 @@ input[type=text], input[type=password] {
     z-index: -1;
     margin-top: 95px;
     padding-bottom: 15px;
+    width: 98.7%;
 }
 .Cancel{
     background-color: red;
     position: relative;
+    display: inline;
     margin-top: 70px;
     margin-bottom: 15px;
     width: 20%;
@@ -164,8 +169,32 @@ input[type=text], input[type=password] {
 .Accept{
     background-color: limegreen;
     position: relative;
-    width: 20%;
-    left: 77.5%;
-    
+    display: inline;
+    width: 27%;
+    top: 50px;
+    left: 68.3%;
     margin-top: -65px;
+
 }
+figure{
+   width: 14.75%; 
+    height: 29.4%;
+   overflow:hidden; 
+   margin: 0;   
+    position: absolute;
+     left: 11%;
+    top: 173px;
+    border: 8px solid black;
+    
+}
+.figimg{
+    position: relative;
+}
+figure img{
+   width: 100%; 
+    height: 125%;
+    margin:-21.875% 0;
+}
+
+
+

@@ -16,9 +16,14 @@ if(!$_SESSION['loggedin']){
     if (mysqli_connect_errno()) {
         die('Connection to MySQL failed: ' .    mysql_connect_error());
     }
-$query = "SELECT username, plants_tortured, profile_picture FROM User WHERE user_id = " .$_SESSION['user_id'];
+$query = "SELECT username, email, plants_tortured, profile_picture FROM User WHERE user_id = " .$_SESSION['user_id'];
 $result = $connect->query($query);
 $row = $result->fetch_assoc();
-$path = substr($row['profile_picture'], 14);
+$path = NULL;
+if($row['profile_picture'] !== NULL){
+    $path = substr($row['profile_picture'], 14);
+}
+$uname = $row['username'];
+$email = $row['email'];
 $connect->close();
 ?>

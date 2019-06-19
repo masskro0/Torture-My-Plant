@@ -3,6 +3,10 @@
  * Script to validate und sanitize user input; if everything is ok, store him in the MySQL database 
  */
 
+// Display errors
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Function to sanitize "bad code" like HTML or Javascript code.
 function test_input($data) { 
     $data = trim($data); 
@@ -12,6 +16,7 @@ function test_input($data) {
 }
 
 if(isset($_POST['submit'])) {
+    
     session_start();
     // Array to display errors
     $errors = array(); 
@@ -42,14 +47,8 @@ if(isset($_POST['submit'])) {
     if(empty($_POST['password2']) || !isset($_POST['password2'])){
         array_push($errors, "Please repeat your password");
     }
-    // Validate user input
-    // E-mail validation
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        array_push($errors, "Invalid e-mail adress");
-    }
-    else{
-        $_POST['email'] = test_input($_POST['email']);
-    }
+    
+    /* Validate user input */
     // Validate username
     if (!preg_match('/[A-Za-z0-9]+/', $_POST['username'])) {
         array_push($errors, "Username is invalid");
@@ -57,7 +56,17 @@ if(isset($_POST['submit'])) {
     else{
         $_POST['username'] = test_input($_POST['username']);
     }
-    //Check if both passwords are similar
+    
+    // E-mail validation
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        
+        array_push($errors, "Invalid e-mail adress");
+    }
+    else{
+        $_POST['email'] = test_input($_POST['email']);
+    }
+    
+    // Check if both passwords are similar
     if($_POST['password1'] !== $_POST['password2']) {
         array_push($errors, "Passwords do not match");
     }
@@ -65,13 +74,15 @@ if(isset($_POST['submit'])) {
     if (strlen($_POST['password1']) > 30 || strlen($_POST['password1']) < 5) {
         array_push($errors, "Password must be between 5 and 30 characters long");
     }
-    
+    $_POST['password1'] = test_input($_POST['password1']);
+    $_POST['password2'] = test_input($_POST['password2']);
     // Allow only JPEG format
-    $verifyimg = getimagesize($_FILES['image']['tmp_name']);
-    if(($verifyimg['mime'] != 'image/jpeg') && !(empty($_FILES['image']['tmp_name']))) {
-        array_push($errors, "Only JPEG images are allowed");
-    }   
-
+    if($_FILES['image']['tmp_name'] != NULL){
+        $verifyimg = getimagesize($_FILES['image']['tmp_name']);
+        if(($verifyimg['mime'] != 'image/jpeg') && !(empty($_FILES['image']['tmp_name']))) {
+            array_push($errors, "Only JPEG images are allowed");
+        }
+    }
     // Check if there is already an existing account with that username
     if ($stmt_username = $connect->prepare('SELECT user_id, password FROM User WHERE username = ?')) {
         $stmt_username->bind_param('s', $_POST['username']);
@@ -80,18 +91,18 @@ if(isset($_POST['submit'])) {
         // num_rows has to be 0 if it's a non existing username
         if ($stmt_username->num_rows > 0) {
             // Username already exists
-            array_push($errors, "This username is already taken. Please choose another one.");
+            array_push($errors, "This username is already taken. Please choose another one");
         }
     }
-    
-    if ($stmt_email = $connect->prepare('SELECT user_id, password FROM User WHERE email = ?')) {
+    // Check if there is already an existing account with that e-mail adress
+    if ($stmt_email = $connect->prepare('SELECT user_id FROM User WHERE email = ?')) {
         $stmt_email->bind_param('s', $_POST['email']);
         $stmt_email->execute();
         $stmt_email->store_result();
         // num_rows has to be 0 if it's a non existing e-mail
         if ($stmt_email->num_rows > 0) {
             // E-mail already exists
-            array_push($errors, "This email is already taken. Please choose another one.");
+            array_push($errors, "This email is already taken");
         }
     }
     

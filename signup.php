@@ -28,7 +28,7 @@
         <form method="post" action="" enctype="multipart/form-data">
             <div class="container">
             <?php include('errors.php'); ?>
-            <img class="profilepic" src="img/profilepic.png" width=8%>
+            <img class="profilepic" src="img/profilepic.png">
               
             <input type="file" name="image" onchange="readURL(this);" accept="image/jpeg" style="display:none;" id="file">
             <figure>

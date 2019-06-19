@@ -1,7 +1,7 @@
 <?php
 /* This script validates user input from the login form and creates new sessions */
 
-// Function to sanitize "bad code" like HTML or Javascript code.
+// Function to sanitize "bad code" like HTML or Javascript code. Returns a "clean" input
 function test_input($data) { 
     $data = trim($data); 
     $data = stripslashes($data); 
@@ -23,7 +23,7 @@ function test_input($data) {
     $connect = mysqli_connect($host, $user, $pswd, $db_name);
     // Check if there is an error with the connection
     if (mysqli_connect_errno()) {
-        die('Connection to MySQL failed: ' .    mysql_connect_error());
+        die('Connection to MySQL failed: ' . mysql_connect_error());
     }
     
     // Check whether the username field is empty or not
@@ -39,6 +39,7 @@ function test_input($data) {
         die();
     }
     $_POST['username'] = test_input($_POST['username']);
+    $_POST['password'] = test_input($_POST['password']);
 
     // Prepare MySQL code and check if the user exists or not
     if ($stmt = $connect->prepare('SELECT user_id, password FROM User WHERE username = ?')) {
