@@ -4,9 +4,10 @@
  */
 
 // Display errors
+/*
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+*/
 // Function to sanitize "bad code" like HTML or Javascript code.
 function test_input($data) { 
     $data = trim($data); 
