@@ -1,4 +1,5 @@
-<?php include('shopinfo.php');
+<?php include('balance.php');
+include('shopinfo.php');
 if(!$_SESSION['loggedin']){
     header('Location: index.php');
 }?>
@@ -17,9 +18,7 @@ if(!$_SESSION['loggedin']){
             xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                //location.reload();
                 var str = this.responseText;
-                // Refresh page if there are no errors
                 if(str.length ==0){ 
                     document.getElementById(id).style.display = "none";
                 }
@@ -35,11 +34,11 @@ if(!$_SESSION['loggedin']){
             <nav>
                 <ul>
                     <div class="Homebutton">
-                    <li><a href="index.html"><img class="Homeicon" src="img/planticon.png"></a></li>
+                    <li><a href="index.php"><img class="Homeicon" src="img/planticon.png"></a></li>
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins.png"></li>
-                    <li><p class="Cointext">1000</p></li>
+                    <li><p class="Cointext"><?php echo $coins; ?></p></li>
                     <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
                     <div class="rectangle"></div>
                     <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>

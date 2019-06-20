@@ -16,6 +16,11 @@ if(isset($_POST['submit'])) {
     session_start();
     // Array to display errors
     $errors = array(); 
+    // Variables to display them in the form so the user doesn't have to enter them again if an error occured
+    $uname = $_POST['username'];
+    $email = $_POST['email'];
+    $password1 = $_POST['password1'];
+    $password2 = $_POST['password2'];
     // Login info for the MySQL database
     $host = 'localhost';
     $user = 'user';

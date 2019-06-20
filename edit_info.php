@@ -20,7 +20,7 @@ if(isset($_POST['submit'])) {
     }
     // Array to display errors
     $errors = array(); 
-    
+    // Variables to display them in the form so the user doesn't have to enter them again if an error occured
     $uname = $_POST['username'];
     $email = $_POST['email'];
     $psw_old = $_POST['password_old'];

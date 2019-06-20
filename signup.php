@@ -37,13 +37,13 @@
             <input type="button" class="uploadbutton accept" value="Upload Profile Picture" onclick="document.getElementById('file').click();">     
                             
             <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Username..." name="username" required>
+            <?php echo"<input type=\"text\" placeholder=\"Username...\" name=\"username\" value=\"$uname\" required>"; ?>
             <label for="email"><b>E-Mail Adress</b></label>
-            <input type="text" placeholder="E-Mail..." name="email" required>
+            <?php echo "<input type=\"text\" placeholder=\"E-Mail...\" name=\"email\" value=\"$email\" required>"; ?>
             <label for="password1"><b>Password</b></label>
-            <input type="password" placeholder="Password..." name="password1" required>
+            <?php echo"<input type=\"password\" placeholder=\"Password...\" name=\"password1\" value=\"$password1\" required>"; ?>
             <label for="password2"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password..." name="password2" required>
+            <?php echo"<input type=\"password\" placeholder=\"Repeat Password...\" name=\"password2\" value=\"$password2\" required>"; ?>
             
             <input name="submit" class="accept signupbutton" type="submit" value="Sign Up">
                 

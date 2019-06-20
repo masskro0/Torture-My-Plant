@@ -2,9 +2,7 @@
 /*
  *This script gets every information from the Item table from the Website database. 
  */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 session_start();
 // Login info for the MySQL database
 $host = 'localhost';

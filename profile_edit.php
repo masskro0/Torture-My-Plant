@@ -1,4 +1,7 @@
-<?php include('getinfo.php'); include('edit_info.php') ?>
+<?php include('balance.php');
+include('getinfo.php');
+include('edit_info.php');
+?>
 <!doctype html>
 <html>
   <head>
@@ -21,10 +24,10 @@
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins.png"></li>
-                    <li><p class="Cointext">1000</p></li>
+                    <li><p class="Cointext"><?php echo $coins; ?></p></li>
                     <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
                     <div class="rectangle"></div>
-                    <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
+                    <li><a href="shop.php"><img class="Cart" src="img/carticon.png"><p class="Shoptext">Shop</p></a></li>
                 </ul>
             </nav>
         
