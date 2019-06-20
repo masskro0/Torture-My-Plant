@@ -488,3 +488,9 @@ iframe{
     z-index: 2;
     top: 90%;
 }
+.unavailable{
+    background-color: dodgerblue;
+}
+.buttonlink{
+    text-decoration: none;
+}

@@ -1,6 +1,11 @@
 <?php
 include('balance.php');
+include('getinfo_index.php');
 session_start();
+/*
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);*/
 ?>
 
 <!doctype html>
@@ -79,8 +84,17 @@ session_start();
         <!--plant images, should most likely be placed inside a container-->
         <img class="pflanze" src="img/plant1.jpg" width="30%">
         <img class="pflanze" src="img/plant2.jpg" width="30%">
+        
+        <?php if($_SESSION['loggedin'] === TRUE && (!in_array(1, $array_orders))){ ?>
+        <img class="pflanze" src="img/plant3_lock.jpg" width="30%">
+        <?php } else { ?>
         <img class="pflanze" src="img/plant3.jpg" width="30%">
+        <?php }
+        if($_SESSION['loggedin'] === TRUE && !in_array(2, $array_orders)){ ?>
+        <img class="pflanze" src="img/plant4_lock.jpg" width="30%">
+        <?php } else { ?>
         <img class="pflanze" src="img/plant4.jpg" width="30%">
+        <?php } ?>
         <!--arrow left-->
         <a onclick="plusDivs(-1)">
             <img class="linkerpfeil" src="img/linkerpfeil.png" width=10%>
@@ -101,21 +115,28 @@ session_start();
             <?php } else{ ?>
             <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
         <?php } ?>
-        <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(3)">Torture Me!</button>
-            <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
-        <?php } ?>
-        <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(4)">Torture Me!</button>
-            <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
-        <?php } ?>
-        <!--<img class="Lock" src="img/lock.png">-->
+        <?php if($_SESSION['loggedin'] === TRUE){
+                if(in_array(1, $array_orders)){ ?>
+                    <button class="accept" onclick="startTorture(3)">Torture Me!</button>
+                <?php } else { ?>
+                    <a class="buttonlink" href="shop.php"><button class="accept unavailable">Buy In Store</button></a>
+                <?php }
+                } else{ ?>
+                    <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
+            <?php } ?>
+        <?php if($_SESSION['loggedin'] === TRUE){
+                if(in_array(2, $array_orders)){ ?>
+                    <button class="accept" onclick="startTorture(4)">Torture Me!</button>
+                <?php } else { ?>
+                    <a class="buttonlink" href="shop.php"><button class="accept unavailable">Buy In Store</button></a>
+                <?php }
+                } else{ ?>
+                    <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
+            <?php } ?>
+        
     </div>
     
      <!--Loginscreen-->
-    
 <!-- The Modal -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
@@ -139,7 +160,7 @@ class="close animate">&times;</span>
     </div>
   </form>
 </div>
-        
+
         
        <!-- Bonus screen -->
         <div class="Yellowbox"></div>
@@ -158,10 +179,20 @@ class="closetorture" title="Close Modal">&times;</span>
             <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
             <button class="Quittorture" >Quit Torture</button>
             <ul class="tortureul">
+            <?php if(in_array(5, $array_orders)){ ?>
             <li><img class="drill" src="img/drill.png" onclick="tool(5)"></li>
-            <li><img class="wind" src="img/wind.png" onclick="tool(4);"></li>
+            <?php } else { ?>
+            <li><a href="shop.php"><img class="drill" src="img/drill_lock.png"></a></li>
+            <?php } if(in_array(4, $array_orders)){ ?>
             <li><img class="acid" src="img/acid.png" onclick="tool(3)"></li>
+            <?php } else { ?>
+            <li><a href="shop.php"><img class="acid" src="img/acid_lock.png"></a></li>
+            <?php } if(in_array(3, $array_orders)){ ?>
             <li><img class="bolt" src="img/bolt.png" onclick="tool(2)"></li>
+            <?php } else{ ?>
+            <li><a href="shop.php"><img class="bolt" src="img/bolt_lock.png"></a></li>
+            <?php } ?>
+            <li><img class="wind" src="img/wind.png" onclick="tool(4);"></li>
             <li><img class="fire" src="img/fire.png"  onclick="tool(1)"></li>
             </ul>
             <img class="Timericon" src="img/timer.png">
@@ -169,7 +200,6 @@ class="closetorture" title="Close Modal">&times;</span>
         </div>
     </div>
 </div>
-        
         
 </body>
     
