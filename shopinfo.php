@@ -23,12 +23,13 @@ if($stmt = $connect->prepare("SELECT item_id FROM Orders WHERE user_id = ?")){
     $stmt->execute();
     $array_orders = [];
     // Stores the result of the condition
-    $stmt->store_result();
-    $stmt->bind_result($array_orders[]);
-    $stmt->fetch();
+    foreach($stmt->get_result() as $row) {
+        $array_orders[] = $row['item_id'];
+    }
 } else{
     die('An error occured when we tried to connect to the database.');
 }
+$stmt->close();
 // Get all the information from the database
 $stmt = $connect->prepare("SELECT * FROM Item");
 $stmt->execute();
