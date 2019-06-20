@@ -40,7 +40,7 @@ session_start();
         }
     
         
-        <!-- method for starting tortore, gets plant number, opens torture screen -->
+        /* method for starting torture, gets plant number, opens torture screen */
         function startTorture(str) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "client.php?q=" + str, true);
@@ -65,7 +65,7 @@ session_start();
                         <li><p class="Cointext">1000</p></li>
                         <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" ></a></li>
                         <div class="rectangle"></div>
-                        <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
+                        <li><a href ="shop.php"><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
                         <?php } else{ ?>
                         <li class="right"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
                         <li class="right"><a href="signup.php">Create Account</a></li>
@@ -91,35 +91,34 @@ session_start();
         
         <!-- 4 buttons for plant selection, either send message or open login window -->
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(1)">Torture Me1!</button>
+            <button class="accept" onclick="startTorture(1)">Torture Me!</button>
             <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me1!</button>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
         <?php } ?>
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(2)">Torture Me2!</button>
+            <button class="accept" onclick="startTorture(2)">Torture Me!</button>
             <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me2!</button>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
         <?php } ?>
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(3)">Torture Me3!</button>
+            <button class="accept" onclick="startTorture(3)">Torture Me!</button>
             <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me3!</button>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
         <?php } ?>
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(4)">Torture Me4!</button>
+            <button class="accept" onclick="startTorture(4)">Torture Me!</button>
             <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me4!</button>
+            <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
         <?php } ?>
         <!--<img class="Lock" src="img/lock.png">-->
     </div>
-    <a class="logout" href="logout.php">logout</a>
     
      <!--Loginscreen-->
     
 <!-- The Modal -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
-class="close">&times;</span>
+class="close animate">&times;</span>
 
   <!-- Modal Content -->
   <form class="modal-content animate" method="POST" action="" >
@@ -206,19 +205,17 @@ function showDivs(n){
     
     
 <script>
-/* Open the login screen */
+/* Get the login modal */
 var modal = document.getElementById('id01');
+/* Get the torture screen modal */
+var modal2 = document.getElementById('id02');
 /* When the user clicks anywhere outside of the modal, close it */
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
-/* Open the torture screen */
-var modal2 = document.getElementById('id02');
-window.onclick = function(event) {
-  if (event.target == modal2) {
-    modal.style.display = "none";
+    if (event.target == modal2) {
+    modal2.style.display = "none";
   }
 }
 /* Submit the form if the user hits the enter key */
@@ -235,6 +232,20 @@ input2.addEventListener("keyup", function(event) {
    event.preventDefault();
    document.getElementById("submitform").click();
   }
-});    
+});
+// If the ESC key is pushed it closes both modals
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key === "Escape" || evt.key === "Esc");
+    } else {
+        isEscape = (evt.keyCode === 27);
+    }
+    if (isEscape) {
+        modal.style.display = "none";
+        modal2.style.display = "none";
+    }
+};
 </script>
 </html>
