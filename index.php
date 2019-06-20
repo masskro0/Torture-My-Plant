@@ -40,7 +40,7 @@ session_start();
         }
     
         
-        <!-- method for starting tortore, gets plant number, opens torture screen -->
+        /* method for starting torture, gets plant number, opens torture screen */
         function startTorture(str) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "client.php?q=" + str, true);
@@ -65,7 +65,7 @@ session_start();
                         <li><p class="Cointext">1000</p></li>
                         <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" ></a></li>
                         <div class="rectangle"></div>
-                        <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
+                        <li><a href ="shop.php"><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
                         <?php } else{ ?>
                         <li class="right"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
                         <li class="right"><a href="signup.php">Create Account</a></li>
