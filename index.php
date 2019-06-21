@@ -214,6 +214,7 @@ class="closetorture" title="Close Modal">&times;</span>
 <!--timerscript-->
 <script>
         <!--array for tools, 0->available, 1->running, 2->cooldown -->
+        <!--should be created with variable length-->
         var toolsArr = [0, 0, 0, 0, 0]
     
         function startTimer(seltool){
