@@ -54,6 +54,12 @@ error_reporting(E_ALL);*/
             document.getElementById('id02').style.display='block';
             console.log('plant ' + str + ' selected');
         }
+        
+        
+        
+
+
+        
     </script>
       
   </head>
@@ -180,29 +186,76 @@ class="closetorture" title="Close Modal">&times;</span>
             <button class="Quittorture" >Quit Torture</button>
             <ul class="tortureul">
             <?php if(in_array(5, $array_orders)){ ?>
-            <li><img class="drill" src="img/drill.png" onclick="tool(5)"></li>
+            <li><img class="drill" src="img/drill.png" onclick="startTimer(5)"></li>
             <?php } else { ?>
             <li><a href="shop.php"><img class="drill" src="img/drill_lock.png"></a></li>
             <?php } if(in_array(4, $array_orders)){ ?>
-            <li><img class="acid" src="img/acid.png" onclick="tool(3)"></li>
+            <li><img class="acid" src="img/acid.png" onclick="startTimer(3)"></li>
             <?php } else { ?>
             <li><a href="shop.php"><img class="acid" src="img/acid_lock.png"></a></li>
             <?php } if(in_array(3, $array_orders)){ ?>
-            <li><img class="bolt" src="img/bolt.png" onclick="tool(2)"></li>
+            <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2)"></li>
             <?php } else{ ?>
             <li><a href="shop.php"><img class="bolt" src="img/bolt_lock.png"></a></li>
             <?php } ?>
-            <li><img class="wind" src="img/wind.png" onclick="tool(4);"></li>
-            <li><img class="fire" src="img/fire.png"  onclick="tool(1)"></li>
+            <li><img class="wind" src="img/wind.png" onclick="startTimer(4);"></li>
+            <li><img class="fire" src="img/fire.png"  onclick="startTimer(1)"></li>
             </ul>
             <img class="Timericon" src="img/timer.png">
-            <div class="Timerbox"></div>
+            <div class="Timerbox"><p class = "right" id="Countdown"></p></div>
         </div>
     </div>
 </div>
         
 </body>
     
+    
+    
+<!--timerscript-->
+<script>
+        var toolsArr = [false, false, false, false, false]
+    
+        function startTimer(seltool){
+            document.getElementById('Countdown').innerHTML = "10";
+            <!--write to array which tool is running-->
+            for(i = 0; i < 5; i++){
+                toolsArr[i] = false;
+            }
+            toolsArr[seltool-1] = true;
+            toolsArr.forEach(function(item, index, array){
+                console.log('tool ', index, item);
+            });
+            <!--stop all running tools and start selected tool-->
+            tool(0);
+            tool(seltool);
+            console.log('tool ' + seltool + ' selected');
+            
+            <!--call decrement Timer in 1 sec-->
+            <!--stupid function in anonymus function call, as some browsers don't support passing arguments-->
+            setTimeout(function(){decrementTimer(9, seltool);}, 1000);
+            
+        }
+        
+        function decrementTimer(t, seltool){
+            if (t == 0){
+                stopTimer(seltool);
+            } else {
+                if (toolsArr[seltool-1]){
+                    document.getElementById('Countdown').innerHTML  = t;
+                    setTimeout(function(){decrementTimer(t-1, seltool)}, 1000);
+                }
+            }
+        }
+        
+        function stopTimer(seltool){
+            <!--stop running tool-->
+            toolsArr[seltool-1] = false;
+            tool(0);
+            console.log('stopping tool');
+            
+            document.getElementById('Countdown').innerHTML  = '';
+        }
+</script>
 
     
 <!-- slidescript -->
