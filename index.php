@@ -213,22 +213,41 @@ class="closetorture" title="Close Modal">&times;</span>
     
 <!--timerscript-->
 <script>
-        var toolsArr = [false, false, false, false, false]
+        <!--array for tools, 0->available, 1->running, 2->cooldown -->
+        var toolsArr = [0, 0, 0, 0, 0]
     
         function startTimer(seltool){
-            document.getElementById('Countdown').innerHTML = "10";
             <!--write to array which tool is running-->
             for(i = 0; i < 5; i++){
-                toolsArr[i] = false;
+                <!--check if tool is in cooldown phase or if new tool selected-->
+                if (toolsArr[i] == 2){
+                    <!--stay in cooldown-->
+                    toolsArr[i] = 2;
+                } else if (toolsArr[i] == 1){
+                    <!-- put in cooldown -->
+                    toolsArr[i] = 2;
+                    document.getElementById('Countdown').innerHTML  = '';
+                    
+                    <!--timed function to strop cooldown, not working yet-->
+                    <!--setTimeout(function(){console.log("tool " + (i+1) + " can be used again"); toolsArr[i]=0;}, 10000);
+                    reenableTool(i+1);
+                    
+                    <!--stopping physical tool-->
+                    tool(0);
+                }
             }
-            toolsArr[seltool-1] = true;
+            <!-- start tool if not in cooldown phase-->
+            if (toolsArr[seltool-1] != 2){
+                toolsArr[seltool-1] = 1;
+                document.getElementById('Countdown').innerHTML = "10";
+            }
             toolsArr.forEach(function(item, index, array){
-                console.log('tool ', index, item);
+                console.log('tool ', (index+1), item);
             });
             <!--stop all running tools and start selected tool-->
             tool(0);
             tool(seltool);
-            console.log('tool ' + seltool + ' selected');
+            console.log('tool ' + (seltool) + ' selected');
             
             <!--call decrement Timer in 1 sec-->
             <!--stupid function in anonymus function call, as some browsers don't support passing arguments-->
@@ -240,20 +259,30 @@ class="closetorture" title="Close Modal">&times;</span>
             if (t == 0){
                 stopTimer(seltool);
             } else {
-                if (toolsArr[seltool-1]){
+                if (toolsArr[seltool-1] == 1){
                     document.getElementById('Countdown').innerHTML  = t;
                     setTimeout(function(){decrementTimer(t-1, seltool)}, 1000);
+                } else {
+                    <!--unnecessaray
+                    <!--toolsArr[seltool-1] = 2;
                 }
             }
         }
         
         function stopTimer(seltool){
             <!--stop running tool-->
-            toolsArr[seltool-1] = false;
+            toolsArr[seltool-1] = 2;
             tool(0);
+            reenableTool(seltool);
             console.log('stopping tool');
             
             document.getElementById('Countdown').innerHTML  = '';
+        }
+        
+        function reenableTool(seltool){
+            console.log("tool " + seltool + " will be reactivated in 10s");
+            setTimeout(function(){alert("tool " + seltool + " can be used again"); toolsArr[seltool-1] = 0;}, 10000);
+            
         }
 </script>
 
