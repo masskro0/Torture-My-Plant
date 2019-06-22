@@ -215,7 +215,8 @@ class="closetorture" title="Close Modal">&times;</span>
 <script>
         <!--array for tools, 0->available, 1->running, 2->cooldown -->
         <!--should be created with variable length-->
-        var toolsArr = [0, 0, 0, 0, 0]
+        var toolsArr = [0, 0, 0, 0, 0];
+        var lastTool = 0;
     
         function startTimer(seltool){
             <!--write to array which tool is running-->
@@ -225,37 +226,50 @@ class="closetorture" title="Close Modal">&times;</span>
                     <!--stay in cooldown-->
                     toolsArr[i] = 2;
                 } else if (toolsArr[i] == 1){
-                    <!-- put in cooldown -->
-                    toolsArr[i] = 2;
-                    document.getElementById('Countdown').innerHTML  = '';
+                    <!-- check if user selected the same tool twice -->
+                    if (i == seltool-1){
+                        <!-- if so keep running -->
+                        toolsArr[i] = 1;
+                    } else {
+                        <!-- else put in cooldown -->
+                        toolsArr[i] = 2;
+                        document.getElementById('Countdown').innerHTML  = '';
                     
-                    <!--timed function to strop cooldown, not working yet-->
-                    <!--setTimeout(function(){console.log("tool " + (i+1) + " can be used again"); toolsArr[i]=0;}, 10000);
-                    reenableTool(i+1);
-                    
-                    <!--stopping physical tool-->
-                    tool(0);
+                        <!--timed function to stop cooldown-->
+                        reenableTool(i+1);
+                    }
                 }
             }
-            <!-- start tool if not in cooldown phase-->
-            if (toolsArr[seltool-1] != 2){
-                toolsArr[seltool-1] = 1;
-                document.getElementById('Countdown').innerHTML = "10";
-            }
-            toolsArr.forEach(function(item, index, array){
-                console.log('tool ', (index+1), item);
-            });
-            <!--stop all running tools and start selected tool-->
-            tool(0);
-            tool(seltool);
-            console.log('tool ' + (seltool) + ' selected');
             
-            <!--call decrement Timer in 1 sec-->
-            <!--stupid function in anonymus function call, as some browsers don't support passing arguments-->
-            setTimeout(function(){decrementTimer(9, seltool);}, 1000);
+            <!-- check if user selected the same tool twice -->
+            if (seltool != lastTool){
+                <!--stopping all physical tools-->
+                tool(0);
+                <!-- start tool if not in cooldown phase-->
+                if (toolsArr[seltool-1] != 2){
+                    toolsArr[seltool-1] = 1;
+                    document.getElementById('Countdown').innerHTML = "10";
+                }
+                toolsArr.forEach(function(item, index, array){
+                    console.log('tool ', (index+1), item);
+                });
+                <!--remember last tool -->
+                lastTool = seltool;
+                <!--stop all running tools and start selected tool-->
+                tool(0);
+                tool(seltool);
+                console.log('tool ' + (seltool) + ' selected');
+                
+                
+                <!--call decrement Timer in 1 sec-->
+                <!--stupid function in anonymus function call, as some browsers don't support passing arguments-->
+                setTimeout(function(){decrementTimer(9, seltool);}, 1000);
+            }
             
         }
         
+        
+        <!-- recursive function, decrements TImer by 1 -->
         function decrementTimer(t, seltool){
             if (t == 0){
                 stopTimer(seltool);
@@ -263,13 +277,12 @@ class="closetorture" title="Close Modal">&times;</span>
                 if (toolsArr[seltool-1] == 1){
                     document.getElementById('Countdown').innerHTML  = t;
                     setTimeout(function(){decrementTimer(t-1, seltool)}, 1000);
-                } else {
-                    <!--unnecessaray
-                    <!--toolsArr[seltool-1] = 2;
                 }
             }
         }
         
+        
+        <!-- stops Timer when reaching 0 -->
         function stopTimer(seltool){
             <!--stop running tool-->
             toolsArr[seltool-1] = 2;
@@ -280,10 +293,49 @@ class="closetorture" title="Close Modal">&times;</span>
             document.getElementById('Countdown').innerHTML  = '';
         }
         
+        
+        <!-- deletes cooldown status -->
         function reenableTool(seltool){
             console.log("tool " + seltool + " will be reactivated in 10s");
+            
+            <!-- visualize cooldown, uncomment when finished -->
+            <!--showCooldown(seltool);-->
+            
+            <!-- cooldown time defined here, add hideCooldown(seltool) when finished -->
             setTimeout(function(){alert("tool " + seltool + " can be used again"); toolsArr[seltool-1] = 0;}, 10000);
             
+        }
+        
+        
+        <!-- visualizes cooldown-->
+        <!-- some css code?? css is beyond my intellect, mr Hayne -->
+        function showCooldown(seltool){
+            switch(seltool){
+                    case 1: <!-- fire-->
+                            break;
+                    case 2: <!-- bolt-->
+                            break;
+                    case 3: <!-- acid-->
+                            break;
+                    case 4: <!-- wind-->
+                            break;
+                    case 5: <!-- drill-->
+                            break;
+            }
+        }
+        function hideCooldown(seltool){
+            switch(seltool){
+                    case 1: <!-- fire-->
+                            break;
+                    case 2: <!-- bolt-->
+                            break;
+                    case 3: <!-- acid-->
+                            break;
+                    case 4: <!-- wind-->
+                            break;
+                    case 5: <!-- drill-->
+                            break;
+            }
         }
 </script>
 
