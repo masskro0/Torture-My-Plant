@@ -49,7 +49,7 @@ error_reporting(E_ALL);*/
         /* method for starting torture, gets plant number, opens torture screen */
         function startTorture(str) {
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "client.php?q=" + str, true);
+            xmlhttp.open("GET", "clientRobot.php?q=" + str, true);
             xmlhttp.send();
             document.getElementById('id02').style.display='block';
             console.log('plant ' + str + ' selected');
@@ -248,6 +248,7 @@ class="closetorture" title="Close Modal">&times;</span>
                 <!-- start tool if not in cooldown phase-->
                 if (toolsArr[seltool-1] != 2){
                     toolsArr[seltool-1] = 1;
+                    /*10 or 20 if upgraded*/
                     document.getElementById('Countdown').innerHTML = "10";
                 }
                 toolsArr.forEach(function(item, index, array){
@@ -262,6 +263,7 @@ class="closetorture" title="Close Modal">&times;</span>
                 
                 
                 <!--call decrement Timer in 1 sec-->
+                /*9 or 19 if upgraded*/
                 <!--stupid function in anonymus function call, as some browsers don't support passing arguments-->
                 setTimeout(function(){decrementTimer(9, seltool);}, 1000);
             }
