@@ -186,37 +186,68 @@ class="closetorture" title="Close Modal">&times;</span>
             <button class="Quittorture" >Quit Torture</button>
             <ul class="tortureul">
                 
-            <!-- php variable for cooldown upgrade -->
+            
+            <!-- php checking orders for bougt upgrades -->
             <?php 
+            /* php variable for cooldown upgrade */
             $upcoold = 0;
+            /* check if user bought upgrade */
             if(in_array(11, $array_orders)){
                 $upcoold = 1;
             }
-            
+            /* drill uprade */
+            $drillup = 0;
+            if(in_array(10, $array_orders)){
+                $drillup = 1;
+            }
+            /* acid uprade */
+            $acidup = 0;
+            if(in_array(9, $array_orders)){
+                $acidup = 1;
+            }
+            /* bolt uprade */
+            $boltup = 0;
+            if(in_array(8, $array_orders)){
+                $boltup = 1;
+            }
+            /* wind uprade */
+            $windup = 0;
+            if(in_array(7, $array_orders)){
+                $windup = 1;
+            }
+            /* fire uprade */
+            $fireup = 0;
+            if(in_array(6, $array_orders)){
+                $fireup = 1;
+            }
             ?>
                 
+            <!-- list for torture tool buttons -->
+            <!-- check if tools are bought -->
             <?php if(in_array(5, $array_orders)){ ?>
-            <li><img class="drill" src="img/drill.png" onclick="startTimer(5,0,<?php $upcoold ?>)"></li>
+            <!-- start timer with click on icons, pass information: selected tool, if tool is upgraded, if cooldown is upgraded -->
+            <li><img class="drill" src="img/drill.png" onclick="startTimer(5,<?php echo $drillup ?>,<?php echo $upcoold ?>)"></li>
             <?php } else { ?>
             <li><a href="shop.php"><img class="drill" src="img/drill_lock.png"></a></li>
             
             <?php } if(in_array(4, $array_orders)){ ?>
-            <li><img class="acid" src="img/acid.png" onclick="startTimer(3,0,<?php $upcoold ?>)"></li>
+            <li><img class="acid" src="img/acid.png" onclick="startTimer(3,<?php echo $acidup ?>,<?php echo $upcoold ?>)"></li>
             <?php } else { ?>
             <li><a href="shop.php"><img class="acid" src="img/acid_lock.png"></a></li>
             
             <?php } if(in_array(3, $array_orders)){ ?>
-            <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2,0,<?php $upcoold ?>)"></li>
+            <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2,<?php echo $boltup ?>,<?php echo $upcoold ?>)"></li>
             <?php } else{ ?>
             <li><a href="shop.php"><img class="bolt" src="img/bolt_lock.png"></a></li>
             <?php } ?>
             
-            <li><img class="wind" src="img/wind.png" onclick="startTimer(4,1,<?php $upcoold ?>);"></li>
-            
-            <li><img class="fire" src="img/fire.png"  onclick="startTimer(1,0,<?php $upcoold ?>)"></li>
+            <!-- wind and fire are always available -->
+            <li><img class="wind" src="img/wind.png" onclick="startTimer(4,<?php echo $windup ?>,<?php echo $upcoold ?>);"></li>
+            <li><img class="fire" src="img/fire.png"  onclick="startTimer(1,<?php echo $fireup ?>,<?php echo $upcoold ?>)"></li>
             </ul>
             
-            
+            <!-- icon and container for timer -->
+            <!-- timer ugly, style has to be changed -->
             <img class="Timericon" src="img/timer.png">
             <div class="Timerbox"><p class = "right" id="Countdown"></p></div>
         </div>
@@ -269,7 +300,7 @@ class="closetorture" title="Close Modal">&times;</span>
                 <!-- start tool if not in cooldown phase-->
                 if (toolsArr[seltool-1] != 2){
                     toolsArr[seltool-1] = 1;
-                    /*10 or 20 if upgraded*/
+                    /*timer 10 or 20 if upgraded*/
                     switch(upgrade){
                         case 0: document.getElementById('Countdown').innerHTML = "10";
                                 break;
