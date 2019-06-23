@@ -185,22 +185,38 @@ class="closetorture" title="Close Modal">&times;</span>
             <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
             <button class="Quittorture" >Quit Torture</button>
             <ul class="tortureul">
+                
+            <!-- php variable for cooldown upgrade -->
+            <?php 
+            $upcoold = 0;
+            if(in_array(11, $array_orders)){
+                $upcoold = 1;
+            }
+            
+            ?>
+                
             <?php if(in_array(5, $array_orders)){ ?>
-            <li><img class="drill" src="img/drill.png" onclick="startTimer(5)"></li>
+            <li><img class="drill" src="img/drill.png" onclick="startTimer(5,0,<?php $upcoold ?>)"></li>
             <?php } else { ?>
             <li><a href="shop.php"><img class="drill" src="img/drill_lock.png"></a></li>
+            
             <?php } if(in_array(4, $array_orders)){ ?>
-            <li><img class="acid" src="img/acid.png" onclick="startTimer(3)"></li>
+            <li><img class="acid" src="img/acid.png" onclick="startTimer(3,0,<?php $upcoold ?>)"></li>
             <?php } else { ?>
             <li><a href="shop.php"><img class="acid" src="img/acid_lock.png"></a></li>
+            
             <?php } if(in_array(3, $array_orders)){ ?>
-            <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2)"></li>
+            <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2,0,<?php $upcoold ?>)"></li>
             <?php } else{ ?>
             <li><a href="shop.php"><img class="bolt" src="img/bolt_lock.png"></a></li>
             <?php } ?>
-            <li><img class="wind" src="img/wind.png" onclick="startTimer(4);"></li>
-            <li><img class="fire" src="img/fire.png"  onclick="startTimer(1)"></li>
+            
+            <li><img class="wind" src="img/wind.png" onclick="startTimer(4,1,<?php $upcoold ?>);"></li>
+            
+            <li><img class="fire" src="img/fire.png"  onclick="startTimer(1,0,<?php $upcoold ?>)"></li>
             </ul>
+            
+            
             <img class="Timericon" src="img/timer.png">
             <div class="Timerbox"><p class = "right" id="Countdown"></p></div>
         </div>
@@ -217,8 +233,13 @@ class="closetorture" title="Close Modal">&times;</span>
         <!--should be created with variable length-->
         var toolsArr = [0, 0, 0, 0, 0];
         var lastTool = 0;
+        var shorterCooldowns = 0;
     
-        function startTimer(seltool){
+        <!-- starts timer, parameters: selected tool, upgrade tool(0 none, 1 lvl1, etc), shorter cooldowns(0 non or 1 half) -->
+        function startTimer(seltool, upgrade, upcoold){
+            <!-- write to global variable if cooldowns are upgraded
+            shorterCooldowns = upcoold;
+            
             <!--write to array which tool is running-->
             for(i = 0; i < 5; i++){
                 <!--check if tool is in cooldown phase or if new tool selected-->
@@ -249,7 +270,12 @@ class="closetorture" title="Close Modal">&times;</span>
                 if (toolsArr[seltool-1] != 2){
                     toolsArr[seltool-1] = 1;
                     /*10 or 20 if upgraded*/
-                    document.getElementById('Countdown').innerHTML = "10";
+                    switch(upgrade){
+                        case 0: document.getElementById('Countdown').innerHTML = "10";
+                                break;
+                        case 1: document.getElementById('Countdown').innerHTML = "20";
+                                break;
+                    }
                 }
                 toolsArr.forEach(function(item, index, array){
                     console.log('tool ', (index+1), item);
@@ -265,7 +291,12 @@ class="closetorture" title="Close Modal">&times;</span>
                 <!--call decrement Timer in 1 sec-->
                 /*9 or 19 if upgraded*/
                 <!--stupid function in anonymus function call, as some browsers don't support passing arguments-->
-                setTimeout(function(){decrementTimer(9, seltool);}, 1000);
+                switch(upgrade){
+                    case 0: setTimeout(function(){decrementTimer(9, seltool);}, 1000);
+                            break;
+                    case 1: setTimeout(function(){decrementTimer(19, seltool);}, 1000);
+                            break;
+                }
             }
             
         }
@@ -304,8 +335,14 @@ class="closetorture" title="Close Modal">&times;</span>
             <!--showCooldown(seltool);-->
             
             <!-- cooldown time defined here, add hideCooldown(seltool) when finished -->
-            setTimeout(function(){alert("tool " + seltool + " can be used again"); toolsArr[seltool-1] = 0;}, 10000);
-            
+            var cooldowntime = 20000;
+            switch(shorterCooldowns){
+                case 0: cooldowntime = 20000;
+                        break;
+                case 1: cooldowntime = 10000;
+                        break;
+            }
+            setTimeout(function(){alert("tool " + seltool + " can be used again"); toolsArr[seltool-1] = 0;}, cooldowntime);
         }
         
         
