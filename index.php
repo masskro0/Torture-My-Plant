@@ -232,7 +232,7 @@ class="closetorture" title="Close Modal">&times;</span>
                         toolsArr[i] = 1;
                     } else {
                         <!-- else put in cooldown -->
-                        toolsArr[i] = 2;
+                         toolsArr[i] = 2;
                         document.getElementById('Countdown').innerHTML  = '';
                     
                         <!--timed function to stop cooldown-->
