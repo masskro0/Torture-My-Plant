@@ -183,6 +183,7 @@ class="closetorture" title="Close Modal">&times;</span>
     <div class="Torturecontent">
         <div class="Torturecontainer">
             <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
+            <!-- needs functionality for passing torturedSec to Php -->
             <button class="Quittorture" >Quit Torture</button>
             <ul class="tortureul">
                 
@@ -265,6 +266,7 @@ class="closetorture" title="Close Modal">&times;</span>
         var toolsArr = [0, 0, 0, 0, 0];
         var lastTool = 0;
         var shorterCooldowns = 0;
+        var torturedSec = 0;
     
         <!-- starts timer, parameters: selected tool, upgrade tool(0 none, 1 lvl1, etc), shorter cooldowns(0 non or 1 half) -->
         function startTimer(seltool, upgrade, upcoold){
@@ -293,8 +295,8 @@ class="closetorture" title="Close Modal">&times;</span>
                 }
             }
             
-            <!-- check if user selected the same tool twice -->
-            if (seltool != lastTool){
+            <!-- check if user clicked the same tool twice, or if tool is available again -->
+            if (seltool != lastTool || toolsArr[seltool-1] == 0){
                 <!--stopping all physical tools-->
                 tool(0);
                 <!-- start tool if not in cooldown phase-->
@@ -336,10 +338,12 @@ class="closetorture" title="Close Modal">&times;</span>
         <!-- recursive function, decrements TImer by 1 -->
         function decrementTimer(t, seltool){
             if (t == 0){
+                torturedSec++;
                 stopTimer(seltool);
             } else {
                 if (toolsArr[seltool-1] == 1){
                     document.getElementById('Countdown').innerHTML  = t;
+                    torturedSec++;
                     setTimeout(function(){decrementTimer(t-1, seltool)}, 1000);
                 }
             }
