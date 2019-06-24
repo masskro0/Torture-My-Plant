@@ -17,6 +17,7 @@ include('edit_info.php');
   </head>
     
     <body>
+        <div class="navbar">
         <nav>
                 <ul>
                     <div class="Homebutton">
@@ -31,7 +32,7 @@ include('edit_info.php');
                 </ul>
             </nav>
         
-        
+        </div>
         
         
 
@@ -75,7 +76,6 @@ include('edit_info.php');
         </form>
         
         </div>       
-    
     </body>
     
     <script> 

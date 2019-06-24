@@ -102,7 +102,7 @@ if(isset($_POST['submit'])) {
         $row = $res->fetch_assoc();
         $str_id = ''.$row['user_id'];
         // res has to be 0 if it's a non existing username; if it's the own user's name, then proceed
-        if ($res->num_rows > 0 && ($str_id !== $_SESSION['user_id'])){            
+        if ($res->num_rows > 0 && (intval($str_id) !== $_SESSION['user_id'])){            
             // Username already exists
             $stmt_username->close();
             array_push($errors, "This username is already taken. Please choose another one");
@@ -117,7 +117,7 @@ if(isset($_POST['submit'])) {
         $row = $res->fetch_assoc();
         $str_id = ''.$row['user_id'];
         // res has to be 0 if it's a non existing username; if it's the own user's email, then proceed
-        if ($res->num_rows > 0 && ($str_id !== $_SESSION['user_id'])){            
+        if ($res->num_rows > 0 && (intval($str_id) !== $_SESSION['user_id'])){            
                 // Username already exists
                 $stmt_email->close();
                 array_push($errors, "This e-mail adress is already taken");

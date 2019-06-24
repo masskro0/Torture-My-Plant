@@ -2,6 +2,9 @@ body{
     margin-left: 10%;
     margin-right: 10%;
 }
+a, p, button h1{
+    font-family: sans-serif;
+}
 
 nav ul{
     list-style-type: none;
@@ -12,11 +15,10 @@ nav ul{
 }
 
 nav li{
-    float:left;
+    float: left;
 }
-
-nav  a{
-    display:block;
+nav a{
+    display: sblock;
     padding-left: 40px;
     font-size: 20px;
     color: black;
@@ -25,7 +27,7 @@ nav  a{
 .right{
     margin-top: 10px;
     float: right;
-    margin-right: 20px;
+    margin-right: 27px;
 }
 
 .frontpagetext{
@@ -33,19 +35,17 @@ nav  a{
     text-decoration: none;
     font-size: 44px;
     font-weight: bolder;
-    padding-left: 55px;
+    padding-left: 15px;
 }
 
 #livestream{
     background-color: lightblue;
     position: absolute;
-    width: 79%;
+    width: 78.25%;
     display: block;
     padding-bottom: 10px;
-    top: 90px;
+    top: 100px;
 }
-
-
 .pflanze{
     position: relative;
     display: block;
@@ -68,8 +68,6 @@ nav  a{
     right: 20%;
     cursor:pointer;
 }
-
-
 .accept{
     position: relative;
     display: block;
@@ -82,21 +80,20 @@ nav  a{
     border-width: thick;
     width: 20%
 }
-
-
-
 .Homebutton{
     top: 15px;
     position: absolute;
     background-color: #eaeafa;
     padding-bottom: 3px;
+    left: 152px;
+    width: 507px;
 }
 
 .Homeicon{
     position: absolute;
-    width: 10%;
+    width: 51px;
     margin-top: 2px;
-    left: 0%;
+    left: 0px;
 }
 
 
@@ -209,7 +206,7 @@ button:hover {
 .rectangle {
     position: absolute;
     top: 14px;
-    left: 67%;
+    left: 66.45%;
     height: 55px;
     width: 165px;
     background-color: lightblue;
@@ -218,7 +215,7 @@ button:hover {
 .profilepic{
     position: absolute;
     display: block;
-    left: 84.8%;
+    left: 84.15%;
     top: 7px;
     width: 53px;
     border: 5px solid black;
@@ -227,7 +224,7 @@ button:hover {
 .Cart{
     position: absolute;
     display: block;
-    left: 67%;
+    left: 66.45%;
     width: 60px;
     top: 11px;
 }
@@ -237,14 +234,14 @@ button:hover {
     display: block;
     font-weight: bold;
     position: absolute;
-    left: 71.5%;
+    left: 70.95%;
     top: -7px;
 }
 
 .Coins{
     position: absolute;
     display: block;
-    left: 53%;
+    left: 51.55%;
     top: 24px;
     width: 30px;
     
@@ -255,7 +252,7 @@ button:hover {
     display: block;
     font-weight: bold;
     position: absolute;
-    left: 56%;
+    left: 55.6%;
     top: -7px;
 }
 
@@ -349,7 +346,7 @@ button:hover {
 }
 .Coins{
     z-index: 0;
-    left: 53%;
+    left: 52.55%;
     top: 24px;
     width: 30px;
 }
@@ -493,4 +490,12 @@ iframe{
 }
 .buttonlink{
     text-decoration: none;
+}
+
+#Countdown{
+    font-size: 30px;
+    top: -3px;
+    font-weight: bold;
+    position: relative;
+    left: -20px;
 }

@@ -2,6 +2,9 @@ body{
     margin-left: 10%;
     margin-right: 10%;
 }
+a, p, button, h1{
+    font-family: sans-serif;
+}
 nav ul{
     list-style-type: none;
     margin: 0px;
@@ -151,7 +154,7 @@ nav  a{
     z-index: -1;
     margin-top: 95px;
     padding-bottom: 15px;
-    width: 98.7%;
+    width: 98.05%;
      border: 4px solid black;
 }
 figure{
