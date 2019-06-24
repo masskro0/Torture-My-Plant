@@ -151,27 +151,27 @@ print('Socket now listening')
 
 #Auswerten data und Ansteuerung Quälwerkzeuge
 options = {
-        0: boltOn,
-        1: boltOff,
-        2: flameOn,
-        3: flameOff,
+        0: toolsOff,
+        1: flameOn,
+        6: flameOff,
+        2: boltOn,
+        7: boltOff,
+        3: acidOn,
+        8: acidOff,
         4: windOn,
-        5: windOff,
-        6: acidOn,
-        7: acidOff,
-        8: drillOn,
-        9: drillOff,
-        10: toolsOff,
+        9: windOff,
+        5: drillOn,
+        10: drillOff
 }
         
 ###----------------TEST----------------###
-while True:
-        
-        try: eingabe = int(input('Wähle ein Werkzeug aus: '))
-        except ValueError: print('Input not a number') 
-       
-        try: options[eingabe]()
-        except: print('invalid input. Number betweend 0 and 10 expected')
+#while True:
+#        
+#        try: eingabe = int(input('Wähle ein Werkzeug aus: '))
+#        except ValueError: print('Input not a number') 
+#       
+#        try: options[eingabe]()
+#        except: print('invalid input. Number betweend 0 and 10 expected')
 ###----------------TEST----------------###       
 
 # Function for handling connections. This will be used to create threads
