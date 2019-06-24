@@ -176,7 +176,8 @@ class="close animate">&times;</span>
       
         <!-- Torture Screen -->
 <div id="id02" class="Torture">
-  <span onclick="document.getElementById('id02').style.display='none'" onclick="liveshow()"
+<!-- would delete this piece, only quit by button -timbleman -->
+<span onclick="document.getElementById('id02').style.display='none'" onclick="liveshow()"
 class="closetorture" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
@@ -184,7 +185,7 @@ class="closetorture" title="Close Modal">&times;</span>
         <div class="Torturecontainer">
             <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
             <!-- needs functionality for passing torturedSec to Php -->
-            <button class="Quittorture" >Quit Torture</button>
+            <button class="Quittorture" onclick="quitTorture()">Quit Torture</button>
             <ul class="tortureul">
                 
             
@@ -256,6 +257,14 @@ class="closetorture" title="Close Modal">&times;</span>
 </div>
         
 </body>
+
+
+<!--quit Torture script-->
+<script>
+function quitTorture(){
+    modal2.style.display = "none";
+}
+</script>
     
     
     
@@ -484,6 +493,7 @@ document.onkeydown = function(evt) {
     }
     if (isEscape) {
         modal.style.display = "none";
+        <!--could cause problems-->
         modal2.style.display = "none";
     }
 };
