@@ -25,8 +25,9 @@ include('getinfo.php');
                 </ul>
             </nav>
                 
-            <h1 class="MyProfile">My Profile</h1>
+            
             <div class="Profileelements">
+                <h1 class="MyProfile">My Profile</h1>
                 <?php if($row['profile_picture'] !== NULL){
                 ?>
                 <figure>

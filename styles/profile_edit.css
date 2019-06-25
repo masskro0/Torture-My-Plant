@@ -2,7 +2,7 @@ body{
     margin-left: 9.9%;
     margin-right: 10%;
 }
-a, p, button, h1{
+a, p, button, input, label, h1{
     font-family: sans-serif;
 }
 nav ul{
@@ -100,13 +100,7 @@ nav  a{
     left: 55.6%;
     top: -7px;
 }
-.headleiste {
-    text-align: center;
-    margin-top: 100px;
-}
-.kind{
-    display:inline-block;
-}
+
 .Header{
     position: relative;
     top: -15px;
@@ -132,7 +126,7 @@ nav  a{
     padding: 16px;
     padding-top: 60px;
     border: 4px solid black;
-    top: -24.5px;
+    top: 65px;
 }
 
 input{
@@ -142,10 +136,10 @@ input{
 
 .userpic{
     position: absolute;
-    left: 84.7%;
-    top: 56px;
-    width: 120px;
-    height: 120px;
+    left: 84.8%;
+    top: 40px;
+    width: 140px;
+    height: 140px;
     border: 5px solid black;
 }
 
@@ -173,16 +167,13 @@ input[type=text], input[type=password] {
 }
 .uploadbutton{
     position: absolute;
-    left: 81%;
+    left: 81.8%;
     font-size: 20px;
     top: 190px;
     height: 35px;
     background-color: dodgerblue;
     width: 18%;
 }
-
-
-
 
 .error {
     position: relative;
@@ -200,13 +191,13 @@ input[type=text], input[type=password] {
 
 
 figure{
-   width:120px; 
-    height: 120px;
+   width:140px; 
+    height: 140px;
    overflow:hidden; 
    margin:0;   
     position: absolute;
-     left: 84.7%;
-    top: 56px;
+     left: 84.8%;
+    top: 40px;
     border: 5px solid black;
     
 }
@@ -231,10 +222,6 @@ figure img{
 .Cancel{
     background-color: red;
     position: relative;
-    display: inline;
-    margin-top: 20px;
-    margin-bottom: 0;
-    left: -27.5%;
     width: 20%;
 
 }
@@ -244,15 +231,19 @@ figure img{
     position: relative;
     display: inline;
     width: 27%;
+    top: 50px;
     left: 73.5%;
 }
 
 .EditProfile{
-    position: absolute;
-    top: 80px;
+    text-align: center;
+    top: -85px;
+    position: relative;
     font-size: 40px;
-    font-weight: 400;
-    left: 41%;
     font-weight: bold;
-    z-index: 2;
+
+}
+form{
+    position: relative;
+    top: -80px;
 }

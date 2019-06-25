@@ -39,6 +39,7 @@ error_reporting(E_ALL);*/
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send("username=" + uname.value + "&password=" + psw.value);
         }
+        
         function tool(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "client.php?q=" + str, true);
@@ -279,17 +280,17 @@ function quitTorture(){
     
         <!-- starts timer, parameters: selected tool, upgrade tool(0 none, 1 lvl1, etc), shorter cooldowns(0 non or 1 half) -->
         function startTimer(seltool, upgrade, upcoold){
-            <!-- write to global variable if cooldowns are upgraded
+            // write to global variable if cooldowns are upgraded
             shorterCooldowns = upcoold;
             
             <!--write to array which tool is running-->
             for(i = 0; i < 5; i++){
-                <!--check if tool is in cooldown phase or if new tool selected-->
+                // check if tool is in cooldown phase or if new tool selected
                 if (toolsArr[i] == 2){
                     <!--stay in cooldown-->
                     toolsArr[i] = 2;
                 } else if (toolsArr[i] == 1){
-                    <!-- check if user selected the same tool twice -->
+                    // check if user selected the same tool twice
                     if (i == seltool-1){
                         <!-- if so keep running -->
                         toolsArr[i] = 1;
@@ -325,14 +326,14 @@ function quitTorture(){
                 <!--remember last tool -->
                 lastTool = seltool;
                 <!--stop all running tools and start selected tool-->
-                tool(0);
+                //tool(0);
                 tool(seltool);
                 console.log('tool ' + (seltool) + ' selected');
                 
                 
                 <!--call decrement Timer in 1 sec-->
                 /*9 or 19 if upgraded*/
-                <!--stupid function in anonymus function call, as some browsers don't support passing arguments-->
+                // stupid function in anonymus function call, as some browsers don't support passing arguments-->
                 switch(upgrade){
                     case 0: setTimeout(function(){decrementTimer(9, seltool);}, 1000);
                             break;

@@ -35,15 +35,9 @@ include('edit_info.php');
         </div>
         
         
-
-        <div class="headleiste">
-        <div class="kind">
-        
-        <h1 class="EditProfile">Edit Your Profile</h1>
-        </div>
-        </div>
         <div class="screen">
-        
+        <h1 class="EditProfile">Edit Your Profile</h1>
+            
         <form method="post" action="" enctype="multipart/form-data">
             <div class="container">
             <?php include('errors.php'); ?>
