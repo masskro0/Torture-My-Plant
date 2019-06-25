@@ -31,13 +31,14 @@ if(!$_SESSION['loggedin']){
   </head>
     <body>
         <div class="wrapper">
+            <div class="navbar"></div>
             <nav>
                 <ul>
                     <div class="Homebutton">
-                    <li><a href="index.php"><img class="Homeicon" src="img/planticon.png"></a></li>
+                    <li><a href="index.php"><img class="Homeicon" src="img/planticon2.png"></a></li>
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
-                    <li><img class="Coins" src="img/coins.png"></li>
+                    <li><img class="Coins" src="img/coins2.png"></li>
                     <li><p class="Cointext"><?php echo $coins; ?></p></li>
                     <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
                     <div class="rectangle"></div>

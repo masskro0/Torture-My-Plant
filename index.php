@@ -67,6 +67,7 @@ error_reporting(E_ALL);*/
     <body>
     
     <div class="wrapper">
+        <div class="navbar"></div>
             <nav>
                 <ul>
                     <div class="Homebutton">
@@ -74,14 +75,15 @@ error_reporting(E_ALL);*/
                     <li><a class="frontpagetext" href="">Torture My Plant</a></li>
                     </div>
                     <?php if($_SESSION['loggedin'] === TRUE){ ?>
-                        <li><img class="Coins" src="img/coins.png"></li>
+                        <li><img class="Coins" src="img/coins2.png"></li>
                         <li><p class="Cointext"><?php echo $coins; ?></p></li>
                         <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" ></a></li>
-                        <div class="rectangle"></div>
-                        <li><a href ="shop.php"><img class="Cart" src="img/carticon.png"><p class="Shoptext">Shop</p></a></li>
+                        <div class="rectangle" style="cursor: pointer;" onclick="window.location='shop.php'"></div>
+                        <li><a href ="shop.php"><img class="Cart" src="img/carticon2.png"><p class="Shoptext">Shop</p></a></li>
                         <?php } else{ ?>
-                        <li class="right"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
-                        <li class="right"><a href="signup.php">Create Account</a></li>
+                        <li class="right"><a class="linkz" href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+                        <li class="right"><a class="linkz" href="signup.php">Create Account</a></li>
+                        
                    <?php } ?>
                 </ul>
             </nav>
@@ -188,9 +190,13 @@ class="closetorture" title="Close Modal">&times;</span>
             <!-- needs functionality for passing torturedSec to Php -->
             <button class="Quittorture" onclick="quitTorture()">Quit Torture</button>
             <ul class="tortureul">
-                
+             <div id="cooldown_fire" class="cooldown_fire"></div>
+                <div id="cooldown_bolt" class="cooldown_bolt"></div>
+                <div id="cooldown_drill" class="cooldown_drill"></div>
+                <div id="cooldown_acid" class="cooldown_acid"></div>
+                <div id="cooldown_wind" class="cooldown_wind"></div>
             
-            <!-- php checking orders for bougt upgrades -->
+            <!-- php checking orders for bought upgrades -->
             <?php 
             /* php variable for cooldown upgrade */
             $upcoold = 0;
@@ -377,7 +383,7 @@ function quitTorture(){
             console.log("tool " + seltool + " will be reactivated in 10s");
             
             <!-- visualize cooldown, uncomment when finished -->
-            <!--showCooldown(seltool);-->
+            showCooldown(seltool);
             
             <!-- cooldown time defined here, add hideCooldown(seltool) when finished -->
             var cooldowntime = 20000;
@@ -387,7 +393,7 @@ function quitTorture(){
                 case 1: cooldowntime = 10000;
                         break;
             }
-            setTimeout(function(){alert("tool " + seltool + " can be used again"); toolsArr[seltool-1] = 0;}, cooldowntime);
+            setTimeout(function(){toolsArr[seltool-1] = 0; hideCooldown(seltool)}, cooldowntime);
         }
         
         
@@ -395,29 +401,29 @@ function quitTorture(){
         <!-- some css code?? css is beyond my intellect, mr Hayne -->
         function showCooldown(seltool){
             switch(seltool){
-                    case 1: <!-- fire-->
+                    case 1: document.getElementById('cooldown_fire').style.display = "block";
                             break;
-                    case 2: <!-- bolt-->
+                    case 2: document.getElementById('cooldown_bolt').style.display = "block";
                             break;
-                    case 3: <!-- acid-->
+                    case 3: document.getElementById('cooldown_acid').style.display = "block";
                             break;
-                    case 4: <!-- wind-->
+                    case 4: document.getElementById('cooldown_wind').style.display = "block";
                             break;
-                    case 5: <!-- drill-->
+                    case 5: document.getElementById('cooldown_drill').style.display = "block";
                             break;
             }
         }
         function hideCooldown(seltool){
             switch(seltool){
-                    case 1: <!-- fire-->
+                    case 1: document.getElementById('cooldown_fire').style.display = "none";
                             break;
-                    case 2: <!-- bolt-->
+                    case 2: document.getElementById('cooldown_bolt').style.display = "none";
                             break;
-                    case 3: <!-- acid-->
+                    case 3: document.getElementById('cooldown_acid').style.display = "none";
                             break;
-                    case 4: <!-- wind-->
+                    case 4: document.getElementById('cooldown_wind').style.display = "none";
                             break;
-                    case 5: <!-- drill-->
+                    case 5: document.getElementById('cooldown_drill').style.display = "none";
                             break;
             }
         }

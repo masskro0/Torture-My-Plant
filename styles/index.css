@@ -2,7 +2,7 @@ body{
     margin-left: 10%;
     margin-right: 10%;
 }
-a, p, button h1{
+a, p, button, label, input, h1{
     font-family: sans-serif;
 }
 
@@ -30,16 +30,21 @@ nav a{
     margin-right: 27px;
 }
 
+
 .frontpagetext{
     color:black;
     text-decoration: none;
     font-size: 44px;
-    font-weight: bolder;
+    font-weight: bold;
+    color: black;
     padding-left: 15px;
+    position: relative;
+    left: 5px;
+    font-family: 'Arial',sans-serif;
 }
 
 #livestream{
-    background-color: lightblue;
+    background-color: lightgrey;
     position: absolute;
     width: 78.25%;
     display: block;
@@ -75,24 +80,26 @@ nav a{
     margin-right: auto;
     margin-top: 10px;
     font-size: 30px;
-    background-color: limegreen;
+    background-color: skyblue;
+    border: 1px solid black;
     border-radius: 8px;
-    border-width: thick;
-    width: 20%
+    border-width: thin;
+    width: 20%;
+    color: black;
 }
 .Homebutton{
-    top: 15px;
+    top: -10px;
     position: absolute;
-    background-color: #eaeafa;
-    padding-bottom: 3px;
-    left: 152px;
-    width: 507px;
+    padding-bottom: 20px;
+    padding-top: 25px;
+    left: 153px;
+    width: 450px;
+    background-color: white;
 }
-
 .Homeicon{
     position: absolute;
     width: 51px;
-    margin-top: 2px;
+    margin-top: 0px;
     left: 0px;
 }
 
@@ -205,20 +212,19 @@ button:hover {
 
 .rectangle {
     position: absolute;
-    top: 14px;
+    top: 10px;
     left: 66.45%;
-    height: 55px;
+    height: 56px;
     width: 165px;
-    background-color: lightblue;
-    z-index: -1;
+    z-index: 0;
 }
 .profilepic{
     position: absolute;
     display: block;
     left: 84.15%;
-    top: 7px;
-    width: 53px;
-    border: 5px solid black;
+    top: 10px;
+    width: 56px;
+    border: 2px solid white;
 }
 
 .Cart{
@@ -226,7 +232,7 @@ button:hover {
     display: block;
     left: 66.45%;
     width: 60px;
-    top: 11px;
+    top: 12px;
 }
 
 .Shoptext{
@@ -234,15 +240,17 @@ button:hover {
     display: block;
     font-weight: bold;
     position: absolute;
+    color: white;
+    
     left: 70.95%;
-    top: -7px;
+    top: -5px;
 }
 
 .Coins{
     position: absolute;
     display: block;
-    left: 51.55%;
-    top: 24px;
+    left: 40%;
+    top: 26px;
     width: 30px;
     
 }
@@ -252,8 +260,9 @@ button:hover {
     display: block;
     font-weight: bold;
     position: absolute;
-    left: 55.6%;
-    top: -7px;
+    color: white;
+    left: 52.5%;
+    top: -5px;
 }
 
 /*.pflanze{
@@ -346,8 +355,8 @@ button:hover {
 }
 .Coins{
     z-index: 0;
-    left: 52.55%;
-    top: 24px;
+    left: 49%;
+    top: 26px;
     width: 30px;
 }
 
@@ -357,31 +366,33 @@ button:hover {
 .Unavailable{
     display:none;
 }
-/* Add padding to containers */
+
 .Torturecontainer {
   padding: 16px;
 }
  /* The Modal (background) */
 .Torture {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.85); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.85); 
   padding-top: 10px;
+   
 }
 
 /* Modal Content/Box */
 .Torturecontent {
-  background-color: lightblue;
-  margin: 5px auto; /* 15% from the top and centered */
+  background-color: lightgrey;
+  margin: 5px auto; 
   border: 4px solid #888;
-  width: 60%; /* Could be more or less, depending on screen size */
+  width: 60%;
+     border: 1px solid white;
 }
 
 #stream{
@@ -393,7 +404,6 @@ button:hover {
     
 }
 .closetorture {
-  /* Position it in the top right corner outside of the modal */
   position: absolute;
   right: 20.2%;
   top: 1%;
@@ -412,19 +422,24 @@ button:hover {
 iframe{
     height: 600px;
     width: 89.7%;
+    border: 2px solid black;
 }
 
 .Quittorture{
     position: relative;
+    left: 3px;
     display: block;
-    margin-top: 10px;
+    margin-top: 18px;
     font-size: 25px;
-    background-color: red;
+    background-color: skyblue;
     border-radius: 8px;
-    border-width: thick;
+    border-width: thin;
     width: 180px;
     margin-left: 40px;
+    border: 2px solid black;
+    color: black;
 }
+
 
 .fire{
     width: 35px;
@@ -470,13 +485,14 @@ iframe{
     width: 150px;
     background-color: darkgrey;
     left: 37%;
-    top: 650px;
+    top: 645px;
+    border: 2px solid black;
 }
 
 .Timericon{
     position: absolute;
     width: 40px;
-    top: 655px;
+    top: 652px;
     left: 37.1%;
     z-index: 1;
 }
@@ -498,4 +514,89 @@ iframe{
     font-weight: bold;
     position: relative;
     left: -20px;
+}
+.navbar{
+    color:black;
+    position: absolute;
+    top: 0px;
+    left: -100px;
+    width: 150%;
+    height: 85px;
+    background-color:black;
+}
+.rectangle:hover{
+    border: 2px solid white;
+    z-index: 1;
+}
+.profilepic:hover{
+    border: 4px solid white;
+}
+.cooldown_fire{
+    position: absolute;
+    display: none;
+    width: 35px;
+    height: 40px;
+    top: 5px;
+    left: 50px;
+    background-color: red;
+    color: red;
+    z-index: 0;
+    opacity: 0.7;
+}
+.cooldown_wind{
+    position: absolute;
+    display: none;
+    width: 35px;
+    height: 40px;
+    top: 5px;
+    left: 140px;
+    background-color: red;
+    color: red;
+    z-index: 0;
+    opacity: 0.7;
+}
+.cooldown_bolt{
+    position: absolute;
+    display: none;
+    width: 35px;
+    height: 40px;
+    top: 5px;
+    left: 230px;
+    background-color: red;
+    color: red;
+    z-index: 0;
+    opacity: 0.7;
+}
+.cooldown_acid{
+    position: absolute;
+    display: none;
+    width: 35px;
+    height: 40px;
+    top: 5px;
+    left: 320px;
+    background-color: red;
+    color: red;
+    z-index: 0;
+    opacity: 0.7;
+}
+.cooldown_drill{
+    position: absolute;
+    display: none;
+    width: 35px;
+    height: 40px;
+    top: 5px;
+    left: 410px;
+    background-color: red;
+    color: red;
+    z-index: 0;
+    opacity: 0.7;
+}
+.linkz{
+    position: relative;
+    top: 1px;
+    color: white;
+    z-index: 1;
+}
+.linkz:hover{
+    color: lightgrey;
 }

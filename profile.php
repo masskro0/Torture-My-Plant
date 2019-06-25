@@ -11,17 +11,18 @@ include('getinfo.php');
   </head>
     <body>
             <div class="wrapper">
+                <div class="navbar"></div>
             <nav>
                 <ul>
                     <div class="Homebutton">
-                    <li><a href="index.php"><img class="Homeicon" src="img/planticon.png"></a></li>
+                    <li><a href="index.php"><img class="Homeicon" src="img/planticon2.png"></a></li>
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
-                    <li><img class="Coins" src="img/coins.png"></li>
+                    <li><img class="Coins" src="img/coins2.png"></li>
                     <li><p class="Cointext"><?php echo $coins; ?></p></li>
-                    <li><a><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
-                    <div class="rectangle"></div>
-                    <li><a href="shop.php"><img class="Cart" src="img/carticon.png"><p class="Shoptext">Shop</p></a></li>
+                    <li><a><img class="profilepic" src="img/profilepic2.png" width=8%></a></li>
+                    <div class="rectangle" style="cursor: pointer;" onclick="window.location='shop.php'"></div>
+                    <li><a href="shop.php"><img class="Cart" src="img/carticon2.png"><p class="Shoptext">Shop</p></a></li>
                 </ul>
             </nav>
                 

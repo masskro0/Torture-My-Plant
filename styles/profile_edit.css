@@ -27,43 +27,53 @@ nav  a{
 }
 
 .frontpagetext{
-    color:black;
+    color: white;
     text-decoration: none;
     font-size: 44px;
-    font-weight: bolder;
-    padding-left: 55px;
+    font-weight: bold;
+    padding-left: 15px;
+    position: relative;
+    left: 45px;
+    font-family: 'Arial',sans-serif;
 }
-
 .Homebutton{
-    top: 15px;
+    top: -10px;
     position: absolute;
-    background-color: #eaeafa;
-    padding-bottom: 3px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 153px;
+    width: 450px;
+    background-color: black;
 }
-
 .Homeicon{
     position: absolute;
-    width: 10%;
-    margin-top: 2px;
-    left: 0%;
+    width: 51px;
+    margin-top: 0px;
+    left: 0px;
 }
 
 .rectangle {
     position: absolute;
-    top: 14px;
+    top: 10px;
     left: 66.45%;
-    height: 55px;
+    height: 56px;
     width: 165px;
-    background-color: lightblue;
-    z-index: -1;
+    z-index: 0;
 }
 .profilepic{
     position: absolute;
     display: block;
-    left: 84.2%;
-    top: 7px;
-    width: 53px;
-    border: 5px solid black;
+    left: 84.1%;
+    top: -30px;
+    width: 56px;
+    border: 2px solid white;
+    background-color: white;
+    padding-bottom: 25px;
+    margin-top: 20px;
+    padding-top: 22px;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 .Cart{
@@ -71,7 +81,7 @@ nav  a{
     display: block;
     left: 66.45%;
     width: 60px;
-    top: 11px;
+    top: 12px;
 }
 
 .Shoptext{
@@ -79,15 +89,17 @@ nav  a{
     display: block;
     font-weight: bold;
     position: absolute;
+    color: white;
+    
     left: 70.95%;
-    top: -7px;
+    top: -5px;
 }
 
 .Coins{
     position: absolute;
     display: block;
-    left: 52.55%;
-    top: 24px;
+    left: 49%;
+    top: 26px;
     width: 30px;
     
 }
@@ -97,8 +109,9 @@ nav  a{
     display: block;
     font-weight: bold;
     position: absolute;
-    left: 55.6%;
-    top: -7px;
+    color: white;
+    left: 52.5%;
+    top: -5px;
 }
 
 .Header{
@@ -122,10 +135,9 @@ nav  a{
 .screen{
     position: relative;
     background-color: lightgrey;
-    width: 94.6%;
+    width: 95%;
     padding: 16px;
     padding-top: 60px;
-    border: 4px solid black;
     top: 65px;
 }
 
@@ -171,8 +183,10 @@ input[type=text], input[type=password] {
     font-size: 20px;
     top: 190px;
     height: 35px;
-    background-color: dodgerblue;
+    background-color: skyblue;
     width: 18%;
+    border-width: thin;
+    border: 2px solid black;
 }
 
 .error {
@@ -211,24 +225,31 @@ figure img{
     position: relative;
     display: block;
     font-size: 20px;
-    background-color: dodgerblue;
+    background-color: skyblue;
     border-radius: 8px;
-    border-width: thick;
-    border-color: black;
+    border-width: thin;
+    color: black;
     width: 20%;
     height: 50px;
+    border: 2px solid black;
 }
 
 .Cancel{
-    background-color: red;
     position: relative;
+    display: block;
+    font-size: 20px;
     width: 20%;
-
+    border-width: thin;
+    border-radius: 8px;
+    height: 50px;
+    background-color: grey;
+    color: white;
+    border: 2px solid black;
+    
 }
 
 .Accept{
     background-color: limegreen;
-    position: relative;
     display: inline;
     width: 27%;
     top: 50px;
@@ -246,4 +267,21 @@ figure img{
 form{
     position: relative;
     top: -80px;
+}
+.navbar{
+    color:black;
+    position: absolute;
+    top: 0px;
+    left: -100px;
+    width: 150%;
+    height: 85px;
+    background-color:black;
+}
+.Homebutton:hover{
+    border: 2px solid white;
+    z-index: 1;
+}
+.rectangle:hover{
+    border: 2px solid white;
+    z-index: 1;
 }

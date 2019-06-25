@@ -153,10 +153,15 @@ print('Socket now listening')
 options = {
         0: toolsOff,
         1: flameOn,
+        6: flameOff,
         2: boltOn,
+        7: boltOff,
         3: acidOn,
+        8: acidOff,
         4: windOn,
+        9: windOff,
         5: drillOn,
+        10: drillOff
 }
         
 ###----------------TEST----------------###
@@ -182,7 +187,7 @@ def clientthread(conn):
 
         #Auswerten data und Ansteuerung Quälwerkzeuge
         try: options[eingabe]()
-        except: print('invalid input. Number between 0 and 5 expected')        
+        except: print('invalid input. Number between 0 and 10 expected')        
 
         
         print(data)

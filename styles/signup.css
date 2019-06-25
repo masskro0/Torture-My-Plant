@@ -33,7 +33,7 @@ a, p, button, label, input, h1{
     margin-bottom: 10px;
 }
 .screen{
-    background-color: lightblue;
+    background-color: lightgrey;
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -72,15 +72,17 @@ input[type=text], input[type=password] {
     margin-right: auto;
     margin-top: 10px;
     font-size: 30px;
-    background-color: limegreen;
+    background-color: skyblue;
     border-radius: 8px;
-    border-width: thick;
+    border-width: thin;
     width: 20%;
+    color: black;
+    border: 2px solid black;
 }
 .uploadbutton{
     position: absolute;
     left: 70.3%;
-    width: 12%;
+    width: 12.4%;
     top: 250px;
     height: 35px;
     background-color: dodgerblue;
