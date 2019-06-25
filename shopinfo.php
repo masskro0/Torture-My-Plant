@@ -4,6 +4,7 @@
  */
 
 session_start();
+
 // Login info for the MySQL database
 $host = 'localhost';
 $user = 'user';

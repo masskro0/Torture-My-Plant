@@ -2,7 +2,9 @@
 include('shopinfo.php');
 if(!$_SESSION['loggedin']){
     header('Location: index.php');
-}?>
+    
+}
+?>
 <!doctype html>
 <html>
   <head>
@@ -50,6 +52,7 @@ if(!$_SESSION['loggedin']){
                 <h1 class="Header">Shop</h1>
                 <div class ="screen">
                 <div class ="error" id="error"></div>
+                <?php if (!(in_array(1, $array_orders) && in_array(2, $array_orders))) { ?>
                 <ul><h1 class="Categorytext">Plants</h1>
                 <?php if (!in_array(1, $array_orders)){ ?>
                 <li id="<?php echo $array_id[0]; ?>"><h2 class="Item"><?php echo $array_name[0]; ?></h2>
@@ -70,6 +73,8 @@ if(!$_SESSION['loggedin']){
                 </li>
                 <?php } ?>
                 </ul>
+                <?php } ?>
+                <?php if(!(in_array(3, $array_orders) && in_array(4, $array_orders) && in_array(5, $array_orders))) { ?>
                 <ul>
                 <h1 class="Categorytext">Tools</h1>
                 <?php if (!in_array(3, $array_orders)){ ?>
@@ -100,6 +105,8 @@ if(!$_SESSION['loggedin']){
                 </li>
                 <?php } ?>
                 </ul>
+                <?php } ?>
+                <?php if (!(in_array(6, $array_orders) && in_array(7, $array_orders) && in_array(8, $array_orders) && in_array(9, $array_orders) && in_array(10, $array_orders) && in_array(11, $array_orders) && in_array(12, $array_orders))) { ?>
                 <ul>
                 <h1 class="Categorytext">Upgrades</h1>
                 <?php if (!in_array(6, $array_orders)){ ?>
@@ -174,6 +181,7 @@ if(!$_SESSION['loggedin']){
                 <button class="Buy">Buy</button>
                 </li> -->
                 </ul>
+                <?php } ?>
             </div>
         </div>
     </body>
