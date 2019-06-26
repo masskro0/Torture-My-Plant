@@ -103,7 +103,7 @@ def drillOff():
     #schalte Bohrer aus
     GPIO.output(18, GPIO.LOW)
     #fahre Bohrer auf Startposition
-    p.ChangeDutyCycle(7)
+    #p.ChangeDutyCycle(7)
     time.sleep(0.5)
     p.ChangeDutyCycle(0)
     print('drill off')
@@ -182,13 +182,14 @@ def clientthread(conn):
         data = conn.recv(1024)  # 1024 Bytes
         data = data.decode()
 
-        try: int(data)
-        except ValueError: print('Input not a number')
+        #try: int(data)
+        #except ValueError: print('Input not a number')
 
         #Auswerten data und Ansteuerung Quälwerkzeuge
-        try: options[eingabe]()
-        except: print('invalid input. Number between 0 and 10 expected')        
-
+        #try: options[eingabe]()
+        #except: print('invalid input. Number between 0 and 10 expected')        
+        options[int(data)]()
+         
         
         print(data)
         if not data: 

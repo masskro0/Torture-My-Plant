@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 
 // Port
-$service_port = 9995;
+$service_port = 9997;
 
 // Localhost
 $address = '127.0.0.1';
