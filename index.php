@@ -15,7 +15,6 @@ error_reporting(E_ALL);*/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css">
-      
     <script>
          /* Asynchronous call of the validation script login.php to display without refreshing the page. Refreshes the pages if everything is ok. */
         function validate() {
@@ -83,7 +82,7 @@ error_reporting(E_ALL);*/
                         <?php } else{ ?>
                         <li class="right"><a class="linkz" href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
                         <li class="right"><a class="linkz" href="signup.php">Create Account</a></li>
-                        
+                    
                    <?php } ?>
                 </ul>
             </nav>
@@ -262,7 +261,7 @@ class="closetorture" title="Close Modal">&times;</span>
         </div>
     </div>
 </div>
-        
+
 </body>
 
 
@@ -427,9 +426,10 @@ function quitTorture(){
                             break;
             }
         }
+    
 </script>
 
-    
+  
 <!-- slidescript -->
 <script>
 var slideIndex = 1;
@@ -504,5 +504,7 @@ document.onkeydown = function(evt) {
         modal2.style.display = "none";
     }
 };
+    
+
 </script>
 </html>
