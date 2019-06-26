@@ -59,7 +59,7 @@ if(!$_SESSION['loggedin']){
             <div class="navbar"></div>
             <nav>
                 <ul>
-                    <div class="Homebutton">
+                    <div style="cursor: pointer;" onclick="window.location='index.php'" class="Homebutton">
                     <li><a href="index.php"><img class="Homeicon" src="img/planticon2.png"></a></li>
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
