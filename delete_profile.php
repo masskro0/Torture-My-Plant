@@ -57,6 +57,11 @@ foreach($files as $file){
 // Delete the folder
 rmdir($path);
 // Delete the row
+if ($stmt = $connect->prepare('DELETE FROM Orders WHERE user_id = ?')) {
+        $stmt->bind_param('s', $user_id);
+        $stmt->execute();
+}
+$stmt->close();
 if ($stmt = $connect->prepare('DELETE FROM User WHERE user_id = ?')) {
         $stmt->bind_param('s', $user_id);
         $stmt->execute();

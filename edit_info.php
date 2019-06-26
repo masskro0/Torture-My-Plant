@@ -87,8 +87,9 @@ if(isset($_POST['submit'])) {
     if (strlen($_POST['password_new1']) > 30 || strlen($_POST['password_new2']) < 5) {
         array_push($errors, "Password must be between 5 and 30 characters long");
     }
+    
     // Allow only JPEG format
-    if($_FILES['image']['tmp_name'] != NULL){
+    if(!is_null($_FILES['image']['tmp_name'])){
         $verifyimg = getimagesize($_FILES['image']['tmp_name']);
         if(($verifyimg['mime'] != 'image/jpeg') && !(empty($_FILES['image']['tmp_name']))) {
             array_push($errors, "Only JPEG images are allowed");
@@ -102,7 +103,7 @@ if(isset($_POST['submit'])) {
         $row = $res->fetch_assoc();
         $str_id = ''.$row['user_id'];
         // res has to be 0 if it's a non existing username; if it's the own user's name, then proceed
-        if ($res->num_rows > 0 && (intval($str_id) !== $_SESSION['user_id'])){            
+        if ($res->num_rows > 0 && (intval($str_id) !== intval($_SESSION['user_id']))){            
             // Username already exists
             $stmt_username->close();
             array_push($errors, "This username is already taken. Please choose another one");
@@ -117,7 +118,7 @@ if(isset($_POST['submit'])) {
         $row = $res->fetch_assoc();
         $str_id = ''.$row['user_id'];
         // res has to be 0 if it's a non existing username; if it's the own user's email, then proceed
-        if ($res->num_rows > 0 && (intval($str_id) !== $_SESSION['user_id'])){            
+        if ($res->num_rows > 0 && (intval($str_id) !== intval($_SESSION['user_id']))){            
                 // Username already exists
                 $stmt_email->close();
                 array_push($errors, "This e-mail adress is already taken");
@@ -150,7 +151,7 @@ if(isset($_POST['submit'])) {
         // Check if no image was chosen
         if(empty($_FILES['image']['name'])){
             $uploadfile = NULL;
-            if(!is_null($row['profile_picture']) || !empty($row['profile_picture'])){
+            if(!is_null($row['profile_picture'])){
                 $uploadfile = $row['profile_picture'];
             }
         } else {
@@ -165,14 +166,25 @@ if(isset($_POST['submit'])) {
                 $uploadfile = NULL;
             }
         }
-
-        if($stmt = $connect->prepare("UPDATE User SET username = '".$_POST['username']."', email = '".$_POST['email']."', password = '".$password."', profile_picture = '".$uploadfile."' WHERE user_id = '".$_SESSION['user_id']."'")){
-            $stmt->execute();
-            $_SESSION['name'] = $_POST['username'];
-            $uname = $_POST['username'];
-            $stmt->close();
-            header("Location: profile.php");
-            die();
+        if(is_null($uploadfile)){
+            if($stmt = $connect->prepare("UPDATE User SET username = '".$_POST['username']."', email = '".$_POST['email']."', password = '".$password."' WHERE user_id = '".$_SESSION['user_id']."'")){
+                $stmt->execute();
+                $_SESSION['name'] = $_POST['username'];
+                $uname = $_POST['username'];
+                $stmt->close();
+                header("Location: profile.php");
+                die();
+            }
+        }
+        else {
+            if($stmt = $connect->prepare("UPDATE User SET username = '".$_POST['username']."', email = '".$_POST['email']."', password = '".$password."', profile_picture = '".$uploadfile."' WHERE user_id = '".$_SESSION['user_id']."'")){
+                $stmt->execute();
+                $_SESSION['name'] = $_POST['username'];
+                $uname = $_POST['username'];
+                $stmt->close();
+                header("Location: profile.php");
+                die();
+            }
         }
     }
 

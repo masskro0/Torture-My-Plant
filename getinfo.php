@@ -1,8 +1,6 @@
 <?php 
 session_start();
-if(!$_SESSION['loggedin']){
-    header('Location: index.php');
-}
+
 // Login info for the MySQL database
 $host = 'localhost';
 $user = 'user';

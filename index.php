@@ -1,6 +1,9 @@
 <?php
-include('balance.php');
-include('getinfo_index.php');
+    include('balance.php');
+    include('getinfo_index.php');
+if($_SESSION['loggedin']){
+    include('getinfo.php');
+}
 session_start();
 /*
 ini_set('display_errors', 1);
@@ -76,7 +79,20 @@ error_reporting(E_ALL);*/
                     <?php if($_SESSION['loggedin'] === TRUE){ ?>
                         <li><img class="Coins" src="img/coins2.png"></li>
                         <li><p class="Cointext"><?php echo $coins; ?></p></li>
-                        <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" ></a></li>
+                        <li><a href="profile.php">
+                            <?php if($row['profile_picture'] !== NULL){
+                                ?>
+                                <figure>
+                                <?php echo "<img src=\"$path\">"; ?>
+                                </figure>
+                                <?php } else{ ?>
+                                <img class="profilepic" src="img/profilepic.png" >
+                                <?php } ?></a>
+                        </li>
+                        
+                    
+                        <!--<li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" ></a></li>
+                    -->
                         <div class="rectangle" style="cursor: pointer;" onclick="window.location='shop.php'"></div>
                         <li><a href ="shop.php"><img class="Cart" src="img/carticon2.png"><p class="Shoptext">Shop</p></a></li>
                         <?php } else{ ?>
@@ -141,7 +157,6 @@ error_reporting(E_ALL);*/
                 } else{ ?>
                     <button class="accept" onclick="document.getElementById('id01').style.display='block'">Torture Me!</button>
             <?php } ?>
-        
     </div>
     
      <!--Loginscreen-->

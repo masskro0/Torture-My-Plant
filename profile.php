@@ -21,7 +21,18 @@ include('getinfo.php');
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
                     <li><p class="Cointext"><?php echo $coins; ?></p></li>
-                    <li><a><img class="profilepic" src="img/profilepic2.png" width=8%></a></li>
+                    
+                    <li><a href="profile.php">
+                            <?php if($row['profile_picture'] !== NULL){
+                                ?>
+                                <figure class="fig1">
+                                <?php echo "<img src=\"$path\">"; ?>
+                                </figure>
+                                <?php } else{ ?>
+                                <img class="profilepic" src="img/profilepic2.png" >
+                                <?php } ?></a>
+                    </li>
+                    
                     <div class="rectangle" style="cursor: pointer;" onclick="window.location='shop.php'"></div>
                     <li><a href="shop.php"><img class="Cart" src="img/carticon2.png"><p class="Shoptext">Shop</p></a></li>
                 </ul>
@@ -32,21 +43,22 @@ include('getinfo.php');
                 <h1 class="MyProfile">My Profile</h1>
                 <?php if($row['profile_picture'] !== NULL){
                 ?>
-                <figure>
+                <figure class="fig2">
                 <?php echo "<img src=\"$path\">"; ?>
                 </figure>
                 <?php } else{ ?>
-                <img class="Userpicture" src="img/profilepic.png">
+                <img class="Userpicture" src="img/profilepic2.png">
                 <?php } ?>
                 
                 <p class="Profiletext Username"><?php echo $row['username']; ?></p>
                 <p class="Profiletext Plantstortured">Plants tortured: <?php echo $row['plants_tortured']; ?></p><br>
+                <div class="buttons">
                 <a href="profile_edit.php"><button class="Normal">Edit Profile</button></a>
                 <br>
                 <a href="logout.php"><button class="Normal Logout" href="logout.php">Logout</button></a><br>
                 <!--<a href="delete_profile.php"><button class="Normal Delete">Delete Profile</button></a>-->
                 <a href="" class="confirmation-popup"><button class="Normal Delete">Delete Profile</button></a>
-
+                </div>
                 </div>
                 
                 

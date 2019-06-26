@@ -151,9 +151,11 @@ if(isset($_POST['submit'])) {
                     $uploadfile = NULL;
                 }
             }
-            if($stmt = $connect->prepare("UPDATE User SET profile_picture = '".$uploadfile."' WHERE user_id = '".$lastuserid."'")){
-                $stmt->execute();
-                $stmt->close();
+            if (!is_null($uploadfile)){
+                if($stmt = $connect->prepare("UPDATE User SET profile_picture = '".$uploadfile."' WHERE user_id = '".$lastuserid."'")){
+                    $stmt->execute();
+                    $stmt->close();
+                }
             }
             $_SESSION['user_id'] = $lastuserid;
             $connect->close();

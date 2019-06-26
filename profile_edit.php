@@ -27,7 +27,18 @@ include('edit_info.php');
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
                     <li><p class="Cointext"><?php echo $coins; ?></p></li>
-                    <li><a href="profile.php"><img class="profilepic" src="img/profilepic2.png" width=8%></a></li>
+                    
+                    <li><a href="profile.php">
+                            <?php if($row['profile_picture'] !== NULL){
+                                ?>
+                                <figure class="fig1">
+                                <?php echo "<img src=\"$path\">"; ?>
+                                </figure>
+                                <?php } else{ ?>
+                                <img class="profilepic" src="img/profilepic2.png" >
+                                <?php } ?></a>
+                    </li>
+                    
                     <div class="rectangle" style="cursor: pointer;" onclick="window.location='shop.php'"></div>
                     <li><a href="shop.php"><img class="Cart" src="img/carticon2.png"><p class="Shoptext">Shop</p></a></li>
                 </ul>
@@ -42,10 +53,14 @@ include('edit_info.php');
         <form method="post" action="" enctype="multipart/form-data">
             <div class="container">
             <?php include('errors.php'); ?>
-            <?php echo "<img class=\"userpic\" src=\"$path\">"; ?>
+            <?php if(is_null($row['profile_picture'])){
+            echo "<img class=\"Userpicture\" src=\"img/profilepic2.png\">";
+            } else {
+            echo "<img class=\"userpic\" src=\"$path\">";
+            }?>
               
             <input type="file" name="image" onchange="readURL(this);" accept="image/jpeg" style="display:none;" id="file">
-            <figure>
+            <figure class="fig2">
             <img id="uploaded" src="#"/>
             </figure>
             <input type="button" class="uploadbutton accept" value="Change Picture" onclick="document.getElementById('file').click();">     
@@ -69,7 +84,6 @@ include('edit_info.php');
             </div>
             
         </form>
-        
         </div>       
     </body>
     

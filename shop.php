@@ -1,5 +1,6 @@
 <?php include('balance.php');
 include('shopinfo.php');
+include('getinfo.php');
 session_start();
 if(!$_SESSION['loggedin']){
     header('Location: index.php');
@@ -65,7 +66,18 @@ if(!$_SESSION['loggedin']){
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
                     <li><p id="balance" class="Cointext"><?php echo $coins; ?></p></li>
-                    <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
+                    
+                    <li><a href="profile.php">
+                            <?php if($row['profile_picture'] !== NULL){
+                                ?>
+                                <figure>
+                                <?php echo "<img src=\"$path\">"; ?>
+                                </figure>
+                                <?php } else{ ?>
+                                <img class="profilepic" src="img/profilepic.png" >
+                                <?php } ?></a>
+                        </li>
+                    
                     <div class="rectangle"></div>
                     <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
                 </ul>
