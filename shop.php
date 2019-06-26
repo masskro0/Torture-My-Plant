@@ -1,5 +1,6 @@
 <?php include('balance.php');
 include('shopinfo.php');
+session_start();
 if(!$_SESSION['loggedin']){
     header('Location: index.php');
     
@@ -34,6 +35,22 @@ if(!$_SESSION['loggedin']){
             }
             };
             
+            // Update the balance dynamically
+            // Wait 1 seconds to finish the script above
+            setTimeout(1000);
+            var xmlhttp2 = new XMLHttpRequest();
+            // Open the balance.php script to get the newest balance of the user
+            xmlhttp2.open("GET", "balance.php", true);
+            // Set a request header so that balance.php knows that it's a xmlhttprequest
+            xmlhttp2.setRequestHeader("HTTP_X_REQUESTED_WITH",'xmlhttprequest');
+            xmlhttp2.send();
+            xmlhttp2.onreadystatechange = function() {
+                // Update the balance if the script is done
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("balance").innerHTML = this.responseText;
+                }
+            };
+            
         }
     </script>
   </head>
@@ -47,7 +64,7 @@ if(!$_SESSION['loggedin']){
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
-                    <li><p class="Cointext"><?php echo $coins; ?></p></li>
+                    <li><p id="balance" class="Cointext"><?php echo $coins; ?></p></li>
                     <li><a href="profile.php"><img class="profilepic" src="img/profilepic.png" width=8%></a></li>
                     <div class="rectangle"></div>
                     <li><a><img class="Cart" src="img/carticon.png"></a><p class="Shoptext">Shop</p></li>
