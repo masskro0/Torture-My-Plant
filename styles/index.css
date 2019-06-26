@@ -121,32 +121,31 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Add padding to containers */
 .container {
   padding: 16px;
 }
 
  /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 2; /* Sit on top */
+  display: none; 
+  position: fixed;
+  z-index: 2; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.85); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.65); 
   padding-top: 100px;
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5px auto; /* 15% from the top and centered */
+  margin: 5px auto; 
   border: 4px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 50%;
 }
 
 .logintext{
@@ -520,7 +519,7 @@ iframe{
     position: absolute;
     top: 0px;
     left: -100px;
-    width: 150%;
+    width: 106.6%;
     height: 85px;
     background-color:black;
 }
@@ -595,7 +594,6 @@ iframe{
     position: relative;
     top: 1px;
     color: white;
-    z-index: 1;
 }
 .linkz:hover{
     color: lightgrey;

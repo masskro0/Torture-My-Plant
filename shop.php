@@ -12,7 +12,13 @@ if(!$_SESSION['loggedin']){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/shop.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+
     <script>
+        window.value = 0;
+        function getid(id){
+           window.value = id; 
+        }
         /* Function for buying an item when the buy button was clicked. Sends a xmlhttprequest to the buy.php script */
         function buy(id) {
             var xmlhttp = new XMLHttpRequest();
@@ -60,7 +66,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[0]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[0]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[0]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[0]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(2, $array_orders)){ ?>
@@ -69,7 +75,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[1]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[1]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[1]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[1]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 </ul>
@@ -83,7 +89,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[2]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[2]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[2]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[2]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(4, $array_orders)){ ?>
@@ -92,7 +98,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[3]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[3]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[3]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[3]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(5, $array_orders)){ ?>
@@ -101,7 +107,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[4]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[4]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[4]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[4]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 </ul>
@@ -115,7 +121,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[5]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[5]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[5]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[5]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(7, $array_orders)){ ?>
@@ -124,7 +130,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[6]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[6]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[6]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[6]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(8, $array_orders)){ ?>
@@ -133,7 +139,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[7]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[7]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[7]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[7]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(9, $array_orders)){ ?>
@@ -142,7 +148,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[8]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[8]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[8]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[8]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(10, $array_orders)){ ?>
@@ -151,7 +157,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[9]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[9]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[9]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[9]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(11, $array_orders)){ ?>
@@ -160,7 +166,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[10]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[10]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[10]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[10]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(12, $array_orders)){ ?>
@@ -169,7 +175,7 @@ if(!$_SESSION['loggedin']){
                 <p class="Description"><?php echo $array_description[11]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo $array_price[11]; ?></p>
-                <button class="Buy" onclick="buy(<?php echo $array_id[11]; ?>)">Buy</button>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[11]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <!--
@@ -184,5 +190,41 @@ if(!$_SESSION['loggedin']){
                 <?php } ?>
             </div>
         </div>
+        <!------------Confirmation Popup -------------->  
+        <div class="cd-popup" role="alert">
+            <div class="cd-popup-container">
+                <p>Are you sure you want to buy this item?</p>
+                <ul class="cd-buttons">
+                    <li><a onclick="buy(window.value)" class="popup-close" href="">Yes</a></li>
+                    <li><a class="popup-close" href="">No</a></li>
+                </ul>
+            </div> 
+        </div> 
     </body>
+    
+    <script>
+    
+    /* Script for the confirmation popup */
+    jQuery(document).ready(function($){
+	// open popup
+	$('.confirmation-popup').on('click', function(event){
+		event.preventDefault();
+		$('.cd-popup').addClass('is-visible');
+	});
+	
+	// close popup
+	$('.cd-popup').on('click', function(event){
+		if( $(event.target).is('.popup-close') || $(event.target).is('.cd-popup') ) {
+			event.preventDefault();
+			$(this).removeClass('is-visible');
+		}
+	});
+	// close popup when clicking the esc keyboard button
+	$(document).keyup(function(event){
+    	if(event.which=='27'){
+    		$('.cd-popup').removeClass('is-visible');
+	    }
+    });
+    });
+    </script>
 </html>
