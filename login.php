@@ -1,6 +1,8 @@
 <?php
 /* This script validates user input from the login form and creates new sessions */
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Function to sanitize "bad code" like HTML or Javascript code. Returns a "clean" input
 function test_input($data) { 
     $data = trim($data); 
@@ -64,7 +66,8 @@ function test_input($data) {
             else {
                 array_push($errors2, 'Wrong password');
                 echo 'Wrong password';
-        die();
+                $stmt->close();
+                die();
             }
         }
         else {
@@ -73,6 +76,25 @@ function test_input($data) {
         die();
         }
     }
-        $stmt->close();
-//}
+
+// Function if the "keep me logged in" box is ticked
+if($_POST['remember'] === "true"){
+    // Generates cryptographically secure pseudo-random 128 bytes long
+    $token = random_bytes(128);
+    // Store token in the database
+    if($stmt = $connect->prepare("UPDATE User SET token = '".$token."' WHERE user_id = '".$_SESSION['user_id']."'")){
+        $stmt->execute();
+    }
+    // Information we want to store in the cookie
+    $cookie = $user_id . ':' . $token;
+    // Generate a secret key
+    $secret_key = 'secret';
+    // Hash the cookie information
+    $mac = hash_hmac('sha256', $cookie, $secret_key);
+    // Add the hashed information to the cookie
+    $cookie .= ':' . $mac;
+    // Create a cookie
+    setcookie('rememberme', $cookie, time() + (86400 * 30));
+}
+
 ?>
