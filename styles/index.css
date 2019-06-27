@@ -86,6 +86,7 @@ nav a{
     border-width: thin;
     width: 20%;
     color: black;
+    cursor: pointer;
 }
 .Homebutton{
     top: -10px;
@@ -436,6 +437,7 @@ iframe{
     margin-left: 40px;
     border: 2px solid black;
     color: black;
+    cursor: pointer;
 }
 
 
@@ -475,6 +477,7 @@ iframe{
     float:right;
     border: 5px solid black;
     margin-left: 45px;
+    cursor: pointer;
 }
 
 .Timerbox{
@@ -625,3 +628,14 @@ figure img{
     height: 130%;
     margin:-21.875% 0;
 }   
+.accept:hover{
+    background-color: dodgerblue;
+    color: black;
+}
+.Quittorture:hover{
+    background-color: dodgerblue;
+    color: black;
+}
+.tortureul li:hover{
+    background-color: dimgrey;
+}

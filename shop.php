@@ -65,7 +65,7 @@ if(!$_SESSION['loggedin']){
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
-                    <li><p id="balance" class="Cointext"><?php echo $coins; ?></p></li>
+                    <li><p id="balance" class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
                     
                     <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){
@@ -94,7 +94,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[0], 14); ?>">
                 <p class="Description"><?php echo $array_description[0]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[0]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[0], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[0]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -103,7 +103,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[1], 14); ?>">
                 <p class="Description"><?php echo $array_description[1]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[1]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[1], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[1]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -117,7 +117,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[2], 14); ?>">
                 <p class="Description"><?php echo $array_description[2]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[2]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[2], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[2]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -126,7 +126,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[3], 14); ?>">
                 <p class="Description"><?php echo $array_description[3]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[3]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[3], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[3]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -135,9 +135,9 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[4], 14); ?>">
                 <p class="Description"><?php echo $array_description[4]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[4]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[4], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[4]; ?>)">Buy</button></a>
-                </li>
+                    </li>
                 <?php } ?>
                 </ul>
                 <?php } ?>
@@ -149,7 +149,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[5], 14); ?>">
                 <p class="Description"><?php echo $array_description[5]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[5]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[5], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[5]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -158,7 +158,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[6], 14); ?>">
                 <p class="Description"><?php echo $array_description[6]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[6]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[6], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[6]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -167,7 +167,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[7], 14); ?>">
                 <p class="Description"><?php echo $array_description[7]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[7]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[7], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[7]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -176,7 +176,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[8], 14); ?>">
                 <p class="Description"><?php echo $array_description[8]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[8]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[8], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[8]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -185,7 +185,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[9], 14); ?>">
                 <p class="Description"><?php echo $array_description[9]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[9]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[9], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[9]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -194,7 +194,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[10], 14); ?>">
                 <p class="Description"><?php echo $array_description[10]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[10]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[10], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[10]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
@@ -203,7 +203,7 @@ if(!$_SESSION['loggedin']){
                 <img class="Itemjpg" src="<?php echo substr($array_picture[11], 14); ?>">
                 <p class="Description"><?php echo $array_description[11]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
-                <p class="Price"><?php echo $array_price[11]; ?></p>
+                <p class="Price"><?php echo number_format($array_price[11], 0, "'", "'"); ?></p>
                 <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[11]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>

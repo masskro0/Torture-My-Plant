@@ -184,6 +184,7 @@ input[type=text], input[type=password] {
     width: 18%;
     border-width: thin;
     border: 2px solid black;
+    cursor: pointer;
 }
 
 .error {
@@ -229,8 +230,9 @@ input[type=text], input[type=password] {
     border-width: thin;
     color: black;
     width: 20%;
-    height: 50px;
+    height: 35px;
     border: 2px solid black;
+    cursor: pointer;
 }
 
 .Cancel{
@@ -240,10 +242,11 @@ input[type=text], input[type=password] {
     width: 20%;
     border-width: thin;
     border-radius: 8px;
-    height: 50px;
+    height: 35px;
     background-color: grey;
     color: white;
     border: 2px solid black;
+    cursor: pointer;
     
 }
 
@@ -251,7 +254,7 @@ input[type=text], input[type=password] {
     background-color: limegreen;
     display: inline;
     width: 27%;
-    top: 50px;
+    top: 35px;
     left: 73.5%;
 }
 
@@ -317,4 +320,17 @@ a{
     left: 85.05%;
     top: 43px;
     
+}
+
+.Cancel:hover{
+    background-color: lightgrey;
+    color: black;
+}
+.accept:hover{
+    background-color: dodgerblue;
+    color: black;
+}
+.Normal:hover{
+    background-color: green;
+    color: white;
 }

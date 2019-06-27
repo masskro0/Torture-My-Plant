@@ -359,3 +359,8 @@ figure img{
     height: 130%;
     margin:-21.875% 0;
 }   
+
+.Buy:hover{
+    background-color: dodgerblue;
+    color: black;
+}

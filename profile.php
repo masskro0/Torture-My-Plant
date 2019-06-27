@@ -51,12 +51,11 @@ include('getinfo.php');
                 <?php } ?>
                 
                 <p class="Profiletext Username"><?php echo $row['username']; ?></p>
-                <p class="Profiletext Plantstortured">Plants tortured: <?php echo $row['plants_tortured']; ?></p><br>
+                <p class="Profiletext Plantstortured">Plants tortured: <?php echo number_format($row['plants_tortured'], 0, "'", "'"); ?></p><br>
                 <div class="buttons">
                 <a href="profile_edit.php"><button class="Normal">Edit Profile</button></a>
                 <br>
                 <a href="logout.php"><button class="Normal Logout" href="logout.php">Logout</button></a><br>
-                <!--<a href="delete_profile.php"><button class="Normal Delete">Delete Profile</button></a>-->
                 <a href="" class="confirmation-popup"><button class="Normal Delete">Delete Profile</button></a>
                 </div>
                 </div>
