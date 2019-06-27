@@ -69,7 +69,7 @@ function test_input($data) {
         }
         else {
             array_push($errors2, 'Username does not exist.');
-            echo 'Username doesnt exist';
+            echo 'Username doesn\'t exist';
         die();
         }
     }
