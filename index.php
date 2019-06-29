@@ -93,7 +93,7 @@ error_reporting(E_ALL);*/
         /* method for starting torture, gets plant number, opens torture screen */
         function startTorture(str) {
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "clientRobot.php?q=" + str, true);
+            xmlhttp.open("GET", "clientRobotDatabase.php?q=" + str, true);
             xmlhttp.send();
             document.getElementById('id02').style.display='block';
             console.log('plant ' + str + ' selected');
