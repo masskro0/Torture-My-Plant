@@ -326,6 +326,12 @@ class="closetorture" title="Close Modal">&times;</span>
 <!--quit Torture script-->
 <script>
 function quitTorture(){
+    //updates balance, must be diplayed
+    console.log("updating balance, seconds: " + torturedSec);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "updateBalance.php?q=" + torturedSec, true);
+    xmlhttp.send();
+    torturedSec = 0;
     modal2.style.display = "none";
 }
 </script>
