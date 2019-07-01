@@ -99,7 +99,7 @@ error_reporting(E_ALL);*/
         function startTorture(str) {
             window.value = 0;
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "clientRobot.php?q=" + str, true);
+            xmlhttp.open("GET", "clientRobotDatabase.php?q=" + str, true);
             xmlhttp.send();
             document.getElementById('id02').style.display='block';
             console.log('plant ' + str + ' selected');
@@ -335,6 +335,12 @@ class="closetorture" title="Close Modal">&times;</span>
 <!--quit Torture script-->
 <script>
 function quitTorture(){
+    //updates balance, must be diplayed
+    console.log("updating balance, seconds: " + torturedSec);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "updateBalance.php?q=" + torturedSec, true);
+    xmlhttp.send();
+    torturedSec = 0;
     modal2.style.display = "none";
     if (window.value > 0){
         var xmlhttp = new XMLHttpRequest();

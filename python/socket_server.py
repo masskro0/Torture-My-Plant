@@ -103,7 +103,7 @@ def drillOff():
     #schalte Bohrer aus
     GPIO.output(18, GPIO.LOW)
     #fahre Bohrer auf Startposition
-    #p.ChangeDutyCycle(7)
+    p.ChangeDutyCycle(7)
     time.sleep(0.5)
     p.ChangeDutyCycle(0)
     print('drill off')

@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 $service_port = 23;
 
 // Localhost
-$address = '10.90.1.170';
+$address = '192.168.0.20';
 
 // Create a TCP/IP socket
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
