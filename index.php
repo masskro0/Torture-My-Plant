@@ -101,6 +101,7 @@ error_reporting(E_ALL);*/
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "clientRobotDatabase.php?q=" + str, true);
             xmlhttp.send();
+            torturedSec = 0;
             document.getElementById('id02').style.display='block';
             console.log('plant ' + str + ' selected');
         }
@@ -457,17 +458,17 @@ function quitTorture(){
         
         <!-- deletes cooldown status -->
         function reenableTool(seltool){
-            console.log("tool " + seltool + " will be reactivated in 10s");
+            console.log("tool " + seltool + " will be reactivated in 30s");
             
             <!-- visualize cooldown, uncomment when finished -->
             showCooldown(seltool);
             
             <!-- cooldown time defined here, add hideCooldown(seltool) when finished -->
-            var cooldowntime = 20000;
+            var cooldowntime = 30000;
             switch(shorterCooldowns){
-                case 0: cooldowntime = 20000;
+                case 0: cooldowntime = 30000;
                         break;
-                case 1: cooldowntime = 10000;
+                case 1: cooldowntime = 15000;
                         break;
             }
             setTimeout(function(){toolsArr[seltool-1] = 0; hideCooldown(seltool)}, cooldowntime);
