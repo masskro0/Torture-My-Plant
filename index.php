@@ -4,42 +4,46 @@
 if($_SESSION['loggedin']){
     include('getinfo.php');
 }
-session_start();
-// Validate a user's cookie and keep him logged in
-$cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
-if ($cookie) {
-    echo 'cookie set';
-    list ($user_id, $token, $mac) = explode(':', $cookie);
-    if (!hash_equals(hash_hmac('sha256', $user_id . ':' . $token, 'secret'), $mac)) {
-        echo 'false';
-        return false;
-    }
-    // Login info for the MySQL database
-    $host = 'localhost';
-    $user = 'user';
-    $pswd = 'password';
-    $db_name = 'website';
-    // Connect to the database
-    $connect = mysqli_connect($host, $user, $pswd, $db_name);
-    // Check if there is an error with the connection
-    if (mysqli_connect_errno()) {
-        die('Connection to MySQL failed: ' . mysql_connect_error());
-    }
-    
-     // Prepare MySQL code and check if the user exists or not
-    if ($stmt = $connect->prepare('SELECT token FROM User WHERE user_id = ' . $user_id )) {
-        $stmt->execute();
-        // Stores the result of the condition
-        $stmt->store_result();
-        $stmt->bind_result($token_db);
-        $stmt->fetch();
-    if (hash_equals($token_db, $token)) {
-        $_SESSION['loggedin'] = TRUE;
-        $_SESSION['user_id'] = $user_id;
-    }
-}
-}
 
+session_start();
+// Validate a user's cookie and keep him logged in     
+if ($_SESSION['loggedin'] !== TRUE){
+    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
+    if ($cookie) {
+        list ($user_id, $token, $mac) = explode(':', $cookie);
+        if (!hash_equals(hash_hmac('sha256', $user_id . ':' . $token, 'secret'), $mac)) {
+            echo 'false';
+            //return false;
+        }
+        // Login info for the MySQL database
+        $host = 'localhost';
+        $user = 'user';
+        $pswd = 'password';
+        $db_name = 'website';
+        // Connect to the database
+        $connect = mysqli_connect($host, $user, $pswd, $db_name);
+        // Check if there is an error with the connection
+        if (mysqli_connect_errno()) {
+            die('Connection to MySQL failed: ' . mysql_connect_error());
+        }
+
+         // Prepare MySQL code and check if the user exists or not
+        if ($stmt = $connect->prepare('SELECT token FROM User WHERE user_id = ' . $user_id )) {
+            $stmt->execute();
+            // Stores the result of the condition
+            $stmt->store_result();
+            $stmt->bind_result($token_db);
+            $stmt->fetch();
+            echo hash_equals($token_db, $token);
+            if ($token_db == $token) {
+                $_SESSION['loggedin'] = TRUE;
+                $_SESSION['user_id'] = $user_id;
+                header('Location: profile.php');
+            die();
+            }
+        }
+    }
+}
 /*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -87,18 +91,19 @@ error_reporting(E_ALL);*/
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "client.php?q=" + str, true);
         xmlhttp.send();
+        window.value = window.value + 1;
         }
     
         
         /* method for starting torture, gets plant number, opens torture screen */
         function startTorture(str) {
+            window.value = 0;
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "clientRobot.php?q=" + str, true);
             xmlhttp.send();
             document.getElementById('id02').style.display='block';
             console.log('plant ' + str + ' selected');
         }
-        
         
         
 
@@ -200,6 +205,9 @@ error_reporting(E_ALL);*/
             <?php } ?>
     </div>
     
+                 
+        
+        
      <!--Loginscreen-->
 <!-- The Modal -->
 <div id="id01" class="modal">
@@ -317,8 +325,9 @@ class="closetorture" title="Close Modal">&times;</span>
         </div>
     </div>
 </div>
+
 </body>
- 
+
     
     
 
@@ -327,6 +336,11 @@ class="closetorture" title="Close Modal">&times;</span>
 <script>
 function quitTorture(){
     modal2.style.display = "none";
+    if (window.value > 0){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "plants_tortured.php?q=", true);
+        xmlhttp.send();
+    }
 }
 </script>
     

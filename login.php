@@ -94,7 +94,7 @@ if($_POST['remember'] === "true"){
     // Add the hashed information to the cookie
     $cookie .= ':' . $mac;
     // Create a cookie
-    setcookie('rememberme', $cookie, time() + (86400 * 30));
+    setcookie('rememberme', $cookie, time()+(86400*30));
 }
 
 ?>
