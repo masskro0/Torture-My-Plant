@@ -125,7 +125,7 @@ error_reporting(E_ALL);*/
                     </div>
                     <?php if($_SESSION['loggedin'] === TRUE){ ?>
                         <li><img class="Coins" src="img/coins2.png"></li>
-                        <li><p class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
+                        <li><p id="balance" class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
                         <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){
                                 ?>
@@ -336,7 +336,7 @@ class="closetorture" title="Close Modal">&times;</span>
 <!--quit Torture script-->
 <script>
 function quitTorture(){
-    //updates balance, must be diplayed
+    //updates balance in database
     console.log("updating balance, seconds: " + torturedSec);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "updateBalance.php?q=" + torturedSec, true);
@@ -348,6 +348,22 @@ function quitTorture(){
         xmlhttp.open("GET", "plants_tortured.php?q=", true);
         xmlhttp.send();
     }
+    
+    // Display the updated balance
+    // Wait 1 second to finish the script above
+    setTimeout(1000);
+    var xmlhttp2 = new XMLHttpRequest();
+    // Open the balance.php script to get the newest balance of the user
+    xmlhttp2.open("GET", "balance.php", true);
+    // Set a request header so that balance.php knows that it's a xmlhttprequest
+    xmlhttp2.setRequestHeader("HTTP_X_REQUESTED_WITH",'xmlhttprequest');
+    xmlhttp2.send();
+    xmlhttp2.onreadystatechange = function() {
+        // Update the balance if the script is done
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("balance").innerHTML = this.responseText;
+        }
+    };
 }
 </script>
     
