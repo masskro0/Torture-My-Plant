@@ -7,8 +7,8 @@
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/signup.css">
     <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script src="script/jquery"></script> 
+
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
   </head>

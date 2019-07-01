@@ -9,9 +9,8 @@ include('edit_info.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/profile_edit.css">
-    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script src="script/jquery"></script> 
+
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
   </head>
@@ -26,7 +25,7 @@ include('edit_info.php');
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
-                    <li><p class="Cointext"><?php echo $coins; ?></p></li>
+                    <li><p class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
                     
                     <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){

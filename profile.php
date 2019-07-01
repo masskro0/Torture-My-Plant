@@ -8,7 +8,7 @@ include('getinfo.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/profile.css">
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+    <script src="script/jquery"></script> 
   </head>
     <body>
             <div class="wrapper">
@@ -20,7 +20,7 @@ include('getinfo.php');
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
-                    <li><p class="Cointext"><?php echo $coins; ?></p></li>
+                    <li><p class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
                     
                     <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){
