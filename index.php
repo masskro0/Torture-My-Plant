@@ -106,6 +106,7 @@ error_reporting(E_ALL);*/
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "clientRobotDatabase.php?q=" + str, true);
             xmlhttp.send();
+            torturedSec = 0;
             document.getElementById('id02').style.display='block';
             console.log('plant ' + str + ' selected');
         }
@@ -379,7 +380,7 @@ class="closetorture" title="Close Modal">&times;</span>
 <!--quit Torture script-->
 <script>
 function quitTorture(){
-    //updates balance, must be diplayed
+    //updates balance in database
     console.log("updating balance, seconds: " + torturedSec);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "updateBalance.php?q=" + torturedSec, true);
@@ -391,6 +392,22 @@ function quitTorture(){
         xmlhttp.open("GET", "plants_tortured.php?q=", true);
         xmlhttp.send();
     }
+    
+    // Display the updated balance
+    // Wait 1 second to finish the script above
+    setTimeout(1000);
+    var xmlhttp2 = new XMLHttpRequest();
+    // Open the balance.php script to get the newest balance of the user
+    xmlhttp2.open("GET", "balance.php", true);
+    // Set a request header so that balance.php knows that it's a xmlhttprequest
+    xmlhttp2.setRequestHeader("HTTP_X_REQUESTED_WITH",'xmlhttprequest');
+    xmlhttp2.send();
+    xmlhttp2.onreadystatechange = function() {
+        // Update the balance if the script is done
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("balance").innerHTML = this.responseText;
+        }
+    };
 }
 </script>
     
@@ -501,17 +518,17 @@ function quitTorture(){
         
         <!-- deletes cooldown status -->
         function reenableTool(seltool){
-            console.log("tool " + seltool + " will be reactivated in 10s");
+            console.log("tool " + seltool + " will be reactivated in 30s");
             
             <!-- visualize cooldown, uncomment when finished -->
             showCooldown(seltool);
             
             <!-- cooldown time defined here, add hideCooldown(seltool) when finished -->
-            var cooldowntime = 20000;
+            var cooldowntime = 30000;
             switch(shorterCooldowns){
-                case 0: cooldowntime = 20000;
+                case 0: cooldowntime = 30000;
                         break;
-                case 1: cooldowntime = 10000;
+                case 1: cooldowntime = 15000;
                         break;
             }
             setTimeout(function(){toolsArr[seltool-1] = 0; hideCooldown(seltool)}, cooldowntime);

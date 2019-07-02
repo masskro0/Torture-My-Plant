@@ -36,6 +36,23 @@ $stmt->close();
 
 //need to fetch multiplier
 $multiplier = 1;
+$array_orders = [];
+// Get all orders from the user off the database
+if($stmt = $connect->prepare('SELECT item_id FROM Orders WHERE user_id = ?')){
+    $stmt->bind_param('i', $_SESSION['user_id']);
+    $stmt->execute();
+    // Stores the result of the condition
+    foreach($stmt->get_result() as $row) {
+        $array_orders[] = $row['item_id'];
+    }
+} else{
+    die('An error occured when we tried to connect to the database.');
+}
+$stmt->close();
+if(in_array(12, $array_orders)){
+    $multiplier = 1.5;
+}
+
 // new balance, calculated from tortured seconds and user multiplayer
 $new_balance = $balance + (($earned_coins)*$multiplier)*10;
 
