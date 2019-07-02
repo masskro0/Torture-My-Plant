@@ -150,18 +150,16 @@ nav  a{
     margin-top: 50px;
     margin-left: 15px;
     font-size: 30px;
-    background-color: skyblue;
-    border-radius: 8px;
-    border-width: thin;
-    border-color: black;
+    background-color: #3c91fa;
+    border: none;
+    border: 2px solid grey;
     color: black;
-    border: 2px solid black;
     width: 20%;
     cursor: pointer;
 }
 .Delete{
     margin-top: 120px;
-  background: #fc7169;
+    background: #fc7169;
 }
 
 .Profileelements{
@@ -360,7 +358,7 @@ nav  a{
     width: 80%;
 }
 .Normal:hover{
-    background-color: dodgerblue;
+    background-color: #367ff5;
     color: black;
 }
 .Delete:hover{

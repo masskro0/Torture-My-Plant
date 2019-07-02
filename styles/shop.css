@@ -178,11 +178,10 @@ nav  a{
     display: block;
     margin-left: 225px;
     font-size: 26px;
-    background-color: skyblue;
-    border-radius: 8px;
-    border-width: thin;
+    background-color: #3c91fa;
     width: 220px;
-    border: 1px solid black;
+    border: none;
+    border: 2px solid grey;
     color: black;
     cursor: pointer;
 }
@@ -363,6 +362,6 @@ figure:hover{
     border: 4px solid white;
 }
 .Buy:hover{
-    background-color: dodgerblue;
+    background-color: #367ff5;
     color: black;
 }

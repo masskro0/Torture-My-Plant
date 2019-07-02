@@ -81,10 +81,9 @@ nav a{
     margin-right: auto;
     margin-top: 10px;
     font-size: 30px;
-    background-color: skyblue;
-    border: 1px solid black;
-    border-radius: 8px;
-    border-width: thin;
+    background-color: #3c91fa;
+    border: none;
+    border: 2px solid grey;
     width: 20%;
     color: black;
     cursor: pointer;
@@ -431,13 +430,12 @@ iframe{
     display: block;
     margin-top: 18px;
     font-size: 25px;
-    background-color: skyblue;
-    border-radius: 8px;
-    border-width: thin;
+    background-color: #3c91fa;
     width: 180px;
     margin-left: 40px;
-    border: 2px solid black;
     color: black;
+    border: none;
+    border: 2px solid grey;
     cursor: pointer;
 }
 
@@ -504,7 +502,7 @@ iframe{
     top: 90%;
 }
 .unavailable{
-    background-color: dodgerblue;
+    background-color: #3c91fa;
 }
 .buttonlink{
     text-decoration: none;
@@ -630,11 +628,11 @@ figure img{
     margin:-21.875% 0;
 }   
 .accept:hover{
-    background-color: dodgerblue;
+    background-color: #367ff5;
     color: black;
 }
 .Quittorture:hover{
-    background-color: dodgerblue;
+    background-color: #367ff5;
     color: black;
 }
 .tortureul li:hover{

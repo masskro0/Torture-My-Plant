@@ -29,10 +29,9 @@ if($stmt = $connect->prepare("SELECT * FROM Game")){
         
         // Port
         $service_port = 23;
-
         // Localhost
-        $address = '10.90.1.170';
-
+        //$address = '10.90.1.170';
+        $address = '127.0.0.1';
         // Create a TCP/IP socket
         $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 

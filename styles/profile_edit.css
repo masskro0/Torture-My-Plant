@@ -170,8 +170,8 @@ input[type=text], input[type=password] {
     margin-top: 10px;
     font-size: 30px;
     background-color: limegreen;
-    border-radius: 8px;
-    border-width: thick;
+    border: none;
+    border: 2px solid grey;
     width: 20%;
 }
 .uploadbutton{
@@ -180,11 +180,12 @@ input[type=text], input[type=password] {
     font-size: 20px;
     top: 190px;
     height: 35px;
-    background-color: skyblue;
+    background-color: #3c91fa;
     width: 18%;
     border-width: thin;
     border: 2px solid black;
     cursor: pointer;
+    color: black;
 }
 
 .error {
@@ -225,13 +226,12 @@ input[type=text], input[type=password] {
     position: relative;
     display: block;
     font-size: 20px;
-    background-color: skyblue;
-    border-radius: 8px;
-    border-width: thin;
+    background-color: #3c91fa;
     color: black;
     width: 20%;
     height: 35px;
-    border: 2px solid black;
+    border: none;
+    border: 2px solid grey;
     cursor: pointer;
 }
 
@@ -240,12 +240,11 @@ input[type=text], input[type=password] {
     display: block;
     font-size: 20px;
     width: 20%;
-    border-width: thin;
-    border-radius: 8px;
     height: 35px;
     background-color: grey;
     color: white;
-    border: 2px solid black;
+    border: none;
+    border: 2px solid grey;
     cursor: pointer;
     
 }
@@ -323,14 +322,14 @@ a{
 }
 
 .Cancel:hover{
-    background-color: lightgrey;
-    color: black;
+    background-color: #6e6b6b;
+    color: white;
 }
 .accept:hover{
-    background-color: dodgerblue;
+    background-color: #367ff5;
     color: black;
 }
 .Normal:hover{
-    background-color: green;
-    color: white;
+    background-color: #1dad47;
+    color: black;
 }
