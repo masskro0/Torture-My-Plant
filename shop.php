@@ -48,7 +48,7 @@ if(!$_SESSION['loggedin']){
             xmlhttp2.onreadystatechange = function() {
                 // Update the balance if the script is done
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("balance").innerHTML = this.responseText;
+                    document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
                 }
             };
             
