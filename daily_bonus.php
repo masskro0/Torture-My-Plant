@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('getinfo_index.php');
 // Login info for the MySQL database
 $host = 'localhost';
 $user = 'user';
@@ -21,8 +22,11 @@ if($stmt = $connect->prepare("SELECT coins FROM User WHERE user_id = ? ")){
 } else{
     die('An error occured when we tried to get your balance.');
 }
-
-$coins = $coins + 500;
+if (in_array(12, $array_orders)){
+    $coins = $coins + 750;
+} else {
+    $coins = $coins + 500;
+}
 date_default_timezone_set("Europe/Berlin");
 $current_date = date('Y-m-d');
 // Update the user's balance when he claims his daily bonus by 500 coins; also update the current date

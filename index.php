@@ -264,7 +264,7 @@ class="close animate">&times;</span>
         <div class="Yellowbox"></div>
         <img class="Bonusjpg" src="img/bonusscreen.jpg">
         <p class="Bonustexttop">Grab your daily bonus!</p>
-        <p class="Bonustextcoins">+ 1000</p>
+        <p class="Bonustextcoins">+ 750</p>
       
         <!-- Torture Screen -->
 <div id="id02" class="Torture">
@@ -363,7 +363,7 @@ class="closetorture" title="Close Modal">&times;</span>
                 <h1>Grab your daily bonus!</h1>
                 <img class="bonus_coins" src="img/coins.png">
                 <h2><?php if (in_array(12, $array_orders)){
-                    echo 1000;
+                    echo 750;
                 } else {
                     echo 500;
                 } ?>
