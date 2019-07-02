@@ -104,11 +104,24 @@ error_reporting(E_ALL);*/
         function startTorture(str) {
             window.value = 0;
             var xmlhttp = new XMLHttpRequest();
+            
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var str = this.responseText;
+                    // Refresh page if there are no errors
+                    if(str == "1"){ 
+                        torturedSec = 0;
+                        document.getElementById('id02').style.display='block';
+                        console.log('plant ' + str + ' selected');
+                    } else {
+                        alert("Some other user is playing");
+                    }
+                }
+            };
+            
             xmlhttp.open("GET", "clientRobotDatabase.php?q=" + str, true);
             xmlhttp.send();
-            torturedSec = 0;
-            document.getElementById('id02').style.display='block';
-            console.log('plant ' + str + ' selected');
+            
         }
         
         function daily_bonus(){

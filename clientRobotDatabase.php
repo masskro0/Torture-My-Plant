@@ -13,6 +13,8 @@ if (mysqli_connect_errno()) {
 }
 
 $current_user = 0;
+$is_ok = '0';
+
 // Get current_player off the database
 if($stmt = $connect->prepare("SELECT * FROM Game")){
     //$stmt->bind_param('i', $_SESSION['user_id']);
@@ -23,24 +25,27 @@ if($stmt = $connect->prepare("SELECT * FROM Game")){
         $stmt_user = $connect->prepare("INSERT INTO Game (user_id) VALUES(?)");
         $stmt_user->bind_param(i, $_SESSION['user_id']);
         $stmt_user->execute();
+        $stmt_user->close();
         
-            // Port
-            $service_port = 23;
+        // Port
+        $service_port = 23;
 
-            // Localhost
-            $address = '10.90.1.170';
+        // Localhost
+        $address = '10.90.1.170';
 
-            // Create a TCP/IP socket
-            $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+        // Create a TCP/IP socket
+        $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
-            // Connect to the socket server
-            $result = socket_connect($socket, $address, $service_port);
-            $plant = $_REQUEST["q"];
-            $length = strlen($plant);
-            socket_write($socket, $plant, $length);
-            
-            // Close the socket
-            socket_close($socket);
+        // Connect to the socket server
+        $result = socket_connect($socket, $address, $service_port);
+        $plant = $_REQUEST["q"];
+        $length = strlen($plant);
+        socket_write($socket, $plant, $length);
+        
+        // Close the socket
+        socket_close($socket);
+        
+        $is_ok = '1';
         
     }
     
@@ -50,6 +55,8 @@ if($stmt = $connect->prepare("SELECT * FROM Game")){
 } else{
     echo 'Someone is already playing';
 }
+
+echo $is_ok;
 
 $stmt->close();
 $connect->close();
