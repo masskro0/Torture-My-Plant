@@ -41,7 +41,7 @@ nav a{
     padding-left: 15px;
     position: relative;
     left: 5px;
-    font-family: 'Arial',sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 #livestream{
@@ -677,19 +677,19 @@ figure img{
     font-size: 40px;
 }
 .bonus_content h2{
-    display: inline;
     position: relative;
-    top: 77px;
-    left: 42%;
+    text-align: center;
+    margin-left: 45px;
+    top: 0px;
     font-size: 40px;
 }
 .bonus_coins{
     position: relative;
     top: 85px;
     width: 50px;
-    left: 40%;
+    left: 37%;
 }
 .bonus_button{
     position: relative;
-    top: 190px;
+    top: 100px;
 }

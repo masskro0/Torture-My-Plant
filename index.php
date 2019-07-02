@@ -362,13 +362,17 @@ class="closetorture" title="Close Modal">&times;</span>
                 <img src="img/bonusscreen.jpg" class="img_bonus">
                 <h1>Grab your daily bonus!</h1>
                 <img class="bonus_coins" src="img/coins.png">
-                <h2>500</h2>
+                <h2><?php if (in_array(12, $array_orders)){
+                    echo 1000;
+                } else {
+                    echo 500;
+                } ?>
+                </h2>
                 <button class="accept bonus_button" onclick="daily_bonus(); document.getElementById('bonus_screen').style.display='none';">Thanks!</button>
             </div>
         </div>
-        <?php }       
-        ?>
-        
+        <?php }
+        ?>    
         
 
 </body>
@@ -405,7 +409,7 @@ function quitTorture(){
     xmlhttp2.onreadystatechange = function() {
         // Update the balance if the script is done
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("balance").innerHTML = this.responseText;
+            document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
         }
     };
 }
