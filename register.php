@@ -106,6 +106,9 @@ if(isset($_POST['submit'])) {
             array_push($errors, "This email is already taken");
         }
     }
+    if (!isset($_POST['policy'])){
+        array_push($errors, "You must accept the privacy policy");
+    }
     
     // Insert new account
     if($stmt_username->num_rows === 0 && $stmt_email->num_rows === 0 && count($errors) == 0) {        

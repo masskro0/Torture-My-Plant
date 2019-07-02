@@ -1,6 +1,7 @@
 body{
     margin-left: 10%;
     margin-right: 10%;
+    font-family: sans-serif;
 }
 a, p, button, label, input, h1{
     font-family: sans-serif;
@@ -115,4 +116,9 @@ figure img{
    display:none; /*remove inline-block spaces*/
    width:100%; /*make image streatch*/
     margin:-21.875% 0;
+}
+input[type=checkbox]{
+    display: inline;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

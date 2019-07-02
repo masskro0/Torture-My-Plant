@@ -114,7 +114,7 @@ error_reporting(E_ALL);*/
                         document.getElementById('id02').style.display='block';
                         console.log('plant ' + str + ' selected');
                     } else {
-                        alert("Some other user is playing");
+                        document.getElementById('notify_screen').style.visibility = "visible";
                     }
                 }
             };
@@ -265,7 +265,8 @@ class="close animate">&times;</span>
       <input type="password" placeholder="Password..." name="password" id="password" required>
       <label>
         <input type="checkbox" id="remember" checked="checked" name="remember"> Keep me logged in
-      </label>
+      </label><br><br>
+        New here? <a href="signup.php">Create an account here</a><br>
       <input name="submit" type="button" class="accept loginbutton enter" id="submitform" value="Login" onclick="validate()" >
       
     </div>
@@ -387,6 +388,14 @@ class="close animate">&times;</span>
         <?php }
         ?>    
         
+        
+        <!--Screen for notifying a user that another user is already playing-->
+        <div id="notify_screen">
+            <div class="notify_content animate">
+                <h1>Another user is playing right now. Please wait a few minutes.</h1>
+                <button class="accept" onclick="document.getElementById('notify_screen').style.visibility='hidden'">OK</button>
+            </div>
+        </div>       
 
 </body>
 

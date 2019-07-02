@@ -44,6 +44,9 @@
             <?php echo"<input type=\"password\" placeholder=\"Password...\" name=\"password1\" value=\"$password1\" required>"; ?>
             <label for="password2"><b>Repeat Password</b></label>
             <?php echo"<input type=\"password\" placeholder=\"Repeat Password...\" name=\"password2\" value=\"$password2\" required>"; ?>
+            <input type="checkbox" id="policy" name="policy" required> I have read and agree to the <a href="privacy_policy.html" class="policylink">
+                Privacy Policy.</a>
+            
             
             <input name="submit" class="accept signupbutton" type="submit" value="Sign Up">
                 
