@@ -43,7 +43,7 @@ if ($_SESSION['loggedin'] !== TRUE){
             if ($token_db == $token) {
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['user_id'] = $user_id;
-                header('Location: profile.php');
+                header('Location: index.php');
             die();
             }
         }

@@ -693,3 +693,9 @@ figure img{
     position: relative;
     top: 100px;
 }
+figure:hover{
+    border: 4px solid white;
+}
+.errornumber{
+    color:red;
+}
