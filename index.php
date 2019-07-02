@@ -349,6 +349,13 @@ function quitTorture(){
         xmlhttp.send();
     }
     
+    //set current user to zero
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "quitGameCurrentUser.php", true);
+    xmlhttp.send();
+
+
+    
     // Display the updated balance
     // Wait 1 second to finish the script above
     setTimeout(1000);
