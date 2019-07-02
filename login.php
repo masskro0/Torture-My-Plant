@@ -77,16 +77,18 @@ function test_input($data) {
         }
     }
 
+
 // Function if the "keep me logged in" box is ticked
 if($_POST['remember'] === "true"){
     // Generates cryptographically secure pseudo-random 128 bytes long
     $token = random_bytes(128);
+    $str = bin2hex($token);
     // Store token in the database
-    if($stmt = $connect->prepare("UPDATE User SET token = '".$token."' WHERE user_id = '".$_SESSION['user_id']."'")){
+    if($stmt = $connect->prepare("UPDATE User SET token = '".$str."' WHERE user_id = '".$_SESSION['user_id']."'")){
         $stmt->execute();
     }
     // Information we want to store in the cookie
-    $cookie = $user_id . ':' . $token;
+    $cookie = $user_id . ':' . $str;
     // Generate a secret key
     $secret_key = 'secret';
     // Hash the cookie information
@@ -96,5 +98,5 @@ if($_POST['remember'] === "true"){
     // Create a cookie
     setcookie('rememberme', $cookie, time()+(86400*30));
 }
-
+$connect->close();
 ?>

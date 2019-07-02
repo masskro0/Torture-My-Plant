@@ -1,6 +1,7 @@
 body{
     margin-left: 10%;
     margin-right: 10%;
+    font-family: sans-serif;
 }
 a, p, button, label, input, h1{
     font-family: sans-serif;
@@ -40,7 +41,7 @@ nav a{
     padding-left: 15px;
     position: relative;
     left: 5px;
-    font-family: 'Arial',sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 #livestream{
@@ -638,4 +639,63 @@ figure img{
 }
 .tortureul li:hover{
     background-color: dimgrey;
+}
+
+
+#bonus_screen {
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.65); 
+  padding-top: 100px;
+}
+
+.bonus_content{
+    background-color: #fefefe;
+    margin: 10px auto; 
+    border: 4px solid #888;
+    width: 50%;
+    height: 500px;
+}
+.img_bonus{
+    position: absolute;
+    margin: 0px auto;
+    width: 50%;
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(110%) contrast(60%) opacity(30%) blur(1px);
+}
+.bonus_content h1{
+    position: relative;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 40px;
+}
+.bonus_content h2{
+    position: relative;
+    text-align: center;
+    margin-left: 45px;
+    top: 0px;
+    font-size: 40px;
+}
+.bonus_coins{
+    position: relative;
+    top: 85px;
+    width: 50px;
+    left: 37%;
+}
+.bonus_button{
+    position: relative;
+    top: 100px;
+}
+figure:hover{
+    border: 4px solid white;
+}
+.errornumber{
+    color:red;
 }

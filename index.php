@@ -10,11 +10,13 @@ session_start();
 if ($_SESSION['loggedin'] !== TRUE){
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($cookie) {
+        echo 'cookie set';
         list ($user_id, $token, $mac) = explode(':', $cookie);
         if (!hash_equals(hash_hmac('sha256', $user_id . ':' . $token, 'secret'), $mac)) {
             echo 'false';
             //return false;
         }
+        echo strlen($cookie);
         // Login info for the MySQL database
         $host = 'localhost';
         $user = 'user';
@@ -35,10 +37,13 @@ if ($_SESSION['loggedin'] !== TRUE){
             $stmt->bind_result($token_db);
             $stmt->fetch();
             echo hash_equals($token_db, $token);
+            echo bin2hex($token);
+            echo ' lulz ';
+            echo strlen($token_db);
             if ($token_db == $token) {
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['user_id'] = $user_id;
-                header('Location: profile.php');
+                header('Location: index.php');
             die();
             }
         }
@@ -58,7 +63,7 @@ error_reporting(E_ALL);*/
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css">
     <script>
-         /* Asynchronous call of the validation script login.php to display without refreshing the page. Refreshes the pages if everything is ok. */
+         /* Asynchronous call of the validation script login.php to display errors without refreshing the page. Refreshes the pages if everything is ok. */
         function validate() {
         var text;
         var uname = document.getElementById('username');
@@ -106,9 +111,29 @@ error_reporting(E_ALL);*/
             console.log('plant ' + str + ' selected');
         }
         
-        
-
-
+        function daily_bonus(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "daily_bonus.php?q=", true);
+            xmlhttp.send();
+            //location.reload();
+            
+            // Update the balance dynamically
+            // Wait 1 seconds to finish the script above
+            setTimeout(1000);
+            var xmlhttp2 = new XMLHttpRequest();
+            // Open the balance.php script to get the newest balance of the user
+            xmlhttp2.open("GET", "balance.php", true);
+            // Set a request header so that balance.php knows that it's a xmlhttprequest
+            xmlhttp2.setRequestHeader("HTTP_X_REQUESTED_WITH",'xmlhttprequest');
+            xmlhttp2.send();
+            xmlhttp2.onreadystatechange = function() {
+                // Update the balance if the script is done
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+                }
+            };
+            
+        }
         
     </script>
       
@@ -239,7 +264,7 @@ class="close animate">&times;</span>
         <div class="Yellowbox"></div>
         <img class="Bonusjpg" src="img/bonusscreen.jpg">
         <p class="Bonustexttop">Grab your daily bonus!</p>
-        <p class="Bonustextcoins">+ 1000</p>
+        <p class="Bonustextcoins">+ 750</p>
       
         <!-- Torture Screen -->
 <div id="id02" class="Torture">
@@ -326,6 +351,29 @@ class="closetorture" title="Close Modal">&times;</span>
         </div>
     </div>
 </div>
+        
+    <!--Bonus screen -->
+        <?php
+        date_default_timezone_set("Europe/Berlin");
+        $current_date = date('Y-m-d');
+        if((($current_date > $last_login) || is_null($last_login)) && $_SESSION['loggedin']){ ?>
+        <div id="bonus_screen">
+            <div class="bonus_content">
+                <img src="img/bonusscreen.jpg" class="img_bonus">
+                <h1>Grab your daily bonus!</h1>
+                <img class="bonus_coins" src="img/coins.png">
+                <h2><?php if (in_array(12, $array_orders)){
+                    echo 750;
+                } else {
+                    echo 500;
+                } ?>
+                </h2>
+                <button class="accept bonus_button" onclick="daily_bonus(); document.getElementById('bonus_screen').style.display='none';">Thanks!</button>
+            </div>
+        </div>
+        <?php }
+        ?>    
+        
 
 </body>
 
@@ -368,7 +416,7 @@ function quitTorture(){
     xmlhttp2.onreadystatechange = function() {
         // Update the balance if the script is done
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("balance").innerHTML = this.responseText;
+            document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
         }
     };
 }
