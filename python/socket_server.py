@@ -21,31 +21,36 @@ import time
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM) #steuer GPIOs per Boardnummer an
+#Status Variablen für Werkzeuge; inital auf 1
+drillStatus = 1;
+windStatus = 1;
+acidStatus = 1;
+boltStatus = 1;
+flameStatus = 1;
+
 
 #Blitz anschalten
 def boltOn():
-    #disable other tools
-    flameOff()
-    windOff()
-    acidOff()
-    drillOff()
+    toolsOff()
     GPIO.output(24, GPIO.HIGH)
     print('bolt on')
+    global boltStatus
+    boltStatus = 1
     
 #Blitz ausschalten
 def boltOff():
     GPIO.output(24, GPIO.LOW)
     print('bolt off')
+    global boltStatus
+    boltStatus = 0
 
 #Feuer anschalten
 def flameOn():
-    #disable other tools
-    windOff()
-    acidOff()
-    drillOff()
-    boltOff()
+    toolsOff()
     GPIO.output(23, GPIO.HIGH)
     print('flame on')
+    global flameStatus
+    flameStatus = 1
     
 #Feuer ausschalten
 def flameOff():
@@ -54,41 +59,37 @@ def flameOff():
 
 #Wind anschalten
 def windOn():
-    #disable other tools
-    flameOff()
-    acidOff()
-    drillOff()
-    boltOff()
+    toolsOff()
     GPIO.output(27, GPIO.HIGH)
     print('wind on')
+    global windStatus
+    windStatus = 1
     
 #Wind ausschalten
 def windOff():
     GPIO.output(27, GPIO.LOW)
     print('wind off')
+    global windStatus
+    windStatus = 0
 
 #Säure anschalten
 def acidOn():
-    #disable other tools
-    flameOff()
-    windOff()
-    drillOff()
-    boltOff()
+    toolsOff()
     GPIO.output(17, GPIO.HIGH)
     print('acid on')
+    global acidStatus
+    acidStatus = 1
     
 #Säure ausschalten
 def acidOff():
     GPIO.output(17, GPIO.LOW)
     print('acid off')
+    global acidStatus
+    acidStatus = 0
  
 #Bohrer anschalten
 def drillOn():
-    #disable other tools
-    flameOff()
-    windOff()
-    acidOff()
-    boltOff()
+    toolsOff()
     #fahre Bohrer an Pflanze
     p.ChangeDutyCycle(12)
     time.sleep(0.3)
@@ -97,6 +98,8 @@ def drillOn():
     #schalte Bohrer an
     GPIO.output(18, GPIO.HIGH)
     print('drill on')
+    global drillStatus
+    drillStatus = 1
         
 #Bohrer ausschalten
 def drillOff():
@@ -107,14 +110,21 @@ def drillOff():
     time.sleep(0.5)
     p.ChangeDutyCycle(0)
     print('drill off')
+    global drillStatus
+    drillStatus = 0
 
 def toolsOff():
-    #disable other tools
-    flameOff()
-    windOff()
-    acidOff()
-    boltOff()
-    drillOff()
+    #disable all tools
+    if(flameStatus == 1):
+        flameOff()
+    if(windStatus == 1):
+        windOff()
+    if(acidStatus == 1):
+        acidOff()
+    if(boltStatus == 1):
+        boltOff()
+    if(drillStatus == 1):
+        drillOff()
     
 GPIO.setup(24, GPIO.OUT) #set PIN24 as OUTPUT for bolt
 GPIO.setup(18, GPIO.OUT) #set PIN18 as OUTPUT for drill
@@ -148,6 +158,9 @@ print('Socket bind complete')
 # Start listening for connecions on socket; queues maximum 10 connections
 s.listen(10)
 print('Socket now listening')
+
+# alle Werzeuge zu Beginn einmal ausschalten
+toolsOff()
 
 #Auswerten data und Ansteuerung Quälwerkzeuge
 options = {
