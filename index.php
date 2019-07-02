@@ -282,13 +282,13 @@ class="close animate">&times;</span>
         <!-- Torture Screen -->
 <div id="id02" class="Torture">
 <!-- would delete this piece, only quit by button -timbleman -->
-<span onclick="document.getElementById('id02').style.display='none'" onclick="liveshow()"
-class="closetorture" title="Close Modal">&times;</span>
+<!-- <span onclick="quitTorture()" onclick="liveshow()"-->
+<!-- class="closetorture" title="Close Modal">&times;</span>-->
 
   <!-- Modal Content -->
     <div class="Torturecontent">
         <div class="Torturecontainer">
-            <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
+            <iframe class="stream" id="stream" src="http://10.90.1.173:8081" ></iframe>
             <!-- needs functionality for passing torturedSec to Php -->
             <button class="Quittorture" onclick="quitTorture()">Quit Torture</button>
             <ul class="tortureul">
@@ -630,12 +630,13 @@ var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 /* When the user clicks anywhere outside of the modal, close it */
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
     if (event.target == modal2) {
-    modal2.style.display = "none";
-  }
+        quitTorture();
+        modal2.style.display = "none";
+    }
 }
 /* Submit the form if the user hits the enter key */
 var input = document.getElementById("username");
@@ -664,6 +665,7 @@ document.onkeydown = function(evt) {
     if (isEscape) {
         modal.style.display = "none";
         <!--could cause problems-->
+        quitTorture();
         modal2.style.display = "none";
     }
 };
