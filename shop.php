@@ -1,11 +1,11 @@
-<?php include('balance.php');
-include('shopinfo.php');
-include('getinfo.php');
+<?php 
 session_start();
 if(!$_SESSION['loggedin']){
-    header('Location: index.php');
-    
+    header('Location: index.php');  
 }
+include('balance.php');
+include('shopinfo.php');
+include('getinfo.php');
 ?>
 <!doctype html>
 <html>
@@ -91,7 +91,7 @@ if(!$_SESSION['loggedin']){
                 <ul><h1 class="Categorytext">Plants</h1>
                 <?php if (!in_array(1, $array_orders)){ ?>
                 <li id="<?php echo $array_id[0]; ?>"><h2 class="Item"><?php echo $array_name[0]; ?></h2>
-                <img class="Itemjpg" src="<?php echo substr($array_picture[0], 14); ?>">
+                <img class="Itemjpg plant" src="<?php echo substr($array_picture[0], 14); ?>">
                 <p class="Description"><?php echo $array_description[0]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo number_format($array_price[0], 0, "'", "'"); ?></p>
@@ -100,7 +100,7 @@ if(!$_SESSION['loggedin']){
                 <?php } ?>
                 <?php if (!in_array(2, $array_orders)){ ?>
                 <li id="<?php echo $array_id[1]; ?>"><h2 class="Item"><?php echo $array_name[1]; ?></h2>
-                <img class="Itemjpg" src="<?php echo substr($array_picture[1], 14); ?>">
+                <img class="Itemjpg plant" src="<?php echo substr($array_picture[1], 14); ?>">
                 <p class="Description"><?php echo $array_description[1]; ?></p>
                 <img class="Coinicon" src="img/coins.png">
                 <p class="Price"><?php echo number_format($array_price[1], 0, "'", "'"); ?></p>

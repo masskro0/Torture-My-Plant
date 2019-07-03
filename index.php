@@ -191,18 +191,18 @@ error_reporting(E_ALL);*/
     
     <div id="livestream">
         <!--plant images, should most likely be placed inside a container-->
-        <img class="pflanze" src="img/plant1.jpg" width="30%">
-        <img class="pflanze" src="img/plant2.jpg" width="30%">
+        <img class="pflanze animation_left" src="img/plant1.jpg" width="100%">
+        <img class="pflanze animation_left" src="img/plant2.jpg" width="100%">
         
         <?php if($_SESSION['loggedin'] === TRUE && (!in_array(1, $array_orders))){ ?>
-        <img class="pflanze" src="img/plant3_lock.jpg" width="30%">
+        <img class="pflanze animation_left" src="img/plant3_lock.jpg" width="100%">
         <?php } else { ?>
-        <img class="pflanze" src="img/plant3.jpg" width="30%">
+        <img class="pflanze animation_left" src="img/plant3.jpg" width="100%">
         <?php }
         if($_SESSION['loggedin'] === TRUE && !in_array(2, $array_orders)){ ?>
-        <img class="pflanze" src="img/plant4_lock.jpg" width="30%">
+        <img class="pflanze animation_left" src="img/plant4_lock.jpg" width="100%">
         <?php } else { ?>
-        <img class="pflanze" src="img/plant4.jpg" width="30%">
+        <img class="pflanze animation_left" src="img/plant4.jpg" width="100%">
         <?php } ?>
         <!--arrow left-->
         <a onclick="plusDivs(-1)">
@@ -283,13 +283,12 @@ class="close animate">&times;</span>
         <!-- Torture Screen -->
 <div id="id02" class="Torture">
 <!-- would delete this piece, only quit by button -timbleman -->
-<!-- <span onclick="quitTorture()" onclick="liveshow()"-->
-<!-- class="closetorture" title="Close Modal">&times;</span>-->
+    <span onclick="quitTorture(); liveshow();" class="closetorture" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
     <div class="Torturecontent">
-        <div class="Torturecontainer">
-            <iframe class="stream" id="stream" src="http://10.90.1.173:8081" ></iframe>
+        <div class="Torturecontainer"><!--10.90.1.173-->
+            <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
             <!-- needs functionality for passing torturedSec to Php -->
             <button class="Quittorture" onclick="quitTorture()">Quit Torture</button>
             <ul class="tortureul">
@@ -628,6 +627,7 @@ function showDivs(n){
     x[slideIndex-1].style.display = "block";
     y[slideIndex-1].style.display = "block";
 }
+
 </script>
     
     

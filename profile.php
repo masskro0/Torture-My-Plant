@@ -1,5 +1,12 @@
-<?php include('balance.php');
+<?php
+session_start();
+if(!$_SESSION['loggedin']){
+    header('Location: index.php');  
+}
+include('balance.php');
+include('shopinfo.php');
 include('getinfo.php');
+
 ?>
 <!doctype html>
 <html>
@@ -60,7 +67,58 @@ include('getinfo.php');
                 </div>
                 </div>
                 
-                
+                <div class ="screen">
+                    <ul><h2>Bought Items:</h2>
+                        <?php if (in_array(1, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[0], 14); ?>" title="Plant: Plant3">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(2, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[1], 14); ?>" title="Plant: El Cactus">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(3, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[2], 14); ?>" title="Tool: Bolt">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(4, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[3], 14); ?>" title="Tool: Acid">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(5, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[4], 14); ?>" title="Tool: Drill">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(6, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[5], 14); ?>" title="Upgrade: Fire">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(7, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[6], 14); ?>" title="Upgrade: Wind">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(8, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[7], 14); ?>" title="Upgrade: Bolt">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(9, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[8], 14); ?>" title="Upgrade: Acid">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(10, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[9], 14); ?>" title="Upgrade: Drill">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(11, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[10], 14); ?>" title="Upgrade: Less Cooldown">
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(12, $array_orders)){ ?>
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[11], 14); ?>" title="Upgrade: 50% More Coins" >
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </div>
         </div>
       
         <!------------Confirmation Popup -------------->  

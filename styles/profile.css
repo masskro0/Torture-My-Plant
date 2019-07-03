@@ -1,6 +1,7 @@
 body{
     margin-left: 10%;
     margin-right: 10%;
+    font-family: sans-serif;
 }
 a, p, button, h1{
     font-family: sans-serif;
@@ -184,6 +185,7 @@ nav  a{
    width: 100%;
     height: 130%;
     margin:-21.875% 0;
+    object-fit: cover;
 }
 .navbar{
     color:black;
@@ -350,6 +352,7 @@ nav  a{
    width: 100%;
     height: 130%;
     margin:-21.875% 0;
+    object-fit: cover;
 }  
 
 .buttons{
@@ -363,4 +366,32 @@ nav  a{
 }
 .Delete:hover{
     background-color: #e33434;
+}
+.screen{
+    position: relative;
+    left: 305px;
+    top: -490px;
+}
+.screen ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.screen li{
+    float: left;
+    overflow: hidden;
+    display: inline;
+    width: 6%;
+    margin-bottom: 20px;
+}
+.Itemjpg{
+    width: 60px;
+    float: left;
+    height: 60px;
+    border: 2px solid black;
+}
+.screen h2{
+    font-size: 24px;
 }

@@ -116,6 +116,7 @@ figure img{
    display:none; /*remove inline-block spaces*/
    width:100%; /*make image streatch*/
     margin:-21.875% 0;
+    object-fit: cover;
 }
 input[type=checkbox]{
     display: inline;
