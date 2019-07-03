@@ -390,6 +390,7 @@ nav  a{
     float: left;
     height: 60px;
     border: 2px solid black;
+    object-fit: cover;
 }
 .screen h2{
     font-size: 24px;
