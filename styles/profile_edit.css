@@ -171,7 +171,6 @@ input[type=text], input[type=password] {
     font-size: 30px;
     background-color: limegreen;
     border: none;
-    border: 2px solid grey;
     width: 20%;
 }
 .uploadbutton{
@@ -182,8 +181,6 @@ input[type=text], input[type=password] {
     height: 35px;
     background-color: #3c91fa;
     width: 18%;
-    border-width: thin;
-    border: 2px solid black;
     cursor: pointer;
     color: black;
 }
@@ -196,12 +193,6 @@ input[type=text], input[type=password] {
     margin: 8px 0px;
     color: #a94442; 
     text-align: left;
-    /*
-    border: 1px solid #a94442; 
-    background: #f2dede; 
-    border-radius: 5px; 
-    padding-left: 5px;
-    */
 }
 
 
@@ -232,7 +223,6 @@ input[type=text], input[type=password] {
     width: 20%;
     height: 35px;
     border: none;
-    border: 2px solid grey;
     cursor: pointer;
 }
 
@@ -245,9 +235,9 @@ input[type=text], input[type=password] {
     background-color: grey;
     color: white;
     border: none;
-    border: 2px solid grey;
     cursor: pointer;
-    
+    line-height: 35px;
+    text-align: center;
 }
 
 .Accept{

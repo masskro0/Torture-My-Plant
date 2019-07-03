@@ -83,7 +83,6 @@ nav a{
     font-size: 30px;
     background-color: #3c91fa;
     border: none;
-
     width: 20%;
     color: black;
     cursor: pointer;
@@ -435,7 +434,6 @@ iframe{
     margin-left: 40px;
     color: black;
     border: none;
-    border: 2px solid grey;
     cursor: pointer;
 }
 
@@ -734,4 +732,7 @@ figure:hover{
     } to{
         opacity:1;
     }
+}
+.notifybutton{
+    margin-top: 30px;
 }

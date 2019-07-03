@@ -392,7 +392,7 @@ class="close animate">&times;</span>
         <div id="notify_screen">
             <div class="notify_content animate">
                 <h1>Another user is playing right now. Please wait a few minutes.</h1>
-                <button class="accept" onclick="document.getElementById('notify_screen').style.visibility='hidden'">OK</button>
+                <button class="accept notifybutton" onclick="document.getElementById('notify_screen').style.visibility='hidden'">OK</button>
             </div>
         </div>       
 

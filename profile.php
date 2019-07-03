@@ -70,7 +70,7 @@ include('getinfo.php');
                 <div class ="screen">
                     <ul><h2>Bought Items:</h2>
                         <?php if (in_array(1, $array_orders)){ ?>
-                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[0], 14); ?>" title="Plant: Plant3">
+                        <li><img class="Itemjpg" src="<?php echo substr($array_picture[0], 14); ?>" title="Plant: Tillandsia Caput Medusae">
                         </li>
                         <?php } ?>
                         <?php if (in_array(2, $array_orders)){ ?>

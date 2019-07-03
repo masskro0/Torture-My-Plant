@@ -79,7 +79,7 @@ include('edit_info.php');
             <?php echo"<input type=\"password\" placeholder=\"Repeat your new password...\" name=\"password_new2\" id=\"password_new2\" value=\"$psw_new2\">"; ?>
             
             <input name="submit" type="submit" class="Accept Normal" id="submitform" value="Accept Changes" >
-            <a href="profile.php"><button class="Cancel">Cancel</button></a>
+            <a class="Cancel" href="profile.php">Cancel</a>
             </div>
             
         </form>

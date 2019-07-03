@@ -77,7 +77,6 @@ input[type=text], input[type=password] {
     width: 20%;
     color: black;
     border: none;
-    border: 2px solid grey;
 }
 .uploadbutton{
     position: absolute;
