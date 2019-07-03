@@ -65,18 +65,18 @@ include('edit_info.php');
             <input type="button" class="uploadbutton accept" value="Change Picture" onclick="document.getElementById('file').click();">     
                             
             <label for="username"><b>Enter username</b></label>
-            <?php echo "<input type=\"text\" placeholder=\"Enter your username...\" name=\"username\" id=\"username\" value=\"$uname\" required>";
+            <?php echo "<input type=\"text\" placeholder=\"Enter your username...\" name=\"username\" id=\"username\" value=\"$uname\">";
             ?>
             
             <label for="email"><b>Enter E-Mail Adress</b></label>
-            <?php echo "<input type=\"text\" placeholder=\"Enter your e-mail adress...\" name=\"email\" id=\"email\" value=\"$email\" required>";
+            <?php echo "<input type=\"text\" placeholder=\"Enter your e-mail adress...\" name=\"email\" id=\"email\" value=\"$email\">";
             ?>
             <label for="password"><b>Old Password</b></label>
-            <?php echo "<input type=\"password\" placeholder=\"Enter your old password...\" name=\"password_old\" id=\"password_old\" value =\"$psw_old\" required>"; ?>
+            <?php echo "<input type=\"password\" placeholder=\"Enter your old password...\" name=\"password_old\" id=\"password_old\" value =\"$psw_old\">"; ?>
             <label for="password"><b>New Password</b></label>
-            <?php echo "<input type=\"password\" placeholder=\"Enter your new password...\" name=\"password_new1\" id=\"password_new1\" value=\"$psw_new1\" required>"; ?>
+            <?php echo "<input type=\"password\" placeholder=\"Enter your new password...\" name=\"password_new1\" id=\"password_new1\" value=\"$psw_new1\">"; ?>
             <label for="password"><b>Repeat New Password</b></label>
-            <?php echo"<input type=\"password\" placeholder=\"Repeat your new password...\" name=\"password_new2\" id=\"password_new2\" value=\"$psw_new2\" required>"; ?>
+            <?php echo"<input type=\"password\" placeholder=\"Repeat your new password...\" name=\"password_new2\" id=\"password_new2\" value=\"$psw_new2\">"; ?>
             
             <input name="submit" type="submit" class="Accept Normal" id="submitform" value="Accept Changes" >
             <a href="profile.php"><button class="Cancel">Cancel</button></a>
