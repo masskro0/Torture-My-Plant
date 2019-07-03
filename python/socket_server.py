@@ -29,7 +29,7 @@ boltStatus = 1;
 flameStatus = 1;
 
 
-#Blitz anschalten
+#turn bolt on
 def boltOn():
     toolsOff()
     GPIO.output(24, GPIO.HIGH)
@@ -37,14 +37,14 @@ def boltOn():
     global boltStatus
     boltStatus = 1
     
-#Blitz ausschalten
+#turn bolt off
 def boltOff():
     GPIO.output(24, GPIO.LOW)
     print('bolt off')
     global boltStatus
     boltStatus = 0
 
-#Feuer anschalten
+#turn flame on
 def flameOn():
     toolsOff()
     GPIO.output(23, GPIO.HIGH)
@@ -52,12 +52,12 @@ def flameOn():
     global flameStatus
     flameStatus = 1
     
-#Feuer ausschalten
+#turn flame off
 def flameOff():
     GPIO.output(23, GPIO.LOW)
     print('flame off')
 
-#Wind anschalten
+#turn wind on
 def windOn():
     toolsOff()
     GPIO.output(27, GPIO.HIGH)
@@ -65,14 +65,14 @@ def windOn():
     global windStatus
     windStatus = 1
     
-#Wind ausschalten
+#turn wind off
 def windOff():
     GPIO.output(27, GPIO.LOW)
     print('wind off')
     global windStatus
     windStatus = 0
 
-#Säure anschalten
+#turn acid on
 def acidOn():
     toolsOff()
     GPIO.output(17, GPIO.HIGH)
@@ -80,14 +80,14 @@ def acidOn():
     global acidStatus
     acidStatus = 1
     
-#Säure ausschalten
+#turn acid off
 def acidOff():
     GPIO.output(17, GPIO.LOW)
     print('acid off')
     global acidStatus
     acidStatus = 0
  
-#Bohrer anschalten
+#turn drill on
 def drillOn():
     toolsOff()
     #fahre Bohrer an Pflanze
@@ -101,7 +101,7 @@ def drillOn():
     global drillStatus
     drillStatus = 1
         
-#Bohrer ausschalten
+#turn drill off
 def drillOff():
     #schalte Bohrer aus
     GPIO.output(18, GPIO.LOW)
@@ -113,8 +113,8 @@ def drillOff():
     global drillStatus
     drillStatus = 0
 
+#turn all tools off
 def toolsOff():
-    #disable all tools
     if(flameStatus == 1):
         flameOff()
     if(windStatus == 1):
@@ -132,8 +132,8 @@ GPIO.setup(23, GPIO.OUT) #set PIN23 as OUTPUT for flame
 GPIO.setup(17, GPIO.OUT) #set PIN17 as OUTPUT for acid
 GPIO.setup(27, GPIO.OUT) #set PIN27 as OUTPUT for wind
 GPIO.output(18, GPIO.LOW)#disable PIN18
-servoPIN = 13 #set GPIO13 as OUTPUT data for Servo
-GPIO.setup(servoPIN, GPIO.OUT)
+servoPIN = 13
+GPIO.setup(servoPIN, GPIO.OUT) #set PIN13 as OUTPUT for Servo
 p =GPIO.PWM(servoPIN, 50) #set GPIO13 as PWM at 50Hz
 p.start(7) #set initial Position of drill
 time.sleep(0.5)
@@ -159,10 +159,10 @@ print('Socket bind complete')
 s.listen(10)
 print('Socket now listening')
 
-# alle Werzeuge zu Beginn einmal ausschalten
+#turn all tools off when program starting
 toolsOff()
 
-#Auswerten data und Ansteuerung Quälwerkzeuge
+#select tool to switch on/off depending on received data
 options = {
         0: toolsOff,
         1: flameOn,
@@ -193,17 +193,9 @@ def clientthread(conn):
     while True:
         # Receiving messages from client
         data = conn.recv(1024)  # 1024 Bytes
-        data = data.decode()
-
-        #try: int(data)
-        #except ValueError: print('Input not a number')
-
-        #Auswerten data und Ansteuerung Quälwerkzeuge
-        #try: options[eingabe]()
-        #except: print('invalid input. Number between 0 and 10 expected')        
-        options[int(data)]()
-         
-        
+        data = data.decode()       
+        options[int(data)](
+            
         print(data)
         if not data: 
             break
