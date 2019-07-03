@@ -21,7 +21,7 @@ import time
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM) #steuer GPIOs per Boardnummer an
-#Status Variablen für Werkzeuge; inital auf 1
+#status-variables for tools, initial value on 1
 drillStatus = 1;
 windStatus = 1;
 acidStatus = 1;
