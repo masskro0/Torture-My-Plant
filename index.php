@@ -142,7 +142,7 @@ error_reporting(E_ALL);*/
             xmlhttp2.onreadystatechange = function() {
                 // Update the balance if the script is done
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+                    document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 }
             };
             
@@ -163,7 +163,7 @@ error_reporting(E_ALL);*/
                     </div>
                     <?php if($_SESSION['loggedin'] === TRUE){ ?>
                         <li><img class="Coins" src="img/coins2.png"></li>
-                        <li><p id="balance" class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
+                        <li><p id="balance" class="Cointext"><?php echo number_format($coins, 0, ".", "."); ?></p></li>
                         <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){
                                 ?>
@@ -376,9 +376,9 @@ class="close animate">&times;</span>
                 <h1>Grab your daily bonus!</h1>
                 <img class="bonus_coins" src="img/coins.png">
                 <h2><?php if (in_array(12, $array_orders)){
-                    echo 750;
+                    echo 1500;
                 } else {
-                    echo 500;
+                    echo 1000;
                 } ?>
                 </h2>
                 <button class="accept bonus_button" onclick="daily_bonus(); document.getElementById('bonus_screen').style.display='none';">Thanks!</button>
@@ -437,7 +437,7 @@ function quitTorture(){
     xmlhttp2.onreadystatechange = function() {
         // Update the balance if the script is done
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+            document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         }
     };
 }

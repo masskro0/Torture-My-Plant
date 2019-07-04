@@ -23,9 +23,9 @@ if($stmt = $connect->prepare("SELECT coins FROM User WHERE user_id = ? ")){
     die('An error occured when we tried to get your balance.');
 }
 if (in_array(12, $array_orders)){
-    $coins = $coins + 750;
+    $coins = $coins + 1500;
 } else {
-    $coins = $coins + 500;
+    $coins = $coins + 1000;
 }
 date_default_timezone_set("Europe/Berlin");
 $current_date = date('Y-m-d');

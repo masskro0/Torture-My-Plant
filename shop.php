@@ -48,7 +48,7 @@ include('getinfo.php');
             xmlhttp2.onreadystatechange = function() {
                 // Update the balance if the script is done
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+                    document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 }
             };
             
@@ -65,7 +65,7 @@ include('getinfo.php');
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
-                    <li><p id="balance" class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
+                    <li><p id="balance" class="Cointext"><?php echo number_format($coins, 0, ".", "."); ?></p></li>
                     
                     <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){

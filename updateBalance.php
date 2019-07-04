@@ -54,7 +54,7 @@ if(in_array(12, $array_orders)){
 }
 
 // new balance, calculated from tortured seconds and user multiplayer
-$new_balance = $balance + (($earned_coins)*$multiplier)*10;
+$new_balance = $balance + (($earned_coins)*$multiplier)*20;
 
 // Update coins of the user
 $stmt->close();

@@ -25,7 +25,7 @@ include('edit_info.php');
                     <li><a class="frontpagetext" href="index.php">Torture My Plant</a></li>
                     </div>
                     <li><img class="Coins" src="img/coins2.png"></li>
-                    <li><p class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
+                    <li><p class="Cointext"><?php echo number_format($coins, 0, ".", "."); ?></p></li>
                     
                     <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){
