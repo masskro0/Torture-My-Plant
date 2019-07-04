@@ -9,10 +9,10 @@ include('edit_info.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/profile_edit.css">
-    <script src="script/jquery"></script> 
-
+    <script src="javascripts/jquery.js"></script> 
+    <!--  Testen ob es ohne geht
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-
+    -->
   </head>
     
     <body>

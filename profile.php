@@ -15,7 +15,7 @@ include('getinfo.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/profile.css">
-    <script src="script/jquery"></script> 
+    <script src="javascripts/jquery.js"></script> 
   </head>
     <body>
             <div class="wrapper">

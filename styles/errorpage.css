@@ -1,49 +1,38 @@
-
 body{
     margin-left: 10%;
     margin-right: 10%;
     font-family: sans-serif;
     background: lightgrey;
 }
-.navbar{
-    color:black;
+/* Black bar on the top */
+#navbar{
+    color: black;
     position: absolute;
     top: 0px;
-    left: -100px;
-    width: 106.6%;
+    left: 0px;
+    width: 100%;
     height: 85px;
     background-color:black;
 }
-a, p, button, label, input, h1{
-    font-family: sans-serif;
-}
-
+/* Navigation bar and its elements */
 nav ul{
     list-style-type: none;
-    margin: 0px;
-    padding: 0px;
     overflow: hidden;
-    margin-bottom: 30px;
 }
 
 nav li{
     float: left;
 }
 nav a{
-    display: sblock;
     padding-left: 40px;
     font-size: 20px;
-    color: black;
 }
-
-.right{
+.rightelements{
     margin-top: 10px;
     float: right;
     margin-right: 27px;
 }
-
-
-.frontpagetext{
+#frontpagetext{
     color: white;
     text-decoration: none;
     font-size: 44px;
@@ -53,7 +42,7 @@ nav a{
     left: 5px;
     font-family: 'Arial', sans-serif;
 }
-.Homebutton{
+#homebutton{
     top: 10px;
     position: absolute;
     padding-top: 5px;
@@ -62,14 +51,13 @@ nav a{
     width: 450px;
     background-color: black;
 }
-.Homeicon{
+#homeicon{
     position: absolute;
     width: 51px;
     margin-top: 0px;
     left: 0px;
 }
-
-.rectangle {
+#shopbutton {
     position: absolute;
     top: 10px;
     left: 66.45%;
@@ -77,15 +65,14 @@ nav a{
     width: 165px;
     z-index: 0;
 }
-.Cart{
+#cart{
     position: absolute;
     display: block;
     left: 66.45%;
     width: 60px;
     top: 12px;
 }
-
-.Shoptext{
+#shoptext{
     font-size: 30px;
     display: block;
     font-weight: bold;
@@ -94,18 +81,14 @@ nav a{
     left: 70.95%;
     top: -5px;
 }
-
-.Coins{
+#coins{
     position: absolute;
     display: block;
     left: 49%;
     top: 26px;
     width: 30px;
-    
 }
-
-
-.Cointext{
+#cointext{
     font-size: 30px;
     display: block;
     font-weight: bold;
@@ -114,20 +97,19 @@ nav a{
     left: 52.5%;
     top: -5px;
 }
-.rectangle:hover{
+#shopbutton:hover{
     border: 2px solid white;
     z-index: 1;
 }
-
-.linkz{
+.links{
     position: relative;
     top: 1px;
     color: white;
 }
-.linkz:hover{
+.links:hover{
     color: lightgrey;
 }
-.profilepic{
+#profilepic{
     position: absolute;
     display: block;
     left: 84.15%;
@@ -135,13 +117,14 @@ nav a{
     width: 56px;
     border: 2px solid white;
 }
-.Homebutton:hover{
+#homebutton:hover{
     border: 2px solid white;
     z-index: 1;
 }
-.profilepic:hover{
+#profilepic:hover{
     border: 4px solid green;
 }
+/* Profile picture on the right upper corner */
 figure{
     position: absolute;
     display: block;
@@ -152,7 +135,6 @@ figure{
     border: 2px solid white;
     overflow:hidden; 
 }
-
 figure img{
    width: 100%;
     height: 130%;
@@ -161,13 +143,14 @@ figure img{
 figure:hover{
     border: 4px solid white;
 }
-.errornumber{
+/* Page content */
+#errornumber{
     position: relative;
     top: 180px;
     font-size: 80px;
     text-align: center;
 }
-.errormessage{
+#errormessage{
     position: relative;
     top: 170px;
     text-align: center;
@@ -184,10 +167,111 @@ figure:hover{
     top: -70px;
     left: 60%;
 }
-.goback{
+#goback{
     text-decoration: underline;
     color: black;
     position: relative;
     top: 40px;
     text-align: center;
+}
+/* Loginscreen */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button:hover {
+  opacity: 0.8;
+}
+.container {
+  padding: 16px;
+}
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 2; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.65); 
+  padding-top: 100px;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; 
+  border: 4px solid #888;
+  width: 50%;
+}
+.logintext{
+    position: relative;
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+.loginbutton{
+    position: relative;
+    display: block;
+    margin-top: 25px;
+    width: 20%;
+}
+/* The Close Button */
+.close {
+    position: relative;
+    left: 72%;
+    top: 60px;
+    color: #000;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 2;
+}
+.close:hover, .close:focus {
+  color: red;
+  cursor: pointer;
+}
+/* Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.2s;
+  animation: animatezoom 0.2s
+}
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+/* Error messages */
+.error {
+    position: relative;
+    left: 0%;
+    width: 79.4%;
+    padding-top 0px;
+    margin: 8px 0px;
+    color: #a94442; 
+    text-align: left;
+}
+/* Loginbutton */
+.loginbutton{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    font-size: 30px;
+    background-color: #3c91fa;
+    color: black;
+    border: none;
+    width: 20%;
+    cursor: pointer;
+}
+.loginbutton:hover{
+    background-color: #367ff5;
+    color: black;
 }

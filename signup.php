@@ -7,7 +7,7 @@
     <title>Torture some plants. It's up to you how.</title>
     <link rel="stylesheet" type="text/css" href="styles/signup.css">
     <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script src="script/jquery"></script> 
+    <script src="javascripts/jquery.js"></script> 
 
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
