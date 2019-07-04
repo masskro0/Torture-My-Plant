@@ -37,7 +37,7 @@ if(isset($_POST['submit'])) {
     if (mysqli_connect_errno()) {
         die('Connection to MySQL failed: ' .    mysql_connect_error());
     }
-    
+    /*
     if((empty($_POST['username']) || !isset($_POST['username']) || $_POST['username'] == $uname) && (empty($_POST['email']) || !isset($_POST['email']) || $_POST['email'] == $email) &&
         (empty($_POST['password_old']) || !isset($_POST['password_old'])) && (empty($_POST['password_new1']) || !isset($_POST['password_new1'])) &&
         (empty($_POST['password_new2']) || !isset($_POST['password_new2']))){
@@ -86,7 +86,7 @@ if(isset($_POST['submit'])) {
         }
         
     } else {
-
+*/
         /* Check if the fields are empty */
         // Check whether the username field is empty or not     
         if(empty($_POST['username']) || !isset($_POST['username'])){
@@ -239,5 +239,5 @@ if(isset($_POST['submit'])) {
 
         $connect->close();
     }
-}
+//}
 ?>
