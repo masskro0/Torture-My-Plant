@@ -25,7 +25,7 @@ if($_SESSION['loggedin']){
                     </div>
                     <?php if($_SESSION['loggedin'] === TRUE){ ?>
                         <li><img class="Coins" src="img/coins2.png"></li>
-                        <li><p class="Cointext"><?php echo number_format($coins, 0, "'", "'"); ?></p></li>
+                        <li><p class="Cointext"><?php echo number_format($coins, 0, ".", "."); ?></p></li>
                         <li><a href="profile.php">
                             <?php if($row['profile_picture'] !== NULL){
                                 ?>
