@@ -1,23 +1,37 @@
 <?php
-session_start();
-if($_SESSION['loggedin']){
-// Login info for the MySQL database
-$host = 'localhost';
-$user = 'user';
-$pswd = 'password';
-$db_name = 'website';
-// Connect to the database
-$connect = mysqli_connect($host, $user, $pswd, $db_name);
-// Check if there is an error with the connection
-if (mysqli_connect_errno()) {
-    die('Connection to MySQL failed: ' .    mysql_connect_error());
-}
-$query = "SELECT coins FROM User WHERE user_id = " .$_SESSION['user_id'];
-$result = $connect->query($query);
-$row = $result->fetch_assoc();
-$coins = $row['coins'];
+/*
+ * This script gets the user balance from the database. A file to connect to the database is included.
+ * $coins can be used to display the user's balance.
+ * To get the new balance dynamically the new balance is only displayed, if it's a xmlhttprequest to
+ * prevent that the balance is echoed on the site when it shouldn't.
+ */
 
-$connect->close();
+// Start the session
+session_start();
+
+// You only need this script, if the user is logged in
+if($_SESSION['loggedin']){
+    
+    // Connect to the database
+    include('db_connect.php');
+    
+    // Prepare the statement to prevent SQL injection
+    if ($stmt = $connect->prepare('SELECT coins FROM User WHERE user_id = ?')) {
+        
+        // Replace the questionmark with the session user id
+        $stmt->bind_param('i', $_SESSION['user_id']);
+        
+        // Execute the upper statement
+        $stmt->execute();
+        
+        // Store the result of the query in the variable $coins
+        $stmt->store_result();
+        $stmt->bind_result($coins);
+        $stmt->fetch();
+    } else{
+        $connect->close();
+        die('Couldn\'t get balance');  
+    }
 }
 
 // Get the array with all headers
@@ -25,7 +39,8 @@ $array_headers = getallheaders();
 
 // Check if a xmlhttprequest was made
 if (array_key_exists('HTTP_X_REQUESTED_WITH', $array_headers) && in_array('xmlhttprequest', $array_headers)){
-    // Get the new balance
+    
+    // Get the new balance dynamically
     echo $coins;
 }
 ?>

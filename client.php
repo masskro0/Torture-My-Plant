@@ -1,6 +1,10 @@
 <?php
-error_reporting(E_ALL);
-
+/*
+ * This script connects to the Python socket server as a client. This happens when a user clicks on a tool on the
+ * torture screen. It gets the message that is sent by a xmlhttprequest and sends this message to the socket
+ * server. It uses the localhost since the server runs on the same machine as the python tool script.
+ * Port was randomly chosen because you can use any port in the range of 1024-49151
+ */
 // Port
 $service_port = 9997;
 
