@@ -206,13 +206,13 @@ options = {
 
 ###----------------TEST----------------###
 
-while True:
+#while True:
         
-    try: eingabe = int(input('Wähle ein Werkzeug aus: '))
-    except ValueError: print('Input not a number')
+    #try: eingabe = int(input('Wähle ein Werkzeug aus: '))
+    #except ValueError: print('Input not a number')
         
-    try: options[eingabe]()
-    except: print('invalid input. Number betweend 0 and 10 expected')
+    #try: options[eingabe]()
+    #except: print('invalid input. Number betweend 0 and 10 expected')
   
 ###----------------TEST----------------###
 
