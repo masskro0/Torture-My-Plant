@@ -223,12 +223,6 @@ def clientthread(conn):
     
     while True:
 
-        global flameStatus
-        global boltStatus
-        global previousMillis
-        global previousMillis
-        global blinkPeriod
-        
         # Receiving messages from client
 
         data = conn.recv(1024)  # 1024 Bytes
