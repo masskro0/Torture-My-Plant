@@ -4,6 +4,15 @@
  * script
  */
 
+// Start the session
+session_start();
+
+// Check if the user is logged in, if not redirect him to the startpage
+if(!$_SESSION['loggedin']){
+    header('Location: index.php');
+    die();
+}
+
 // Login info for the MySQL database
 $host = 'localhost';
 $user = 'user';
@@ -15,6 +24,6 @@ $connect = mysqli_connect($host, $user, $pswd, $db_name);
 
 // Check if there is an error with the connection
 if (mysqli_connect_errno()) {
-    die('Connection to MySQL failed: ' .    mysql_connect_error());
+    die('Connection to MySQL failed: ' .mysql_connect_error());
 }
 ?>

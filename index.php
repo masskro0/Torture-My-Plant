@@ -1,11 +1,12 @@
 <?php
+session_start();
+if($_SESSION['loggedin']){
     include('balance.php');
     include('getinfo_index.php');
-if($_SESSION['loggedin']){
     include('getinfo.php');
 }
 
-session_start();
+
 // Validate a user's cookie and keep him logged in     
 if ($_SESSION['loggedin'] !== TRUE){
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';

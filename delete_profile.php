@@ -8,6 +8,12 @@
 session_start();
 $user_id = $_SESSION['user_id'];
 
+// Check if the user is logged in, if not redirect him to the startpage
+if(!$_SESSION['loggedin']){
+    header('Location: index.php');
+    die();
+}
+
 // Unset all of the session variables.
 $_SESSION = array();
 

@@ -1,4 +1,9 @@
 <?php
+/*
+ * This script is activated, when a user clicks on the Logout button on profile.php page. It deletes the session and
+ * cookie
+ */
+
 // Start the session
 session_start();
 

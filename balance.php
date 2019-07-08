@@ -9,29 +9,32 @@
 // Start the session
 session_start();
 
-// You only need this script, if the user is logged in
-if($_SESSION['loggedin']){
+// Check if the user is logged in, if not redirect him to the startpage
+if(!$_SESSION['loggedin']){
+    header('Location: index.php');
+    die();
+}
+
     
-    // Connect to the database
-    include('db_connect.php');
-    
-    // Prepare the statement to prevent SQL injection
-    if ($stmt = $connect->prepare('SELECT coins FROM User WHERE user_id = ?')) {
-        
-        // Replace the questionmark with the session user id
-        $stmt->bind_param('i', $_SESSION['user_id']);
-        
-        // Execute the upper statement
-        $stmt->execute();
-        
-        // Store the result of the query in the variable $coins
-        $stmt->store_result();
-        $stmt->bind_result($coins);
-        $stmt->fetch();
-    } else{
-        $connect->close();
-        die('Couldn\'t get balance');  
-    }
+// Connect to the database
+include('db_connect.php');
+
+// Prepare the statement to prevent SQL injection
+if ($stmt = $connect->prepare('SELECT coins FROM User WHERE user_id = ?')) {
+
+    // Replace the questionmark with the session user id
+    $stmt->bind_param('i', $_SESSION['user_id']);
+
+    // Execute the upper statement
+    $stmt->execute();
+
+    // Store the result of the query in the variable $coins
+    $stmt->store_result();
+    $stmt->bind_result($coins);
+    $stmt->fetch();
+} else{
+    $connect->close();
+    die('Couldn\'t get balance');  
 }
 
 // Get the array with all headers

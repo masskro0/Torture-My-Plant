@@ -7,6 +7,12 @@
 // Start the session
 session_start();
 
+// Check if the user is logged in, if not redirect him to the startpage
+if(!$_SESSION['loggedin']){
+    header('Location: index.php');
+    die();
+}
+
 // Get the bought items of the user to know if the bought the multiplicator
 include('getinfo_index.php');
 
@@ -27,7 +33,7 @@ date_default_timezone_set("Europe/Berlin");
 
 // Get the current date in year-month-day
 $current_date = date('Y-m-d');
-
+echo $current_date;
 // Update the user's balance when he claims his daily bonus. Also update the current date. Prepare statement to prevent sql injection
 if($stmt = $connect->prepare("UPDATE User SET coins = ? , last_login = ? WHERE user_id = ? ")){
     // i := integer, s := string

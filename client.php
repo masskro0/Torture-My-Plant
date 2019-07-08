@@ -5,6 +5,13 @@
  * server. It uses the localhost since the server runs on the same machine as the python tool script.
  * Port was randomly chosen because you can use any port in the range of 1024-49151
  */
+
+// Check if the user is logged in, if not redirect him to the startpage
+if(!$_SESSION['loggedin']){
+    header('Location: index.php');
+    die();
+}
+
 // Port
 $service_port = 9997;
 

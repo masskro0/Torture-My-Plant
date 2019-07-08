@@ -10,6 +10,12 @@
 // Start the session
 session_start();
 
+// Check if the user is logged in, if not redirect him to the startpage
+if(!$_SESSION['loggedin']){
+    header('Location: index.php');
+    die();
+}
+
 // Connect to the database
 include('db_connect.php');
 
