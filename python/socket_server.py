@@ -180,11 +180,10 @@ try:
 except socket.error as msg:
     print('Bind failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1])
     sys.exit()
-    
 print('Socket bind complete')
+
 # Start listening for connecions on socket; queues maximum 10 connections
 s.listen(10)
-
 print('Socket now listening')
 
 toolsOff()
