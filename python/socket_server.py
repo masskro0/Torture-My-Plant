@@ -45,10 +45,12 @@ def boltOn():
 def boltBlink():
     u = threading.currentThread()
     while getattr(u, "do_run", True):
+        x = random.randint(1, 10) / 10
         GPIO.output(24, GPIO.HIGH)
-        time.sleep(0.8)
+        time.sleep(x)
+        x = random.randint(1, 10) / 10
         GPIO.output(24, GPIO.LOW)
-        time.sleep(0.8)
+        time.sleep(x)
         if(boltStatus == 0):
             u.do_run = False
        
@@ -71,10 +73,12 @@ def flameOn():
 def flameBlink():
     t = threading.currentThread()
     while getattr(t, "do_run", True):
+        x = random.randint(5, 10) / 10
         GPIO.output(23, GPIO.HIGH)
-        time.sleep(0.25)
+        time.sleep(x)
+        x = random.randint(1, 5) / 10
         GPIO.output(23, GPIO.LOW)
-        time.sleep(0.25)
+        time.sleep(x)
         if(flameStatus == 0):
             t.do_run = False
     
@@ -124,7 +128,7 @@ def drillOn():
     p.ChangeDutyCycle(0)
     time.sleep(0.2)
     #schalte Bohrer an
-    GPIO.output(15, GPIO.HIGH)
+    GPIO.output(22, GPIO.HIGH)
     print('drill on')
     global drillStatus
     drillStatus = 1
@@ -132,7 +136,7 @@ def drillOn():
 #disable drill
 def drillOff():
     #schalte Bohrer aus
-    GPIO.output(15, GPIO.LOW)
+    GPIO.output(22, GPIO.LOW)
     #fahre Bohrer auf Startposition
     p.ChangeDutyCycle(7)
     time.sleep(0.5)
@@ -155,11 +159,11 @@ def toolsOff():
         drillOff()
     
 GPIO.setup(24, GPIO.OUT) #set PIN24 as OUTPUT for bolt
-GPIO.setup(15, GPIO.OUT) #set PIN18 as OUTPUT for drill
+GPIO.setup(22, GPIO.OUT) #set PIN22 as OUTPUT for drill
 GPIO.setup(23, GPIO.OUT) #set PIN23 as OUTPUT for flame
 GPIO.setup(17, GPIO.OUT) #set PIN17 as OUTPUT for acid
 GPIO.setup(27, GPIO.OUT) #set PIN27 as OUTPUT for wind
-GPIO.output(15, GPIO.LOW)#disable PIN18
+GPIO.output(22, GPIO.LOW)#disable PIN22
 servoPIN = 13 #set GPIO13 as OUTPUT data for Servo
 GPIO.setup(servoPIN, GPIO.OUT)
 p =GPIO.PWM(servoPIN, 50) #set GPIO13 as PWM at 50Hz
@@ -168,7 +172,7 @@ time.sleep(0.5)
 p.ChangeDutyCycle(0) #set Servo on Pause 
 
 HOST = '127.0.0.1'  # Localhost
-PORT = 9998
+PORT = 9997
 
 # Create a socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -180,10 +184,11 @@ try:
 except socket.error as msg:
     print('Bind failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1])
     sys.exit()
+    
 print('Socket bind complete')
-
 # Start listening for connecions on socket; queues maximum 10 connections
 s.listen(10)
+
 print('Socket now listening')
 
 toolsOff()
@@ -192,15 +197,10 @@ toolsOff()
 options = {
         0: toolsOff,
         1: flameOn,
-        6: flameOff,
         2: boltOn,
-        7: boltOff,
         3: acidOn,
-        8: acidOff,
         4: windOn,
-        9: windOff,
-        5: drillOn,
-        10: drillOff
+        5: drillOn
 }
 
 
@@ -222,9 +222,8 @@ options = {
 def clientthread(conn):
     
     while True:
-
+        
         # Receiving messages from client
-
         data = conn.recv(1024)  # 1024 Bytes
         data = data.decode()
         options[int(data)]()
