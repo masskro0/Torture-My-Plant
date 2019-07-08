@@ -16,12 +16,14 @@ Created on Wed Jun  5 19:49:55 2019
 
 import socket
 import sys
-from _thread import *
+import threading
 import time
 import RPi.GPIO as GPIO
 import random
 from _thread import start_new_thread
 from threading import Thread
+from _thread import *
+
 
 GPIO.setmode(GPIO.BCM) #steuer GPIOs per Boardnummer an
 drillStatus = 1
@@ -29,63 +31,61 @@ windStatus = 1
 acidStatus = 1
 boltStatus = 1
 flameStatus = 1
-#status variables for blink
-boltBlinkStatus = 0
-flameBlinkStatus = 0
-#timer variables for bolt and flame blink
-previousMillis = 0
-currentMillis = 0
-#period duration for blink
-blinkPeriod = random.randint(50, 400)
 
-
-#Blitz anschalten
+   
+#enable bolt
 def boltOn():
     toolsOff()
     global boltStatus
     boltStatus = 1
     print('bolt on')
-
+    u = threading.Thread(target=boltBlink, args=())
+    u.start()
+               
 def boltBlink():
-    global boltBlinkStatus
-    if(boltBlinkStatus == 0):
+    u = threading.currentThread()
+    while getattr(u, "do_run", True):
         GPIO.output(24, GPIO.HIGH)
-        boltBlinkStatus = 1
-    else:
+        time.sleep(0.8)
         GPIO.output(24, GPIO.LOW)
-        boltBlinkStatus = 0
+        time.sleep(0.8)
+        if(boltStatus == 0):
+            u.do_run = False
        
-#Blitz ausschalten
+#disable bolt
 def boltOff():
     GPIO.output(24, GPIO.LOW)
     print('bolt off')
     global boltStatus
     boltStatus = 0
 
-#Feuer anschalten
+#enable flame
 def flameOn():
     toolsOff()
-    print('flame on')
     global flameStatus
     flameStatus = 1
+    print('flame on')
+    t = threading.Thread(target=flameBlink, args=())
+    t.start()
 
 def flameBlink():
-    global flameBlinkStatus
-    if(flameBlinkStatus == 0):
+    t = threading.currentThread()
+    while getattr(t, "do_run", True):
         GPIO.output(23, GPIO.HIGH)
-        flameBlinkStatus = 1
-    else:
+        time.sleep(0.25)
         GPIO.output(23, GPIO.LOW)
-        flameBlinkStatus = 0
+        time.sleep(0.25)
+        if(flameStatus == 0):
+            t.do_run = False
     
-#Feuer ausschalten
+#disable flame
 def flameOff():
     GPIO.output(23, GPIO.LOW)
     print('flame off')
     global flameStatus
     flameStatus = 0
     
-#Wind anschalten
+#enable wind
 def windOn():
     toolsOff()
     GPIO.output(27, GPIO.HIGH)
@@ -93,14 +93,14 @@ def windOn():
     global windStatus
     windStatus = 1
     
-#Wind ausschalten
+#disable wind
 def windOff():
     GPIO.output(27, GPIO.LOW)
     print('wind off')
     global windStatus
     windStatus = 0
 
-#Säure anschalten
+#enable acid
 def acidOn():
     toolsOff()
     GPIO.output(17, GPIO.HIGH)
@@ -108,14 +108,14 @@ def acidOn():
     global acidStatus
     acidStatus = 1
     
-#Säure ausschalten
+#disable acid
 def acidOff():
     GPIO.output(17, GPIO.LOW)
     print('acid off')
     global acidStatus
     acidStatus = 0
  
-#Bohrer anschalten
+#enable drill
 def drillOn():
     toolsOff()
     #fahre Bohrer an Pflanze
@@ -129,7 +129,7 @@ def drillOn():
     global drillStatus
     drillStatus = 1
         
-#Bohrer ausschalten
+#disable drill
 def drillOff():
     #schalte Bohrer aus
     GPIO.output(15, GPIO.LOW)
@@ -141,8 +141,8 @@ def drillOff():
     global drillStatus
     drillStatus = 0
 
+#disable all tools
 def toolsOff():
-    #disable all tools
     if(flameStatus == 1):
         flameOff()
     if(windStatus == 1):
@@ -168,7 +168,7 @@ time.sleep(0.5)
 p.ChangeDutyCycle(0) #set Servo on Pause 
 
 HOST = '127.0.0.1'  # Localhost
-PORT = 9997 
+PORT = 9998
 
 # Create a socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -182,9 +182,9 @@ except socket.error as msg:
     sys.exit()
     
 print('Socket bind complete')
-
 # Start listening for connecions on socket; queues maximum 10 connections
 s.listen(10)
+
 print('Socket now listening')
 
 toolsOff()
@@ -203,51 +203,42 @@ options = {
         5: drillOn,
         10: drillOff
 }
-        
+
+
 ###----------------TEST----------------###
-#while True:
-       
-    #try: eingabe = int(input('Wähle ein Werkzeug aus: '))
-    #except ValueError: print('Input not a number')
-    
-    #try: options[eingabe]()
-    #except: print('invalid input. Number betweend 0 and 10 expected')
 
-    #currentMillis = time.time() * 1000
-    #if(currentMillis - previousMillis >= blinkPeriod):
-    #        previousMillis = currentMillis
-    #        blinkPeriod = random.randint(50, 400)
-    #        boltBlink()
-    #        flameBlink()
-            
-            
-
+while True:
+        
+    try: eingabe = int(input('Wähle ein Werkzeug aus: '))
+    except ValueError: print('Input not a number')
+        
+    try: options[eingabe]()
+    except: print('invalid input. Number betweend 0 and 10 expected')
   
-###----------------TEST----------------###       
+###----------------TEST----------------###
+
+    
 
 # Function for handling connections. This will be used to create threads
 def clientthread(conn):
     
     while True:
+
+        global flameStatus
+        global boltStatus
+        global previousMillis
+        global previousMillis
+        global blinkPeriod
+        
         # Receiving messages from client
+
         data = conn.recv(1024)  # 1024 Bytes
         data = data.decode()
-      
         options[int(data)]()
-         
+
         print(data)
         if not data: 
-            break
-
-        currentMillis = time.time() * 1000
-        if(boltStatus == 1 and currentMillis - previousMillis >= blinkPeriod):
-            previousMillis = currentMillis
-            blinkPeriod = random.randint(50, 400)
-            boltBlink()
-        if(flameStatus == 1 and currentMillis - previousMillis >= blinkPeriod):
-            previousMillis = currentMillis
-            blinkPeriod = random.randint(50, 400)
-            flameBlink()
+            break        
     
     #came out of loop
     conn.close()
@@ -257,7 +248,7 @@ while 1:
     #wait to accept a connection - blocking call
     conn, addr = s.accept()
     print('Connected with ' + addr[0] + ':' + str(addr[1]))
-    
+  
     #start new thread takes 1st argument as a function name to be run, second is the tuple of arguments to the function.
     start_new_thread(clientthread ,(conn,))
 
