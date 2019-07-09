@@ -107,14 +107,14 @@ def windOff():
 #enable acid
 def acidOn():
     toolsOff()
-    GPIO.output(17, GPIO.HIGH)
+    GPIO.output(18, GPIO.HIGH)
     print('acid on')
     global acidStatus
     acidStatus = 1
     
 #disable acid
 def acidOff():
-    GPIO.output(17, GPIO.LOW)
+    GPIO.output(18, GPIO.LOW)
     print('acid off')
     global acidStatus
     acidStatus = 0
@@ -161,7 +161,7 @@ def toolsOff():
 GPIO.setup(24, GPIO.OUT) #set PIN24 as OUTPUT for bolt
 GPIO.setup(22, GPIO.OUT) #set PIN22 as OUTPUT for drill
 GPIO.setup(23, GPIO.OUT) #set PIN23 as OUTPUT for flame
-GPIO.setup(17, GPIO.OUT) #set PIN17 as OUTPUT for acid
+GPIO.setup(18, GPIO.OUT) #set PIN18 as OUTPUT for acid
 GPIO.setup(27, GPIO.OUT) #set PIN27 as OUTPUT for wind
 GPIO.output(22, GPIO.LOW)#disable PIN22
 servoPIN = 13 #set GPIO13 as OUTPUT data for Servo
