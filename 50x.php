@@ -16,7 +16,7 @@ if($_SESSION['loggedin']){
     <link rel="stylesheet" type="text/css" href="styles/errorpage.css">
     <script type="text/javascript" src="javascripts/login.js"></script>
   </head>
-    <body>
+  <body>
         <!--Black bar on the top-->
         <div id="navbar"></div>
         <nav>
@@ -85,5 +85,5 @@ if($_SESSION['loggedin']){
                 </div>
             </form>
         </div>
-    </body>
+  </body>
 </html>

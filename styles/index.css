@@ -3,10 +3,6 @@ body{
     margin-right: 10%;
     font-family: sans-serif;
 }
-a, p, button, label, input, h1{
-    font-family: sans-serif;
-}
-
 nav ul{
     list-style-type: none;
     margin: 0px;
@@ -14,7 +10,6 @@ nav ul{
     overflow: hidden;
     margin-bottom: 30px;
 }
-
 nav li{
     float: left;
 }
@@ -24,16 +19,13 @@ nav a{
     font-size: 20px;
     color: black;
 }
-
 .right{
     margin-top: 10px;
     float: right;
     margin-right: 27px;
 }
-
-
-.frontpagetext{
-    color:black;
+#frontpagetext{
+    color: black;
     text-decoration: none;
     font-size: 44px;
     font-weight: bold;
@@ -43,33 +35,27 @@ nav a{
     left: 5px;
     font-family: 'Arial', sans-serif;
 }
-
-#livestream{
-    background-color: lightgrey;
+#content-wrapper{
     position: absolute;
     width: 78.25%;
-    display: block;
-    padding-bottom: 0px;
     top: 100px;
 }
-.pflanze{
+.plant{
     position: relative;
-    display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0px;
     height: 640px;
     object-fit: none;
 }
 
-.linkerpfeil{
+.leftarrow{
   position: absolute;
   top: 250px;
   left: 10%;
     cursor:pointer;
 }
 
-.rechterpfeil{
+.rightarrow{
     position: absolute;
     top: 250px;
     right: 10%;
@@ -87,20 +73,22 @@ nav a{
     color: black;
     cursor: pointer;
 }
-.Homebutton{
+#homebutton{
     top: -10px;
-    position: absolute;
+    position: fixed;
     padding-bottom: 20px;
     padding-top: 25px;
     left: 153px;
-    width: 450px;
+    width: 420px;
     background-color: white;
+    z-index: 1;
 }
-.Homeicon{
+#homeicon{
     position: absolute;
     width: 51px;
     margin-top: 0px;
     left: 0px;
+    z-index: 1;
 }
 
 
@@ -208,65 +196,61 @@ button:hover {
     text-align: left;
 }
 
-.rectangle {
+#rectangle {
     position: absolute;
     top: 10px;
     left: 66.45%;
     height: 56px;
     width: 165px;
-    z-index: 0;
+    z-index: 2;
 }
-.profilepic{
+#profilepic{
     position: absolute;
     display: block;
     left: 84.15%;
     top: 10px;
     width: 56px;
     border: 2px solid white;
+    z-index: 1;
 }
-
-.Cart{
-    position: absolute;
+#cart{
+    position: fixed;
     display: block;
     left: 66.45%;
     width: 60px;
     top: 12px;
+    z-index: 1;
 }
 
-.Shoptext{
+#shoptext{
     font-size: 30px;
     display: block;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     color: white;
-    
+    z-index: 1;
     left: 70.95%;
     top: -5px;
 }
-
-.Coins{
-    position: absolute;
+#coins{
+    position: fixed;
     display: block;
-    left: 40%;
+    left: 49%;
     top: 26px;
     width: 30px;
+    z-index: 1;
     
 }
-
-.Cointext{
+.cointext{
     font-size: 30px;
     display: block;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     color: white;
     left: 52.5%;
     top: -5px;
+    z-index: 1;
 }
-
-/*.pflanze{
-  filter: brightness(140%) contrast(30%);
-}*/
-
 .Lock{
     position: absolute;
     width: 15%;
@@ -330,14 +314,6 @@ button:hover {
     left: 40%;
     top: 40%; 
 }
-
-.Coins{
-    z-index: 3;
-    width: 3%;
-    top: 47.5%;
-    left: 51%;
-}
-
 .Bonusjpg{
     display: none;
 }
@@ -351,12 +327,7 @@ button:hover {
 .Bonustextcoins{
     display:none;
 }
-.Coins{
-    z-index: 0;
-    left: 49%;
-    top: 26px;
-    width: 30px;
-}
+
 
 .accept{
     display: block;
@@ -514,19 +485,20 @@ iframe{
     left: -20px;
 }
 .navbar{
-    color:black;
-    position: absolute;
+    color: black;
+    position: fixed;
+    z-index: 1;
     top: 0px;
     left: -100px;
     width: 106.6%;
     height: 85px;
-    background-color:black;
+    background-color: black;
 }
-.rectangle:hover{
+#rectangle:hover{
     border: 2px solid white;
     z-index: 1;
 }
-.profilepic:hover{
+#profilepic:hover{
     border: 4px solid white;
 }
 .cooldown_fire{
@@ -589,28 +561,17 @@ iframe{
     z-index: 0;
     opacity: 0.7;
 }
-.linkz{
+.links{
     position: relative;
     top: 1px;
     color: white;
+    z-index: 1;
 }
-.linkz:hover{
+.links:hover{
     color: lightgrey;
 }
-
-
-.profilepic{
-    position: absolute;
-    display: block;
-    left: 84.15%;
-    top: 10px;
-    width: 56px;
-    border: 2px solid white;
-}
-
-
 figure{
-    position: absolute;
+    position: fixed;
     display: block;
     left: 81.58%;
     top: -10px;
@@ -618,6 +579,7 @@ figure{
     height: 56px;
     border: 2px solid white;
     overflow:hidden; 
+    z-index: 1;
 }
 
 figure img{

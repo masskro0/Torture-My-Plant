@@ -24,20 +24,8 @@ session_start();
 // An array that contains all errors
 $errors = array();
 
-/* include('db_connect.php') doesn't work here for some reason. Duplicate code from db_connect.php */
-// Login info for the MySQL database
-$host = 'localhost';
-$user = 'user';
-$pswd = 'password';
-$db_name = 'website';
-
 // Connect to the database
-$connect = mysqli_connect($host, $user, $pswd, $db_name);
-
-// Check if there is an error with the connection
-if (mysqli_connect_errno()) {
-    die('Connection to MySQL failed: ' . mysql_connect_error());
-}
+include('db_connect.php');
 
 // Check whether the username field is empty or not
 if(empty($_POST['username']) || !isset($_POST['username'])){
@@ -108,13 +96,13 @@ if($_POST['remember'] === "true"){
     
     // Generates cryptographically secure pseudo-random 128 bytes long
     $token = random_bytes(128);
-    
+
     // Converts the token into a hex. That way it's working flawless with the database and verifying process
     $hex = bin2hex($token);
-    
+
     // Store token in the database
-    if($stmt = $connect->prepare("UPDATE User SET token = ? WHERE user_id = ? "){
-        
+    if($stmt = $connect->prepare("UPDATE User SET token = ? WHERE user_id = ? ")){
+    
         // Replace questionmark with the username (s := string, i := integer)
         $stmt->bind_param('si', $hex, $_SESSION['user_id']);
         $stmt->execute();
@@ -135,5 +123,7 @@ if($_POST['remember'] === "true"){
     // Create a cookie
     setcookie('rememberme', $cookie, time()+(86400*30));
 }
+
+// Close the connection to the database
 $connect->close();
 ?>
