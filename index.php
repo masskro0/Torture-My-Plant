@@ -108,19 +108,19 @@ if ($_SESSION['loggedin'] !== TRUE){
         <!-- Slideshow, arrows and Torture Me button -->
         <div id="content-wrapper">
             <!-- Images of plants -->
-            <img class="plant animation_left" src="img/plant1.jpg" width="100%">
-            <img class="plant animation_left" src="img/plant2.jpg" width="100%">
+            <img class="plant animation_slide" src="img/plant1.jpg" width="100%">
+            <img class="plant animation_slide" src="img/plant2.jpg" width="100%">
 
             <!-- Display locked/unlocked plants -->
             <?php if($_SESSION['loggedin'] === TRUE && (!in_array(1, $array_orders))){ ?>
-            <img class="plant animation_left" src="img/plant3_lock.jpg" width="100%">
+            <img class="plant animation_slide" src="img/plant3_lock.jpg" width="100%">
             <?php } else { ?>
-            <img class="plant animation_left" src="img/plant3.jpg" width="100%">
+            <img class="plant animation_slide" src="img/plant3.jpg" width="100%">
             <?php }
             if($_SESSION['loggedin'] === TRUE && !in_array(2, $array_orders)){ ?>
-            <img class="plant animation_left" src="img/plant4_lock.jpg" width="100%">
+            <img class="plant animation_slide" src="img/plant4_lock.jpg" width="100%">
             <?php } else { ?>
-            <img class="plant animation_left" src="img/plant4.jpg" width="100%">
+            <img class="plant animation_slide" src="img/plant4.jpg" width="100%">
             <?php } ?>
             
             <!-- Arrow left -->
