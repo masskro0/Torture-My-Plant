@@ -245,9 +245,10 @@ nav  a{
 }
 /* Bought items */
 #items{
-    position: relative;
-    left: 305px;
-    top: -490px;
+    position: absolute;
+    top: 255px;
+    left: 30%;
+    width: 85%;
 }
 #items ul{
     list-style-type: none;

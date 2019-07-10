@@ -163,7 +163,7 @@ if(isset($_POST['submit'])) {
         
         // E-mail validation
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            array_push($errors, "Invalid e-mail adress.");
+            array_push($errors, "Invalid e-mail adress. Please check for errors.");
         }
 
         // Check if the two new passwords are the same

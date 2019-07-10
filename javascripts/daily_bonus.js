@@ -17,6 +17,7 @@ function daily_bonus(){
                 // Update the balance if the script is done
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("balance").innerHTML = this.responseText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                    location.reload();
                 }
             };
             
