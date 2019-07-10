@@ -56,8 +56,8 @@
                 lastTool = seltool;
                 // stop all running tools and start selected tool
                 //tool(0);
-                tool(seltool);
                 console.log('tool ' + (seltool) + ' selected');
+                tool(seltool);
                 
                 
                 // call decrement Timer in 1 sec

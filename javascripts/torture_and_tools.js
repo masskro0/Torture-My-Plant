@@ -1,4 +1,6 @@
 function tool(str) {
+        console.log('sending ' + (str) + ' in function tool');
+    
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "client.php?q=" + str, true);
         xmlhttp.send();
