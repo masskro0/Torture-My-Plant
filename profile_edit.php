@@ -7,12 +7,10 @@ include('edit_info.php');
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torture some plants. It's up to you how.</title>
+    <title>Torture some plants. Edit Profile</title>
     <link rel="stylesheet" type="text/css" href="styles/profile_edit.css">
     <script src="javascripts/jquery.js"></script> 
-    <!--  Testen ob es ohne geht
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    -->
+    <script src="javascripts/readurl.js"></script> 
   </head>
     
     <body>
@@ -87,20 +85,6 @@ include('edit_info.php');
     </body>
     
     <script> 
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#uploaded')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(200);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-                document.getElementById("uploaded").style.display = "block"; 
-            }
-        }
+        
     </script>
 </html>

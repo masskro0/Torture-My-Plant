@@ -1,81 +1,54 @@
-<?php include('register.php') ?>
+<?php 
+// Include script for the registration process
+include('register.php') 
+?>
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torture some plants. It's up to you how.</title>
-    <link rel="stylesheet" type="text/css" href="styles/signup.css">
-    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script src="javascripts/jquery.js"></script> 
-
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-
-  </head>
-    
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Torture some plants - Sign Up</title>
+        <link rel="stylesheet" type="text/css" href="styles/signup.css">
+        <script src="javascripts/jquery.js"></script> 
+        <script src="javascripts/readurl.js"></script>
+    </head>
     <body>
-
-        <div class="headleiste">
-                    <a href="index.php"><img class="linkerpfeil" src="img/linkerpfeil.png"></a>
-            <div class="kind">
-        
-        
-        <p class="Header">Sign Up</p>
+        <!-- Head -->
+        <div id="headbar">
+            <a href="index.php"><img id="leftarrow" src="img/linkerpfeil.png"></a>
+            <p id="header">Sign Up</p>
         </div>
-        </div>
+        
+        <!-- Page content -->
         <div class="screen">
-        
-        <form method="post" action="" enctype="multipart/form-data">
-            <div class="container">
-            <?php include('errors.php'); ?>
-            <img class="profilepic" src="img/profilepic2.png">
-              
-            <input type="file" name="image" onchange="readURL(this);" accept="image/jpeg" style="display:none;" id="file">
-            <figure>
-            <img id="uploaded" src="#"/>
-            </figure>
-            <input type="button" class="uploadbutton accept" value="Upload Profile Picture" onclick="document.getElementById('file').click();">     
-                            
-            <label for="username"><b>Username</b></label>
-            <?php echo"<input type=\"text\" placeholder=\"Username...\" name=\"username\" value=\"$uname\" required>"; ?>
-            <label for="email"><b>E-Mail Adress</b></label>
-            <?php echo "<input type=\"text\" placeholder=\"E-Mail...\" name=\"email\" value=\"$email\" required>"; ?>
-            <label for="password1"><b>Password</b></label>
-            <?php echo"<input type=\"password\" placeholder=\"Password...\" name=\"password1\" value=\"$password1\" required>"; ?>
-            <label for="password2"><b>Repeat Password</b></label>
-            <?php echo"<input type=\"password\" placeholder=\"Repeat Password...\" name=\"password2\" value=\"$password2\" required>"; ?>
-            <input type="checkbox" id="policy" name="policy" required> I have read and agree to the <a href="privacy_policy.html" class="policylink">
-                Privacy Policy.</a>
             
-            
-            <input name="submit" class="accept signupbutton" type="submit" value="Sign Up">
+            <!-- Form -->
+            <form method="post" action="" enctype="multipart/form-data">
                 
-      
-            </div>
-            
-        </form>
-        
+                <!-- Errors -->
+                <?php include('errors.php'); ?>
+                
+                <!-- Profile picture -->
+                <img id="profilepic" src="img/profilepic2.png">
+                <input type="file" name="image" onchange="readURL(this);" accept="image/jpeg" style="display:none;" id="file">
+                <figure>
+                <img id="uploaded" src="#"/>
+                </figure>
+                <input type="button" class="uploadbutton button" value="Upload Profile Picture" onclick="document.getElementById('file').click();">     
+
+                <!-- Input fields; keep information after submitting -->
+                <label for="username"><b>Username</b></label>
+                <?php echo"<input type=\"text\" placeholder=\"Username...\" name=\"username\" value=\"$uname\" required>"; ?>
+                <label for="email"><b>E-Mail Adress</b></label>
+                <?php echo "<input type=\"text\" placeholder=\"E-Mail...\" name=\"email\" value=\"$email\" required>"; ?>
+                <label for="password1"><b>Password</b></label>
+                <?php echo"<input type=\"password\" placeholder=\"Password...\" name=\"password1\" value=\"$password1\" required>"; ?>
+                <label for="password2"><b>Repeat Password</b></label>
+                <?php echo"<input type=\"password\" placeholder=\"Repeat Password...\" name=\"password2\" value=\"$password2\" required>"; ?>
+                <input type="checkbox" id="policy" name="policy" required> I have read and agree to the <a href="privacy_policy.html" class="policylink">
+                    Privacy Policy.</a>
+                <input name="submit" class="button signupbutton" type="submit" value="Sign Up">
+            </form>
         </div>
-        
-        
-    
     </body>
-    
-    <script> 
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#uploaded')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(200);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-                document.getElementById("uploaded").style.display = "block"; 
-            }
-        }
-    </script>
 </html>
