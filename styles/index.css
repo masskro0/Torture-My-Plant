@@ -3,6 +3,18 @@ body{
     margin-right: 10%;
     font-family: sans-serif;
 }
+/* Black bar on the top */
+#navbar{
+    color: black;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    left: -100px;
+    width: 106.6%;
+    height: 85px;
+    background-color: black;
+}
+/* Navigation bar and its elements */
 nav ul{
     list-style-type: none;
     margin: 0px;
@@ -14,16 +26,36 @@ nav li{
     float: left;
 }
 nav a{
-    display: sblock;
+    display: block;
     padding-left: 40px;
     font-size: 20px;
     color: black;
 }
+/* Align elements right */
 .right{
     margin-top: 10px;
     float: right;
     margin-right: 27px;
 }
+/* Create Account and Login */
+.links{
+    position: relative;
+    top: 1px;
+    color: white;
+    z-index: 1;
+}
+/* Change color on hover */
+.links:hover{
+    color: lightgrey;
+}
+/* Fixed position for the links */
+#fixedlinks{
+    position: fixed;
+    z-index: 1;
+    margin-top: 5px;
+    left: 66%;
+}
+/* Torture My Plant*/
 #frontpagetext{
     color: black;
     text-decoration: none;
@@ -32,45 +64,8 @@ nav a{
     color: black;
     padding-left: 15px;
     position: relative;
-    left: 5px;
+    left: 45px;
     font-family: 'Arial', sans-serif;
-}
-#content-wrapper{
-    position: absolute;
-    width: 78.25%;
-    top: 100px;
-}
-.plant{
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    height: 640px;
-    object-fit: none;
-}
-#leftarrow{
-    position: absolute;
-    top: 250px;
-    left: 10%;
-    cursor: pointer;
-}
-#rightarrow{
-    position: absolute;
-    top: 250px;
-    right: 10%;
-    cursor:pointer;
-}
-.button{
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -80px;
-    font-size: 30px;
-    background-color: #3c91fa;
-    border: none;
-    width: 20%;
-    color: black;
-    cursor: pointer;
 }
 #homebutton{
     top: -10px;
@@ -82,6 +77,7 @@ nav a{
     background-color: white;
     z-index: 1;
 }
+/* Plant icon */
 #homeicon{
     position: absolute;
     width: 51px;
@@ -89,112 +85,6 @@ nav a{
     left: 0px;
     z-index: 1;
 }
-
-
-/**************** Loginscreen *****************/
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 10px 10px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
-#container {
-  padding: 16px;
-}
-
- /* The Modal (background) */
-.modal {
-  display: none; 
-  position: fixed;
-  z-index: 2; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.65); 
-  padding-top: 100px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5px auto; 
-  border: 4px solid #888;
-  width: 50%;
-}
-
-.logintext{
-    position: relative;
-    font-size: 32px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 0px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.loginbutton{
-    position: relative;
-    display: block;
-    margin-top: 25px;
-    width: 20%;
-}
-
-/* The Close Button */
-.close {
-    position: relative;
-    left: 72%;
-    color: #000;
-    font-size: 50px;
-    font-weight: bold;
-    z-index: 2;
-    top: 58px;
-}
-
-/* Close button on hover */
-.close:hover, .close:focus {
-    color: red;
-    cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.2s;
-  animation: animatezoom 0.2s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)}
-  to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-  from {transform: scale(0)}
-  to {transform: scale(1)}
-}
-
-#error {
-    position: relative;
-    left: 0%;
-    width: 79.4%;
-    padding-top 0px;
-    margin: 8px 0px;
-    color: #a94442; 
-    text-align: left;
-}
-
 #rectangle {
     position: absolute;
     top: 10px;
@@ -203,6 +93,7 @@ button:hover {
     width: 165px;
     z-index: 2;
 }
+/* Default profile picture */
 #profilepic{
     position: absolute;
     display: block;
@@ -212,6 +103,32 @@ button:hover {
     border: 2px solid white;
     z-index: 1;
 }
+/* Add border on hover */
+#profilepic:hover{
+    border: 4px solid white;
+}
+/* User picture on the top right corner */
+figure{
+    position: fixed;
+    display: block;
+    left: 81.58%;
+    top: -10px;
+    width: 56px;
+    height: 56px;
+    border: 2px solid white;
+    overflow:hidden; 
+    z-index: 1;
+}
+figure img{
+   width: 99%;
+    height: 130%;
+    margin:-21.875% 0;
+    object-fit: cover;
+}  
+/* Add border on hover */
+figure:hover{
+    border: 4px solid white;
+}
 #cart{
     position: fixed;
     display: block;
@@ -220,7 +137,6 @@ button:hover {
     top: 12px;
     z-index: 1;
 }
-
 #shoptext{
     font-size: 30px;
     display: block;
@@ -250,89 +166,171 @@ button:hover {
     top: -5px;
     z-index: 1;
 }
-.Lock{
-    position: absolute;
-    width: 15%;
-    left: 42.5%;
-    top: 25%;
+/* Add border on hover */
+#rectangle:hover{
+    border: 2px solid white;
+    z-index: 1;
 }
-.Unavailable{
+/* Page content */
+#content-wrapper{
+    position: absolute;
+    width: 78.25%;
+    top: 100px;
+}
+/* Images of plants */
+.plant{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 640px;
+    object-fit: none;
+}
+/* Arrows */
+#leftarrow{
+    position: absolute;
+    top: 250px;
+    left: 10%;
+    cursor: pointer;
+}
+#rightarrow{
+    position: absolute;
+    top: 250px;
+    right: 10%;
+    cursor:pointer;
+}
+/* Buttonstyle */
+.button{
     position: relative;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: -80px;
     font-size: 30px;
-    background-color: red;
-    border-radius: 8px;
-    border-width: thick;
-    width: 20%
+    background-color: dodgerblue;
+    border: none;
+    width: 20%;
+    color: black;
+    cursor: pointer;
 }
-
-
-.Bonusjpg{
-    position: absolute;
-    clip: rect(0px 1204px 664px 0px); 
-    height: auto;
+/* Change color on hover */
+.button:hover{
+    background-color: #367ff5;
+    color: black;
+}
+/* Loginscreen */
+/* Input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+/* All elements inside the login screen */
+#container {
+    padding: 16px;
+}
+ /* The Modal (background) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.65); 
+    padding-top: 100px;
+}
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5px auto; 
+    border: 4px solid #888;
+    width: 50%;
+}
+/* "Login" */
+.logintext{
+    position: relative;
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+.loginbutton{
+    position: relative;
     display: block;
-    z-index: 2;
-    max-width: 100%;
-    top: 0.8%;
-    filter: blur(3px) opacity(45%);
-
+    margin-top: 25px;
+    width: 20%;
 }
-
-.Bonustexttop{
-    position: absolute;
-    z-index: 2;
+/* The Close Button */
+.close {
+    position: relative;
+    left: 72%;
+    color: #000;
+    font-size: 50px;
     font-weight: bold;
-    font-size: 60px;
-    margin-left: 20%;
-    margin-right: auto;
-}
-
-.Yellowbox{
-  position: absolute;
-    top: 0.8%;
-   width: 79.2%;
-    height: 84.4%;
-  background-color: #e9f29b;
-    z-index: 1;
-}
-
-.Bonustextcoins{
-    position: absolute;
     z-index: 2;
-    font-weight: bold;
-    font-size: 52px;
-    left: 40%;
-    top: 40%; 
+    top: 58px;
 }
+/* Close button on hover */
+.close:hover, .close:focus {
+    color: red;
+    cursor: pointer;
+}
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.2s;
+    animation: animatezoom 0.2s
+}
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+/* Errors in the login process */
+#error {
+    position: relative;
+    left: 0%;
+    width: 79.4%;
+    padding-top 0px;
+    margin: 8px 0px;
+    color: #a94442; 
+    text-align: left;
+}
+/* Content of the torture screen */
 #torturecontainer {
     padding: 16px;
 }
  /* The Modal (background) */
 .Torture {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.85); 
-  padding-top: 10px;
-   
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.85); 
+    padding-top: 10px;
 }
 /* Modal Content/Box */
 #torturecontent {
-  background-color: lightgrey;
-  margin: 5px auto; 
-  border: 4px solid #888;
-  width: 60%;
-     border: 1px solid white;
+    background-color: lightgrey;
+    margin: 5px auto; 
+    border: 4px solid #888;
+    width: 60%;
+    border: 1px solid white;
 }
 #stream{
     display:block;
@@ -340,30 +338,28 @@ button:hover {
 .stream{
     position: relative;
     left: 5%;
-    
 }
+/* Close button */
 .closetorture {
-  position: absolute;
-  right: 20.2%;
-  top: 1%;
-  color: #000;
-  font-size: 50px;
-  font-weight: bold;
+    position: absolute;
+    right: 20.2%;
+    top: 1%;
+    color: #000;
+    font-size: 50px;
+    font-weight: bold;
 }
-
 /* Close button on hover */
-.closetorture:hover,
-.closetorture:focus {
-  color: red;
-  cursor: pointer;
+.closetorture:hover, .closetorture:focus {
+    color: red;
+    cursor: pointer;
 }
-
+/* Live stream */
 iframe{
     height: 600px;
     width: 89.7%;
     border: 2px solid black;
 }
-
+/* Quit Torture button */
 .Quittorture{
     position: relative;
     left: 3px;
@@ -377,8 +373,7 @@ iframe{
     border: none;
     cursor: pointer;
 }
-
-
+/* Torture tools */
 .fire{
     width: 35px;
     height: 35px;
@@ -399,7 +394,6 @@ iframe{
     width: 35px;
     height: 35px;
 }
-
 .tortureul{
     position: absolute;
     right: 23.8%;
@@ -410,67 +404,17 @@ iframe{
     overflow: hidden;
     margin-bottom: 30px;
 }
-
 .tortureul li{
     float:right;
     border: 5px solid black;
     margin-left: 45px;
     cursor: pointer;
 }
-
-#timerbox{
-    position: absolute;
-    height: 48px;
-    width: 150px;
-    background-color: darkgrey;
-    left: 37%;
-    top: 645px;
-    border: 2px solid black;
+/* Change background color on hover */
+.tortureul li:hover{
+    background-color: dimgrey;
 }
-
-#timericon{
-    position: absolute;
-    width: 40px;
-    top: 652px;
-    left: 37.1%;
-    z-index: 1;
-}
-.logout{
-    position: absolute;
-    z-index: 2;
-    top: 90%;
-}
-.unavailable{
-    background-color: #3c91fa;
-}
-.buttonlink{
-    text-decoration: none;
-}
-
-#Countdown{
-    font-size: 30px;
-    top: -3px;
-    font-weight: bold;
-    position: relative;
-    left: -20px;
-}
-.navbar{
-    color: black;
-    position: fixed;
-    z-index: 1;
-    top: 0px;
-    left: -100px;
-    width: 106.6%;
-    height: 85px;
-    background-color: black;
-}
-#rectangle:hover{
-    border: 2px solid white;
-    z-index: 1;
-}
-#profilepic:hover{
-    border: 4px solid white;
-}
+/* Cooldown box for torture tools */
 .cooldown_fire{
     position: absolute;
     display: none;
@@ -531,46 +475,45 @@ iframe{
     z-index: 0;
     opacity: 0.7;
 }
-.links{
+/* Timer elements */
+#timerbox{
+    position: absolute;
+    height: 48px;
+    width: 150px;
+    background-color: darkgrey;
+    left: 37%;
+    top: 645px;
+    border: 2px solid black;
+}
+#timericon{
+    position: absolute;
+    width: 40px;
+    top: 652px;
+    left: 37.1%;
+    z-index: 1;
+}
+#Countdown{
+    font-size: 30px;
+    top: -3px;
+    font-weight: bold;
     position: relative;
-    top: 1px;
-    color: white;
-    z-index: 1;
+    left: -20px;
 }
-.links:hover{
-    color: lightgrey;
+/* Change button style if a plant isn't available */
+.unavailable{
+    background-color: #3544cc;
 }
-figure{
-    position: fixed;
-    display: block;
-    left: 81.58%;
-    top: -10px;
-    width: 56px;
-    height: 56px;
-    border: 2px solid white;
-    overflow:hidden; 
-    z-index: 1;
-}
-
-figure img{
-   width: 99%;
-    height: 130%;
-    margin:-21.875% 0;
-    object-fit: cover;
-}   
-.button:hover{
-    background-color: #367ff5;
-    color: black;
-}
+/* Refer to shop.php when a button is clicked */
+.buttonlink{
+    text-decoration: none;
+} 
+/* Change color on hover */
 .Quittorture:hover{
     background-color: #367ff5;
     color: black;
 }
-.tortureul li:hover{
-    background-color: dimgrey;
-}
-
-
+/* Bonus screen */
+/* The modal (background) */
 #bonus_screen {
   position: fixed;
   z-index: 1; 
@@ -583,7 +526,7 @@ figure img{
   background-color: rgba(0,0,0,0.65); 
   padding-top: 100px;
 }
-
+/* Bonus screen content */
 .bonus_content{
     background-color: #fefefe;
     margin: 10px auto; 
@@ -591,7 +534,7 @@ figure img{
     width: 50%;
     height: 500px;
 }
-.img_bonus{
+#img_bonus{
     position: absolute;
     margin: 0px auto;
     width: 50%;
@@ -622,12 +565,8 @@ figure img{
     position: relative;
     top: 170px;
 }
-figure:hover{
-    border: 4px solid white;
-}
-.errornumber{
-    color:red;
-}
+/* Notify screen */
+/* The modal (background) */
 #notify_screen {
     visibility: hidden;
   position: fixed;
@@ -641,7 +580,7 @@ figure:hover{
   background-color: rgba(0,0,0,0.65); 
   padding-top: 100px;
 }
-
+/* Notify screen content */
 .notify_content{
     background-color: #fefefe;
     margin: 150px auto; 
@@ -670,10 +609,4 @@ figure:hover{
     margin-left: auto;
     margin-right: auto;
     width: 31%;
-}
-#fixedlinks{
-    position: fixed;
-    z-index: 1;
-    margin-top: 5px;
-    left: 66%;
 }

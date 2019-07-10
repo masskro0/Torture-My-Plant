@@ -73,7 +73,7 @@ if ($_SESSION['loggedin'] !== TRUE){
     
     <body>
         <!-- Black navigation bar -->
-        <div class="navbar"></div>
+        <div id="navbar"></div>
         <nav>
             <!-- Navigation bar content -->
             <ul>
@@ -194,7 +194,7 @@ if ($_SESSION['loggedin'] !== TRUE){
         <span onclick="quitTorture(); liveshow();" class="closetorture" title="Close Modal">&times;</span>
 
       <!-- Torture screen content -->
-        <div id="torturecontent">
+        <div id="torturecontent" class="animate">
             <div id="torturecontainer">
                 <iframe class="stream" id="stream" src="http://10.90.1.173:8081" ></iframe>
                 <button class="Quittorture" onclick="quitTorture()">Quit Torture</button>
@@ -284,7 +284,7 @@ if ($_SESSION['loggedin'] !== TRUE){
     if((($current_date > $last_login) || is_null($last_login)) && $_SESSION['loggedin']){ ?>
     <div id="bonus_screen">
         <div class="bonus_content">
-            <img src="img/bonusscreen.jpg" class="img_bonus">
+            <img src="img/bonusscreen.jpg" id="img_bonus">
             <h1>Grab your daily bonus!</h1>
             <img class="bonus_coins" src="img/coins.png">
             <h2><?php if (in_array(12, $array_orders)){

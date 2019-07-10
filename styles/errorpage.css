@@ -19,7 +19,6 @@ nav ul{
     list-style-type: none;
     overflow: hidden;
 }
-
 nav li{
     float: left;
 }
@@ -32,6 +31,7 @@ nav a{
     float: right;
     margin-right: 27px;
 }
+/* Torture My Plant*/
 #frontpagetext{
     color: white;
     text-decoration: none;
@@ -51,6 +51,7 @@ nav a{
     width: 450px;
     background-color: black;
 }
+/* Plant icon */
 #homeicon{
     position: absolute;
     width: 51px;
@@ -109,6 +110,7 @@ nav a{
 .links:hover{
     color: lightgrey;
 }
+/* Default profile picture */
 #profilepic{
     position: absolute;
     display: block;
