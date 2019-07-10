@@ -3,9 +3,18 @@ body{
     margin-right: 10%;
     font-family: sans-serif;
 }
-a, p, button, h1{
-    font-family: sans-serif;
+/* Black bar on the top */
+#navbar{
+    color:black;
+    position: fixed;
+    top: 0px;
+    left: -100px;
+    width: 106.6%;
+    height: 85px;
+    background-color: black;
+    z-index: 1;
 }
+/* Navigation bar and its elements */
 nav ul{
     list-style-type: none;
     margin: 0px;
@@ -13,9 +22,8 @@ nav ul{
     overflow: hidden;
     margin-bottom: 30px;
 }
-
 nav li{
-    float:left;
+    float: left;
 }
 a{
     text-decoration: none;  
@@ -26,8 +34,8 @@ nav  a{
     font-size: 20px;
     color: black;
 }
-
-.frontpagetext{
+/* Torture My Plant*/
+#frontpagetext{
     color: white;
     text-decoration: none;
     font-size: 44px;
@@ -35,35 +43,48 @@ nav  a{
     padding-left: 15px;
     position: relative;
     left: 45px;
-    font-family: 'Arial',sans-serif;
+    font-family: 'Arial', sans-serif;
+    z-index: 1;
 }
-.Homebutton{
+#homebutton{
     top: -10px;
-    position: absolute;
+    position: fixed;
     margin-top: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
     left: 153px;
     width: 420px;
     background-color: black;
+    z-index: 1;
 }
-.Homeicon{
+/* Add border on hover */
+#homebutton:hover{
+    border: 2px solid white;
+    z-index: 1;
+}
+/* Plant icon */
+#homeicon{
     position: absolute;
     width: 51px;
     margin-top: 0px;
     left: 0px;
 }
-
-.rectangle {
-    position: absolute;
+#rectangle {
+    position: fixed;
     top: 10px;
     left: 66.45%;
     height: 56px;
     width: 165px;
-    z-index: 0;
+    z-index: 1;
 }
-.profilepic{
-    position: absolute;
+/* Add border on hover */
+#rectangle:hover{
+    border: 2px solid white;
+    z-index: 1;
+}
+/* Default profile picture */
+#profilepic{
+    position: fixed;
     display: block;
     left: 84.75%;
     top: -30px;
@@ -75,55 +96,77 @@ nav  a{
     padding-top: 22px;
     padding-left: 1px;
     padding-right: 1px;
+    z-index: 1;
 }
-
-.Cart{
-    position: absolute;
+/* User picture on the top right corner */
+.fig1{
+    position: fixed;
+    display: block;
+    left: 82.2%;
+    top: -10px;
+    width: 56px;
+    height: 56px;
+    overflow: hidden; 
+    border: 2px solid white;
+    background-color: white;
+    padding-bottom: 15px;
+    top: -20px;
+    padding-top: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+    z-index: 1;
+}
+.fig1 img{
+    width: 100%;
+    height: 130%;
+    margin:-21.875% 0;
+    object-fit: cover;
+}  
+#cart{
+    position: fixed;
     display: block;
     left: 67%;
     width: 60px;
     top: 12px;
+    z-index: 1;
 }
-
-.Shoptext{
+#shoptext{
     font-size: 30px;
     display: block;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     color: white;
-    
+    z-index: 1;
     left: 71.5%;
     top: -5px;
 }
-
-.Coins{
-    position: absolute;
+#coins{
+    position: fixed;
     display: block;
     left: 49.4%;
     top: 26px;
     width: 30px;
-    
+    z-index: 1;
 }
-
-.Cointext{
+#cointext{
     font-size: 30px;
     display: block;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     color: white;
     left: 52.9%;
     top: -5px;
+    z-index: 1;
 }
-
-.MyProfile{
+/* Profile content */
+#myProfile{
     position: relative;
     text-align: center;
     font-size: 40px;
-    top:  0px;
+    top: 0px;
     font-weight: bold;
 }
-
-.Userpicture{
+#userpicture{
     position: relative;
     display: inline;
     width: 220px;
@@ -131,20 +174,20 @@ nav  a{
     border: 8px solid black;
     margin-left: 15px;
 }
-.Username{
+.username{
     position: absolute;
     top: 165px;
     left: 30%;
 }
-.Plantstortured{
+.plantstortured{
     position: absolute;
     top: 210px;
     left: 30%;
 }
-.Profiletext{    
+.profiletext{    
     font-size: 24px;
 }
-.Normal{
+.button{
     position: relative;
     display: inline;
     top: -120px;
@@ -157,221 +200,56 @@ nav  a{
     width: 20%;
     cursor: pointer;
 }
-.Delete{
+.button:hover{
+    background-color: #367ff5;
+    color: black;
+}
+/* Delete profile button */
+.delete{
     margin-top: 120px;
     background: #fc7169;
 }
-
-.Profileelements{
+.delete:hover{
+    background-color: #e33434;
+}
+/* Background of the content */
+#profileelements{
     background-color: lightgrey;
     z-index: -1;
     margin-top: 92px;
-    height: 650px;
+    height: 630px;
     width: 98.7%;
 }
+/* User picture */
 .fig2{
     width: 225px; 
     height: 225px;
-    overflow:hidden; 
+    overflow: hidden; 
     position: relative;
     border: 8px solid black;
     top: -10px;
     margin-left: 15px;
     margin-bottom: 70px;
 }
-
 .fig2 img{
    width: 100%;
     height: 130%;
-    margin:-21.875% 0;
+    margin: -21.875% 0;
     object-fit: cover;
 }
-.navbar{
-    color:black;
-    position: absolute;
-    top: 0px;
-    left: -100px;
-    width: 106.6%;
-    height: 85px;
-    background-color:black;
-}
-.Homebutton:hover{
-    border: 2px solid white;
-    z-index: 1;
-}
-.rectangle:hover{
-    border: 2px solid white;
-    z-index: 1;
-}
-
-/* Confirmation Popup */
-.cd-popup {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0,0,0,0.65); 
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
-  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
-  transition: opacity 0.3s 0s, visibility 0s 0.3s;
-}
-.cd-popup.is-visible {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
-  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
-  transition: opacity 0.3s 0s, visibility 0s 0s;
-}
-
-.cd-popup-container {
-  position: relative;
-  width: 80%;
-  max-width: 500px;
-  margin: 4em auto;
-  background: #FFF;
-    height: 207px;
-  border-radius: .25em .25em .4em .4em;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  -webkit-transform: translateY(-40px);
-  -moz-transform: translateY(-40px);
-  -ms-transform: translateY(-40px);
-  -o-transform: translateY(-40px);
-  transform: translateY(-40px);
-  /* Force Hardware Acceleration in WebKit */
-  -webkit-backface-visibility: hidden;
-  -webkit-transition-property: -webkit-transform;
-  -moz-transition-property: -moz-transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-    border: 2px solid black;
-}
-.cd-popup-container p {
-  padding: 3em 1em;
-}
-.cd-popup-container .cd-buttons li {
-  float: left;
-    position: relative;
-  width: 50%;
-    left: -40px;
-  list-style: none;
-}
-.cd-buttons li:first-child{
-    width: 40%;
-}
-.cd-buttons li:last-child{
-    width: 60%;
-}
-.cd-popup-container .cd-buttons a {
-  display: block;
-  height: 60px;
-  line-height: 60px;
-  text-transform: uppercase;
-  color: #FFF;
-  -webkit-transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-.cd-popup-container .cd-buttons li:first-child a {
-  background: #fc7169;
-  border-radius: 0 0 0 .25em;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
-    height: 58px;
-    
-}
-.no-touch .cd-popup-container .cd-buttons li:first-child a:hover {
-  background-color: #fc8982;
-}
-
-.cd-popup-container .cd-buttons li:last-child a {
-  background: #b6bece;
-  border-radius: 0 0 .25em 0;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
-    height: 58px;   
-}
-
-.cd-popup-container .popup-close {
-  width: 113.6%;
-    border-left: 2px solid black;
-}
-.cd-popup-container .cd-popup-container {
-  content: '';
-  position: absolute;
-  top: 12px;
-  width: 14px;
-  height: 3px;
-  background-color: #8f9cb5;
-}
-.cd-popup-container .popup-close::after {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  right: 8px;
-}
-.is-visible .cd-popup-container {
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  transform: translateY(0);
-}   
-@media only screen and (min-width: 1170px) {
-  .cd-popup-container {
-    margin: 12em auto;
-  }
-}
-
-.fig1{
-    position: absolute;
-    display: block;
-    left: 82.2%;
-    top: -10px;
-    width: 56px;
-    height: 56px;
-    overflow:hidden; 
-    border: 2px solid white;
-    background-color: white;
-    padding-bottom: 25px;
-    top: -20px;
-    padding-top: 10px;
-    padding-left: 1px;
-    padding-right: 1px;
-}
-
-.fig1 img{
-   width: 100%;
-    height: 130%;
-    margin:-21.875% 0;
-    object-fit: cover;
-}  
-
-.buttons{
+/* Position of the three buttons on the profile */
+.buttons_profile{
     position: absolute;
     top: 510px;
     width: 80%;
 }
-.Normal:hover{
-    background-color: #367ff5;
-    color: black;
-}
-.Delete:hover{
-    background-color: #e33434;
-}
-.screen{
+/* Bought items */
+#items{
     position: relative;
     left: 305px;
     top: -490px;
 }
-.screen ul{
+#items ul{
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -379,20 +257,129 @@ nav  a{
     margin-bottom: 30px;
     width: 70%;
 }
-.screen li{
+#items li{
     float: left;
     overflow: hidden;
     display: inline;
     width: 140px;
     margin-bottom: 20px;
 }
-.Itemjpg{
+#items h2{
+    font-size: 24px;
+    margin-top: 45px;
+}
+.itemjpg{
     width: 120px;
     float: left;
     height: 120px;
     border: 2px solid black;
     object-fit: cover;
 }
-.screen h2{
-    font-size: 24px;
+/* Confirmation Popup */
+/* The modal (background) */
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.65); 
+    opacity: 0;
+    visibility: hidden;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    z-index: 1;
+}
+.popup.is-visible {
+    opacity: 1;
+    visibility: visible;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+/* Popup content */
+.popup-container {
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    margin: 4em auto;
+    background: #FFF;
+    height: 207px;
+    border-radius: .25em .25em .4em .4em;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    -moz-transform: translateY(-40px);
+    transform: translateY(-40px);
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 2px solid black;
+}
+.popup-container p {
+    padding: 3em 1em;
+}
+.popup-container .buttons li {
+    float: left;
+    width: 50%;
+    list-style: none;
+}
+.popup-container .buttons a {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #FFF;
+    -moz-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+.popup-container .buttons li:first-child a {
+    background: #367ff5;
+    border-radius: 0 0 0 .25em;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    height: 58px;
+}
+.popup-container .buttons li:last-child a {
+    background: #b6bece;
+    border-radius: 0 0 .25em 0;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    height: 58px;   
+}
+.popup-container .popup-close {
+    border-left: 2px solid black;
+}
+.popup-container .popup-container {
+    content: '';
+    position: absolute;
+    top: 12px;
+    width: 14px;
+    height: 3px;
+    background-color: #8f9cb5;
+}
+.popup-container .popup-close::after {
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right: 8px;
+}
+.is-visible .popup-container {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+}
+/* For screens that are wider than 1170px use this margin */
+@media only screen and (min-width: 1170px) {
+  .popup-container {
+    margin: 12em auto;
+  }
+}
+.popup-container .buttons li:first-child{
+  color: black;
+    position: absolute;
+    left: -2px;
+}
+.popup-container .buttons li:last-child{
+  color: black;
+    position: absolute;
+    left: 248px;
+    width: 50.4%;
 }

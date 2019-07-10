@@ -5,6 +5,7 @@ session_start();
 // Redirect user to the homepage if he isn't logged in
 if(!$_SESSION['loggedin']){
     header('Location: index.php');
+    die();
 }
 
 // Load balance, bought items and user information
@@ -17,10 +18,11 @@ include('getinfo.php');
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Torture some plants - Shop</title>
+        <title>Torture My Plant - Shop</title>
         <link rel="stylesheet" type="text/css" href="styles/shop.css">
         <script src="javascripts/jquery.js"></script> 
-        <script src="javascripts/shop.js"></script> 
+        <script src="javascripts/buy.js"></script> 
+        <script src="javascripts/popup.js"></script>
     </head>
     <body>
         
