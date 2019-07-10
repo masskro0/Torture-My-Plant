@@ -7,7 +7,7 @@ function showDivs(n){
     var i;
     <!-- x array of plant images, y array of buttons for triggering robot-->
     var x = document.getElementsByClassName("plant")
-    var y = document.getElementsByClassName("accept")
+    var y = document.getElementsByClassName("button")
     
     if (n > x.length) {slideIndex = 1}
     if (n < 1) {slideIndex = x.length}

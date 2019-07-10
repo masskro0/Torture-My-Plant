@@ -17,7 +17,7 @@ function tool(str) {
                     // Refresh page if there are no errors
                     if(str == "1"){ 
                         torturedSec = 0;
-                        document.getElementById('id02').style.display='block';
+                        document.getElementById('torturebackground').style.display='block';
                         console.log('plant ' + str + ' selected');
                     } else {
                         document.getElementById('notify_screen').style.visibility = "visible";

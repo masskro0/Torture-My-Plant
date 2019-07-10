@@ -47,22 +47,21 @@ nav a{
     height: 640px;
     object-fit: none;
 }
-
-.leftarrow{
-  position: absolute;
-  top: 250px;
-  left: 10%;
-    cursor:pointer;
+#leftarrow{
+    position: absolute;
+    top: 250px;
+    left: 10%;
+    cursor: pointer;
 }
-
-.rightarrow{
+#rightarrow{
     position: absolute;
     top: 250px;
     right: 10%;
     cursor:pointer;
 }
-.accept{
+.button{
     position: relative;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: -80px;
@@ -109,7 +108,7 @@ button:hover {
   opacity: 0.8;
 }
 
-.container {
+#container {
   padding: 16px;
 }
 
@@ -155,19 +154,19 @@ button:hover {
 
 /* The Close Button */
 .close {
-  position: absolute;
-  right: 386px;
-  color: #000;
-  font-size: 50px;
-  font-weight: bold;
+    position: relative;
+    left: 72%;
+    color: #000;
+    font-size: 50px;
+    font-weight: bold;
     z-index: 2;
+    top: 58px;
 }
 
 /* Close button on hover */
-.close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
+.close:hover, .close:focus {
+    color: red;
+    cursor: pointer;
 }
 
 /* Add Zoom Animation */
@@ -186,7 +185,7 @@ button:hover {
   to {transform: scale(1)}
 }
 
-.error {
+#error {
     position: relative;
     left: 0%;
     width: 79.4%;
@@ -257,11 +256,6 @@ button:hover {
     left: 42.5%;
     top: 25%;
 }
-
-.accept{
-    display:none;
-}
-
 .Unavailable{
     position: relative;
     display: block;
@@ -314,30 +308,8 @@ button:hover {
     left: 40%;
     top: 40%; 
 }
-.Bonusjpg{
-    display: none;
-}
-.Bonustexttop{
-    display:none;
-}
-
-.Yellowbox{
-    display:none;
-}
-.Bonustextcoins{
-    display:none;
-}
-
-
-.accept{
-    display: block;
-}
-.Unavailable{
-    display:none;
-}
-
-.Torturecontainer {
-  padding: 16px;
+#torturecontainer {
+    padding: 16px;
 }
  /* The Modal (background) */
 .Torture {
@@ -354,16 +326,14 @@ button:hover {
   padding-top: 10px;
    
 }
-
 /* Modal Content/Box */
-.Torturecontent {
+#torturecontent {
   background-color: lightgrey;
   margin: 5px auto; 
   border: 4px solid #888;
   width: 60%;
      border: 1px solid white;
 }
-
 #stream{
     display:block;
 }
@@ -448,7 +418,7 @@ iframe{
     cursor: pointer;
 }
 
-.Timerbox{
+#timerbox{
     position: absolute;
     height: 48px;
     width: 150px;
@@ -458,7 +428,7 @@ iframe{
     border: 2px solid black;
 }
 
-.Timericon{
+#timericon{
     position: absolute;
     width: 40px;
     top: 652px;
@@ -588,7 +558,7 @@ figure img{
     margin:-21.875% 0;
     object-fit: cover;
 }   
-.accept:hover{
+.button:hover{
     background-color: #367ff5;
     color: black;
 }
@@ -696,5 +666,14 @@ figure:hover{
     }
 }
 .notifybutton{
-    margin-top: 30px;
+    margin-top: 52px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 31%;
+}
+#fixedlinks{
+    position: fixed;
+    z-index: 1;
+    margin-top: 5px;
+    left: 66%;
 }

@@ -97,9 +97,10 @@ if ($_SESSION['loggedin'] !== TRUE){
                     <div id="rectangle" style="cursor: pointer;" onclick="window.location='shop.php'"></div>
                     <li><a href ="shop.php"><img id="cart" src="img/carticon2.png"><p id="shoptext">Shop</p></a></li>
                     <?php } else{ ?>
-                    <li class="right"><a class="links" href="#" onclick="showlogin()">Login</a></li>
-                    <li class="right"><a class="links" href="signup.php">Create Account</a></li>
-
+                    <div id="fixedlinks">
+                        <li class="right"><a class="links" href="#" onclick="showlogin()">Login</a></li>
+                        <li class="right"><a class="links" href="signup.php">Create Account</a></li>
+                    </div>
                <?php } ?>
             </ul>
         </nav> 
@@ -121,207 +122,201 @@ if ($_SESSION['loggedin'] !== TRUE){
             <?php } else { ?>
             <img class="plant animation_left" src="img/plant4.jpg" width="100%">
             <?php } ?>
+            
             <!-- Arrow left -->
             <a onclick="plusDivs(-1)">
-                <img class="leftarrow" src="img/linkerpfeil.png" width=10%>
+                <img id="leftarrow" src="img/linkerpfeil.png" width=10%>
             </a>
             <!-- Arrow right -->
             <a onclick="plusDivs(1)">
-                <img class="rightarrow" src="img/rechterpfeil.png" width=10%>
+                <img id="rightarrow" src="img/rechterpfeil.png" width=10%>
             </a>
         
-        <!-- 4 buttons for plant selection, either send message or open login window -->
+        <!-- 4 buttons for plant selection, either send message to arduino or open login window -->
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(1)">Torture Me!</button>
+            <button class="button" onclick="startTorture(1)">Torture Me!</button>
             <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
+            <button class="button" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
         <?php } ?>
         <?php if($_SESSION['loggedin'] === TRUE){ ?>
-            <button class="accept" onclick="startTorture(2)">Torture Me!</button>
+            <button class="button" onclick="startTorture(2)">Torture Me!</button>
             <?php } else{ ?>
-            <button class="accept" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
+            <button class="button" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
         <?php } ?>
         <?php if($_SESSION['loggedin'] === TRUE){
                 if(in_array(1, $array_orders)){ ?>
-                    <button class="accept" onclick="startTorture(3)">Torture Me!</button>
+                    <button class="button" onclick="startTorture(3)">Torture Me!</button>
                 <?php } else { ?>
-                    <a class="buttonlink" href="shop.php"><button class="accept unavailable">Buy In Store</button></a>
+                    <a class="buttonlink" href="shop.php"><button class="button unavailable">Buy In Store</button></a>
                 <?php }
                 } else{ ?>
-                    <button class="accept" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
+                    <button class="button" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
             <?php } ?>
         <?php if($_SESSION['loggedin'] === TRUE){
                 if(in_array(2, $array_orders)){ ?>
-                    <button class="accept" onclick="startTorture(4)">Torture Me!</button>
+                    <button class="button" onclick="startTorture(4)">Torture Me!</button>
                 <?php } else { ?>
-                    <a class="buttonlink" href="shop.php"><button class="accept unavailable">Buy In Store</button></a>
+                    <a class="buttonlink" href="shop.php"><button class="button unavailable">Buy In Store</button></a>
                 <?php }
                 } else{ ?>
-                    <button class="accept" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
+                    <button class="button" onclick="document.getElementById('loginbackground').style.display='block'">Torture Me!</button>
             <?php } ?>
     </div>
     
                  
         
         
-     <!--Loginscreen-->
-<!-- The Modal -->
-<div id="loginbackground" class="modal">
-  <span onclick="document.getElementById('loginbackground').style.display='none'"
-class="close animate">&times;</span>
-
-  <!-- Modal Content -->
-  <form class="modal-content animate" method="POST" action="" >
-     
-    <p class="logintext">Login</p>
-    <div class="container">
-      <div class ="error" id="error"></div>
-      <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Username..." name="username" id="username" required>
-      <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Password..." name="password" id="password" required>
-      <label>
-        <input type="checkbox" id="remember" checked="checked" name="remember"> Keep me logged in
-      </label><br><br>
-        New here? <a href="signup.php">Create an account here</a><br>
-      <input name="submit" type="button" class="accept loginbutton enter" id="submitform" value="Login" onclick="validate()" >
-      
-    </div>
-  </form>
-</div>
-
+    <!--Loginscreen-->
+    <div id="loginbackground" class="modal">
+        <span onclick="document.getElementById('loginbackground').style.display='none'"
+        class="close animate">&times;</span>
         
-       <!-- Bonus screen -->
-        <div class="Yellowbox"></div>
-        <img class="Bonusjpg" src="img/bonusscreen.jpg">
-        <p class="Bonustexttop">Grab your daily bonus!</p>
-        <p class="Bonustextcoins">+ 750</p>
-      
-        <!-- Torture Screen -->
-<div id="id02" class="Torture">
-<!-- would delete this piece, only quit by button -timbleman -->
-    <span onclick="quitTorture(); liveshow();" class="closetorture" title="Close Modal">&times;</span>
+        <!-- Login screen content -->
+        <form class="modal-content animate" method="POST" action="">
+            <p class="logintext">Login</p>
+            <div id="container">
+                <div id="error"></div>
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Username..." name="username" id="username" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Password..." name="password" id="password" required>
+                <label>
+                <input type="checkbox" id="remember" checked="checked" name="remember"> Keep me logged in
+                </label><br><br>
+                New here? <a href="signup.php">Create an account here</a><br>
+                <input name="submit" type="button" class="button loginbutton enter" id="submitform" value="Login" onclick="validate()" >
+            </div>
+        </form>
+    </div>
+    
+    <!-- Torture Screen -->
+    <div id="torturebackground" class="Torture">
+        <span onclick="quitTorture(); liveshow();" class="closetorture" title="Close Modal">&times;</span>
 
-  <!-- Modal Content -->
-    <div class="Torturecontent">
-        <div class="Torturecontainer"><!--10.90.1.173-->
-            <iframe class="stream" id="stream" src="http://localhost:8081" ></iframe>
-            <!-- needs functionality for passing torturedSec to Php -->
-            <button class="Quittorture" onclick="quitTorture()">Quit Torture</button>
-            <ul class="tortureul">
-             <div id="cooldown_fire" class="cooldown_fire"></div>
-                <div id="cooldown_bolt" class="cooldown_bolt"></div>
-                <div id="cooldown_drill" class="cooldown_drill"></div>
-                <div id="cooldown_acid" class="cooldown_acid"></div>
-                <div id="cooldown_wind" class="cooldown_wind"></div>
-            
-            <!-- php checking orders for bought upgrades -->
-            <?php 
-            /* php variable for cooldown upgrade */
-            $upcoold = 0;
-            /* check if user bought upgrade */
-            if(in_array(11, $array_orders)){
-                $upcoold = 1;
-            }
-            /* drill uprade */
-            $drillup = 0;
-            if(in_array(10, $array_orders)){
-                $drillup = 1;
-            }
-            /* acid uprade */
-            $acidup = 0;
-            if(in_array(9, $array_orders)){
-                $acidup = 1;
-            }
-            /* bolt uprade */
-            $boltup = 0;
-            if(in_array(8, $array_orders)){
-                $boltup = 1;
-            }
-            /* wind uprade */
-            $windup = 0;
-            if(in_array(7, $array_orders)){
-                $windup = 1;
-            }
-            /* fire uprade */
-            $fireup = 0;
-            if(in_array(6, $array_orders)){
-                $fireup = 1;
-            }
-            ?>
-                
-            <!-- list for torture tool buttons -->
-            <!-- check if tools are bought -->
-            <?php if(in_array(5, $array_orders)){ ?>
-            <!-- start timer with click on icons, pass information: selected tool, if tool is upgraded, if cooldown is upgraded -->
-            <li><img class="drill" src="img/drill.png" onclick="startTimer(5,<?php echo $drillup ?>,<?php echo $upcoold ?>)"></li>
-            <?php } else { ?>
-            <li><a href="shop.php"><img class="drill" src="img/drill_lock.png"></a></li>
-            
-            <?php } if(in_array(4, $array_orders)){ ?>
-            <li><img class="acid" src="img/acid.png" onclick="startTimer(3,<?php echo $acidup ?>,<?php echo $upcoold ?>)"></li>
-            <?php } else { ?>
-            <li><a href="shop.php"><img class="acid" src="img/acid_lock.png"></a></li>
-            
-            <?php } if(in_array(3, $array_orders)){ ?>
-            <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2,<?php echo $boltup ?>,<?php echo $upcoold ?>)"></li>
-            <?php } else{ ?>
-            <li><a href="shop.php"><img class="bolt" src="img/bolt_lock.png"></a></li>
-            <?php } ?>
-            
-            <!-- wind and fire are always available -->
-            <li><img class="wind" src="img/wind.png" onclick="startTimer(4,<?php echo $windup ?>,<?php echo $upcoold ?>);"></li>
-            <li><img class="fire" src="img/fire.png"  onclick="startTimer(1,<?php echo $fireup ?>,<?php echo $upcoold ?>)"></li>
-            </ul>
-            
-            <!-- icon and container for timer -->
-            <!-- timer ugly, style has to be changed -->
-            <img class="Timericon" src="img/timer.png">
-            <div class="Timerbox"><p class = "right" id="Countdown"></p></div>
+      <!-- Torture screen content -->
+        <div id="torturecontent">
+            <div id="torturecontainer">
+                <iframe class="stream" id="stream" src="http://10.90.1.173:8081" ></iframe>
+                <button class="Quittorture" onclick="quitTorture()">Quit Torture</button>
+                <ul class="tortureul">
+                    <div id="cooldown_fire" class="cooldown_fire"></div>
+                    <div id="cooldown_bolt" class="cooldown_bolt"></div>
+                    <div id="cooldown_drill" class="cooldown_drill"></div>
+                    <div id="cooldown_acid" class="cooldown_acid"></div>
+                    <div id="cooldown_wind" class="cooldown_wind"></div>
+
+                <!-- php checking orders for bought upgrades -->
+                <?php 
+                    
+                // php variable for cooldown upgrade
+                $upcoold = 0;
+                    
+                // check if user bought upgrades
+                if(in_array(11, $array_orders)){
+                    $upcoold = 1;
+                }
+                // drill uprade 
+                $drillup = 0;
+                if(in_array(10, $array_orders)){
+                    $drillup = 1;
+                }
+                // acid uprade 
+                $acidup = 0;
+                if(in_array(9, $array_orders)){
+                    $acidup = 1;
+                }
+                // bolt uprade 
+                $boltup = 0;
+                if(in_array(8, $array_orders)){
+                    $boltup = 1;
+                }
+                // wind uprade 
+                $windup = 0;
+                if(in_array(7, $array_orders)){
+                    $windup = 1;
+                }
+                // fire uprade 
+                $fireup = 0;
+                if(in_array(6, $array_orders)){
+                    $fireup = 1;
+                }
+                ?>
+
+                <!-- List for torture tool buttons. Check if tools are bought -->
+                <?php if(in_array(5, $array_orders)){ ?>
+                <!-- Start timer with click on icons, pass information: selected tool, if tool is upgraded, if cooldown is upgraded -->
+                <li><img class="drill" src="img/drill.png" onclick="startTimer(5,<?php echo $drillup ?>,<?php echo $upcoold ?>)"></li>
+                <?php } else { ?>
+                <li><a href="shop.php"><img class="drill" src="img/drill_lock.png"></a></li>
+
+                <?php } if(in_array(4, $array_orders)){ ?>
+                <li><img class="acid" src="img/acid.png" onclick="startTimer(3,<?php echo $acidup ?>,<?php echo $upcoold ?>)"></li>
+                <?php } else { ?>
+                <li><a href="shop.php"><img class="acid" src="img/acid_lock.png"></a></li>
+
+                <?php } if(in_array(3, $array_orders)){ ?>
+                <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2,<?php echo $boltup ?>,<?php echo $upcoold ?>)"></li>
+                <?php } else{ ?>
+                <li><a href="shop.php"><img class="bolt" src="img/bolt_lock.png"></a></li>
+                <?php } ?>
+
+                <!-- Wind and fire are always available -->
+                <li><img class="wind" src="img/wind.png" onclick="startTimer(4,<?php echo $windup ?>,<?php echo $upcoold ?>);"></li>
+                <li><img class="fire" src="img/fire.png"  onclick="startTimer(1,<?php echo $fireup ?>,<?php echo $upcoold ?>)"></li>
+                </ul>
+
+                <!-- Icon and container for timer -->
+                <img id="timericon" src="img/timer.png">
+                <div id="timerbox"><p class ="right" id="Countdown"></p></div>
+            </div>
         </div>
     </div>
-</div>
         
     <!--Bonus screen -->
-        <?php
-        date_default_timezone_set("Europe/Berlin");
-        $current_date = date('Y-m-d');
-        if((($current_date > $last_login) || is_null($last_login)) && $_SESSION['loggedin']){ ?>
-        <div id="bonus_screen">
-            <div class="bonus_content">
-                <img src="img/bonusscreen.jpg" class="img_bonus">
-                <h1>Grab your daily bonus!</h1>
-                <img class="bonus_coins" src="img/coins.png">
-                <h2><?php if (in_array(12, $array_orders)){
-                    echo 1500;
-                } else {
-                    echo 1000;
-                } ?>
-                </h2>
-                <button class="accept bonus_button" onclick="daily_bonus(); document.getElementById('bonus_screen').style.display='none';">Thanks!</button>
-            </div>
-        </div>
-        <?php }
-        ?>    
-        
-        
-        <!--Screen for notifying a user that another user is already playing-->
-        <div id="notify_screen">
-            <div class="notify_content animate">
-                <h1>Another user is playing right now. Please wait a few minutes.</h1>
-                <button class="accept notifybutton" onclick="document.getElementById('notify_screen').style.visibility='hidden'">OK</button>
-            </div>
-        </div>       
+    <?php
+    // Set the timezone to Europe Berlin
+    date_default_timezone_set("Europe/Berlin");
 
+    // Get the current date (year-month-day)
+    $current_date = date('Y-m-d');
+
+    // Display bonus screen when more than one day has passed since the last login
+    if((($current_date > $last_login) || is_null($last_login)) && $_SESSION['loggedin']){ ?>
+    <div id="bonus_screen">
+        <div class="bonus_content">
+            <img src="img/bonusscreen.jpg" class="img_bonus">
+            <h1>Grab your daily bonus!</h1>
+            <img class="bonus_coins" src="img/coins.png">
+            <h2><?php if (in_array(12, $array_orders)){
+                echo 1500;
+            } else {
+                echo 1000;
+            } ?>
+            </h2>
+            <button class="button bonus_button" onclick="daily_bonus(); document.getElementById('bonus_screen').style.display='none';">Thanks!</button>
+        </div>
+    </div>
+    <?php }
+    ?>    
+
+    <!--Screen for notifying a user that another user is already playing-->
+    <div id="notify_screen">
+        <div class="notify_content animate">
+            <h1>Another user is playing right now. Please wait a few minutes.</h1>
+            <button class="button notifybutton" onclick="document.getElementById('notify_screen').style.visibility='hidden'">OK</button>
+        </div>
+    </div>       
 </body>
     
 <!-- slidescript -->
 <script>
 var slideIndex = 1;
 showDivs(slideIndex);
-/* Get the torture screen modal */
-var modal2 = document.getElementById('id02');
-/* When the user clicks anywhere outside of the modal, close it */
+    
+// Get the torture screen modal
+var modal2 = document.getElementById('torturebackground');
+    
+// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal2) {
         quitTorture();

@@ -42,8 +42,8 @@ if($stmt = $connect->prepare("SELECT * FROM Game")){
         $service_port = 23;
         
         // Ip adress of the arduino
+        $address = '127.0.0.1';
         //$address = '10.90.1.170';
-        $address = '10.90.1.170';
         
         // Create a TCP/IP socket
         $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
