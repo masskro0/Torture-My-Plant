@@ -60,7 +60,7 @@ if($rest_balance >= 0){
         $stmt->close();
     } else {
         $connect->close();
-        die('An error occured with the buying process.');
+        die('An error occured in the buying process.');
     }
     
     // Update the user's balance
@@ -70,7 +70,7 @@ if($rest_balance >= 0){
         $stmt->close();
     } else{
         $connect->close();
-        die('An error occured when updating your balance.');
+        die('An error occured when trying to update your balance.');
     }
 } else{
     $connect->close();

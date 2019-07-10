@@ -6,6 +6,9 @@
  * Port was randomly chosen because you can use any port in the range of 1024-49151
  */
 
+// Start the session
+session_start();
+
 // Check if the user is logged in, if not redirect him to the startpage
 session_start();
 
