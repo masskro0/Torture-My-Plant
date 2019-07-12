@@ -1,10 +1,20 @@
 body{
     margin-left: 9.9%;
     margin-right: 10%;
-}
-a, p, button, input, label, h1{
     font-family: sans-serif;
 }
+/* Black bar on the top */
+#navbar{
+    color: black;
+    position: fixed;
+    top: 0px;
+    left: -100px;
+    width: 106.5%;
+    height: 85px;
+    background-color: black;
+    z-index: 1;
+}
+/* Navigation bar and its elements */
 nav ul{
     list-style-type: none;
     margin: 0px;
@@ -12,18 +22,14 @@ nav ul{
     overflow: hidden;
     margin-bottom: 30px;
 }
-
 nav li{
     text-decoration: none;  
 }
-nav  a{
-    display:block;
-    padding-left: 40px;
-    font-size: 20px;
-    color: black;
+a{
+    text-decoration: none;
 }
-
-.frontpagetext{
+/* Torture My Plant*/
+#frontpagetext{
     color: white;
     text-decoration: none;
     font-size: 44px;
@@ -33,33 +39,42 @@ nav  a{
     left: 45px;
     font-family: 'Arial',sans-serif;
 }
-.Homebutton{
+#homebutton{
     top: -10px;
-    position: absolute;
+    position: fixed;
     margin-top: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
     left: 153px;
     width: 420px;
     background-color: black;
+    z-index: 1;
 }
-.Homeicon{
+/* Add border on hover */
+#homebutton:hover{
+    border: 2px solid white;
+}
+#homeicon{
     position: absolute;
     width: 51px;
     margin-top: 0px;
     left: 0px;
 }
-
-.rectangle {
-    position: absolute;
+#rectangle {
+    position: fixed;
     top: 10px;
     left: 66.45%;
     height: 56px;
     width: 165px;
-    z-index: 0;
+    z-index: 2;
 }
+/* Add border on hover */W
+#rectangle:hover{
+    border: 2px solid white;
+}
+/* Generic user picture */
 .profilepic{
-    position: absolute;
+    position: fixed;
     display: block;
     left: 84.1%;
     top: -30px;
@@ -71,65 +86,70 @@ nav  a{
     padding-top: 22px;
     padding-left: 1px;
     padding-right: 1px;
+    z-index: 1;
 }
-
-.Cart{
-    position: absolute;
+/* User picture on the top right corner */
+.fig1{
+    position: fixed;
+    display: block;
+    left: 81.55%;
+    top: -10px;
+    width: 56px;
+    height: 56px;
+    border: 2px solid white;
+    overflow:hidden; 
+    background-color: white;
+    padding-bottom: 10px;
+    top: -20px;
+    padding-top: 20px;
+    padding-left: 1px;
+    padding-right: 1px;
+    z-index: 1;
+}
+.fig1 img{
+   width: 100%;
+    height: 130%;
+    margin:-21.875% 0;
+    object-fit: cover;
+}  
+#cart{
+    position: fixed;
     display: block;
     left: 66.45%;
     width: 60px;
     top: 12px;
+    z-index: 1;
 }
-
-.Shoptext{
+#shoptext{
     font-size: 30px;
     display: block;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     color: white;
-    
+    z-index: 1;
     left: 70.95%;
     top: -5px;
 }
-
-.Coins{
-    position: absolute;
+#coins{
+    position: fixed;
     display: block;
     left: 49%;
     top: 26px;
     width: 30px;
-    
+    z-index: 1;
 }
-
-.Cointext{
+#cointext{
     font-size: 30px;
     display: block;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     color: white;
     left: 52.5%;
     top: -5px;
+    z-index: 1;
 }
-
-.Header{
-    position: relative;
-    top: -15px;
-    display: inline;
-    font-size: 32px;
-    margin-top: 0px;
-    margin-bottom: 50px;
-    padding: 0px;
-    font-weight: bold;
-    text-align: center;
-}
-.linkerpfeil{
-    position: absolute;
-    left: 17%;
-    top: 30px;
-    width: 50px;
-    margin-bottom: 10px;
-}
-.screen{
+/* Page content box */
+#screen{
     position: relative;
     background-color: lightgrey;
     width: 95.25%;
@@ -137,12 +157,19 @@ nav  a{
     padding-top: 60px;
     top: 62px;
 }
-
+/* Input fields */
 input{
     position: relative;
     display: block;
 }
-
+input[type=text], input[type=password] {
+  width: 80%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+/* Selected picture */
 .userpic{
     position: absolute;
     left: 84.8%;
@@ -152,19 +179,8 @@ input{
     border: 5px solid black;
     object-fit: cover;
 }
-
-
-
-input[type=text], input[type=password] {
-  width: 80%;
-  padding: 10px 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.accept{
-     position: relative;
+.button{
+    position: relative;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -173,6 +189,10 @@ input[type=text], input[type=password] {
     background-color: limegreen;
     border: none;
     width: 20%;
+}
+.button:hover{
+    background-color: #367ff5;
+    color: black;
 }
 .uploadbutton{
     position: absolute;
@@ -185,7 +205,7 @@ input[type=text], input[type=password] {
     cursor: pointer;
     color: black;
 }
-
+/* Errors after submitting */
 .error {
     position: relative;
     left: 0%;
@@ -195,8 +215,7 @@ input[type=text], input[type=password] {
     color: #a94442; 
     text-align: left;
 }
-
-
+/* Big profile picture */
 .fig2{
    width:140px; 
     height: 140px;
@@ -208,25 +227,14 @@ input[type=text], input[type=password] {
     border: 5px solid black;
     
 }
+/* Selected picture */
 .fig2 img{
    display:none; 
    width:100%; 
     margin:-21.875% 0;
     object-fit: cover;
 }
-
-.Normal{
-    position: relative;
-    display: block;
-    font-size: 20px;
-    background-color: #3c91fa;
-    color: black;
-    width: 20%;
-    height: 35px;
-    border: none;
-    cursor: pointer;
-}
-
+/* Cancel button */
 .Cancel{
     position: relative;
     display: block;
@@ -240,71 +248,40 @@ input[type=text], input[type=password] {
     line-height: 35px;
     text-align: center;
 }
-
-.Accept{
+.Cancel:hover{
+    background-color: #6e6b6b;
+    color: white;
+}
+.acceptbutton{
+    position: relative;
+    display: block;
+    font-size: 20px;
     background-color: limegreen;
     display: inline;
+    color: black;
     width: 27%;
+    height: 35px;
     top: 35px;
     left: 73.5%;
+    border: none;
+    cursor: pointer;
 }
-
-.EditProfile{
+.acceptbutton:hover{
+    background-color: #1dad47;
+}
+/* Header */
+.editProfile{
     text-align: center;
     top: -85px;
     position: relative;
     font-size: 40px;
     font-weight: bold;
-
 }
 form{
     position: relative;
     top: -80px;
 }
-.navbar{
-    color:black;
-    position: absolute;
-    top: 0px;
-    left: -100px;
-    width: 106.6%;
-    height: 85px;
-    background-color:black;
-}
-.Homebutton:hover{
-    border: 2px solid white;
-    z-index: 1;
-}
-.rectangle:hover{
-    border: 2px solid white;
-    z-index: 1;
-}
-
-.fig1{
-    position: absolute;
-    display: block;
-    left: 81.55%;
-    top: -10px;
-    width: 56px;
-    height: 56px;
-    border: 2px solid white;
-    overflow:hidden; 
-    background-color: white;
-    padding-bottom: 25px;
-    top: -20px;
-    padding-top: 10px;
-    padding-left: 1px;
-    padding-right: 1px;
-}
-
-.fig1 img{
-   width: 100%;
-    height: 130%;
-    margin:-21.875% 0;
-    object-fit: cover;
-}  
-a{
-    text-decoration: none;
-}
+/* Generic profile picture */
 .Userpicture{
     position: absolute;
     width: 144px;
@@ -312,17 +289,4 @@ a{
     left: 85.05%;
     top: 43px;
     object-fit: cover;
-}
-
-.Cancel:hover{
-    background-color: #6e6b6b;
-    color: white;
-}
-.accept:hover{
-    background-color: #367ff5;
-    color: black;
-}
-.Normal:hover{
-    background-color: #1dad47;
-    color: black;
 }

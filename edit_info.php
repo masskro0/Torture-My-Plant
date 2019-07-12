@@ -84,13 +84,10 @@ if(isset($_POST['submit'])) {
                     
                     // Upload image
                     if(!move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-                        echo "Image succesfully uploaded.";
-                    } else {
-                        echo "Image uploading failed.";
                         $uploadfile = NULL;
                     }
                 }
-                
+
                 // If a new image was selected, update it in the database
                 if(!is_null($uploadfile)){
                     
@@ -110,6 +107,9 @@ if(isset($_POST['submit'])) {
                         // Close the statement
                         $stmt->close();
                         
+                        // Sleep for 0.5 seconds so the database has enough time to update the info
+                        usleep(500000);
+                        
                         // Redirect the user back to his profile
                         header("Location: profile.php");
                         die();
@@ -118,7 +118,7 @@ if(isset($_POST['submit'])) {
             }
         }
         
-    // Block to handle ALL information
+    // Block to handle every input field
     } else {
 
         /* Check if the fields are empty */
@@ -200,7 +200,7 @@ if(isset($_POST['submit'])) {
             if ($res->num_rows > 0 && (intval($str_id) !== intval($_SESSION['user_id']))){
                 
                 // Username already exists
-                array_push($errors, "This username is already taken. Please choose another one");
+                array_push($errors, "This username is already taken. Please choose another one.");
             }
         }
         $stmt->close();
@@ -219,14 +219,14 @@ if(isset($_POST['submit'])) {
             if ($res->num_rows > 0 && (intval($str_id) !== intval($_SESSION['user_id']))){
                 
                     // Username already exists
-                    array_push($errors, "This e-mail adress is already taken");
+                    array_push($errors, "This e-mail adress is already taken.");
             }
         }
         $stmt->close();
         
         // Check if the old password was entered correctly
-        if ($stmt = $connect->prepare('SELECT username, email, password, profile_picture FROM User WHERE user_id = ?')) {
-            $stmt->bind_param('s', $_SESSION['user_id']);
+        if ($stmt = $connect->prepare('SELECT password FROM User WHERE user_id = ?')) {
+            $stmt->bind_param('i', $_SESSION['user_id']);
             $stmt->execute();
             
             // Store the result of the query in the variable $password_old
@@ -236,7 +236,7 @@ if(isset($_POST['submit'])) {
             
             // Check if the password matches with the current (old) password
             if (!password_verify($_POST['password_old'], $password_old)) {
-                array_push($errors, "Please enter your current password correctly");
+                array_push($errors, "Please enter your current password correctly.");
             }
         }
         $stmt->close();
@@ -283,6 +283,9 @@ if(isset($_POST['submit'])) {
                     $uname = $_POST['username'];
                     $stmt->close();
                     $connect->close();
+                    
+                    // Sleep for 0.5 seconds so the database has enough time to update the info
+                    usleep(500000);
                     header("Location: profile.php");
                     die();
                 }
@@ -299,6 +302,7 @@ if(isset($_POST['submit'])) {
                     $uname = $_POST['username'];
                     $stmt->close();
                     $connect->close();
+                    usleep(500000);
                     header("Location: profile.php");
                     die();
                 }
