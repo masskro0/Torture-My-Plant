@@ -1,18 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  5 19:49:55 2019
-
-@author: michael
-"""
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  5 19:49:55 2019
-
-@author: michael
-"""
 
 import socket
 import sys

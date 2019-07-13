@@ -66,7 +66,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[0]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[0], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[0]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[0]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(2, $array_orders)){ ?>
@@ -75,7 +75,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[1]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[1], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[1]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[1]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 </ul>
@@ -89,7 +89,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[2]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[2], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[2]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[2]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(4, $array_orders)){ ?>
@@ -98,7 +98,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[3]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[3], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[3]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[3]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(5, $array_orders)){ ?>
@@ -107,7 +107,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[4]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[4], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[4]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[4]; ?>)">Buy</button></a>
                     </li>
                 <?php } ?>
                 </ul>
@@ -121,7 +121,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[5]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[5], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[5]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[5]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(7, $array_orders)){ ?>
@@ -130,7 +130,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[6]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[6], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[6]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[6]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(8, $array_orders)){ ?>
@@ -139,7 +139,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[7]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[7], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[7]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[7]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(9, $array_orders)){ ?>
@@ -148,7 +148,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[8]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[8], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[8]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[8]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(10, $array_orders)){ ?>
@@ -157,7 +157,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[9]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[9], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[9]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[9]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(11, $array_orders)){ ?>
@@ -166,7 +166,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[10]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[10], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[10]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[10]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 <?php if (!in_array(12, $array_orders)){ ?>
@@ -175,7 +175,7 @@ include('getinfo.php');
                 <p class="description"><?php echo $array_description[11]; ?></p>
                 <img class="coinicon" src="img/coins.png">
                 <p class="price"><?php echo number_format($array_price[11], 0, ".", "."); ?></p>
-                <a href="" class="confirmation-popup"><button class="Buy" onclick="getid(<?php echo $array_id[11]; ?>)">Buy</button></a>
+                <a href="" class="confirmation-popup"><button class="Buy" onclick="setid(<?php echo $array_id[11]; ?>)">Buy</button></a>
                 </li>
                 <?php } ?>
                 </ul>

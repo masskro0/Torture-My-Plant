@@ -1,47 +1,53 @@
-
-
-// array for tools, 0->available, 1->running, 2->cooldown 
-// should be created with variable length
+// Array for tools, 0->available, 1->running, 2->cooldown 
+// Should be created with variable length
 var toolsArr = [0, 0, 0, 0, 0];
 var lastTool = 0;
 var shorterCooldowns = 0;
 var torturedSec = 0;
 
-// starts timer, parameters: selected tool, upgrade tool(0 none, 1 lvl1, etc), shorter cooldowns(0 non or 1 half) 
+// Starts timer, parameters: selected tool, upgrade tool(0 none, 1 lvl1, etc), shorter cooldowns(0 non or 1 half) 
 function startTimer(seltool, upgrade, upcoold){
-    // write to global variable if cooldowns are upgraded
+    
+    // Write to global variable if cooldowns are upgraded
     shorterCooldowns = upcoold;
     
-    // write to array which tool is running
+    // Write to array which tool is running
     for(i = 0; i < 5; i++){
-        // check if tool is in cooldown phase or if new tool selected
+        
+        // Check if tool is in cooldown phase or if new tool selected
         if (toolsArr[i] == 2){
-            //stay in cooldown
+            
+            // Stay in cooldown
             toolsArr[i] = 2;
         } else if (toolsArr[i] == 1){
-            // check if user selected the same tool twice
+            
+            // Check if user selected the same tool twice
             if (i == seltool-1){
-                //if so keep running
+                
+                // If so keep running
                 toolsArr[i] = 1;
             } else {
-                //else put tool in cooldown phase
+                
+                // Else put tool in cooldown phase
                  toolsArr[i] = 2;
                 document.getElementById('Countdown').innerHTML  = '';
             
-                //timed function to stop cooldown
+                // Timed function to stop cooldown
                 reenableTool(i+1);
             }
         }
     }
     
-    // check if user clicked the same tool twice, or if tool is available again 
+    // Check if user clicked the same tool twice, or if tool is available again 
     if (seltool != lastTool || toolsArr[seltool-1] == 0){
-        // stopping all physical tools
+        
+        // Stopping all physical tools
         tool(0);
-        // start tool if not in cooldown phase
+        
+        // Start tool if not in cooldown phase
         if (toolsArr[seltool-1] != 2){
             toolsArr[seltool-1] = 1;
-            //timer 10 or 20 if upgraded
+            // Timer 10 or 20 if upgraded
             switch(upgrade){
                 case 0: document.getElementById('Countdown').innerHTML = "10";
                         break;
@@ -52,16 +58,15 @@ function startTimer(seltool, upgrade, upcoold){
         toolsArr.forEach(function(item, index, array){
             console.log('tool ', (index+1), item);
         });
-        // remember last tool 
+        // Remember last tool 
         lastTool = seltool;
-        // stop all running tools and start selected tool
-        //tool(0);
+        // Stop all running tools and start selected tool
         console.log('tool ' + (seltool) + ' selected');
         tool(seltool);
         
         
-        // call decrement Timer in 1 sec
-        //9 or 19 if upgraded
+        // Call decrement Timer in 1 sec
+        // 9 or 19 if upgraded
         switch(upgrade){
             case 0: setTimeout(function(){decrementTimer(9, seltool);}, 1000);
                     break;
@@ -73,14 +78,16 @@ function startTimer(seltool, upgrade, upcoold){
 }
 
 
-//recursive function, decrements TImer by 1, icreses the tortured seconds
+// Recursive function, decrements TImer by 1, icreses the tortured seconds
 function decrementTimer(t, seltool){
     if (t == 0){
-        //stop timer when reaching 0
+        
+        // Stop timer when reaching 0
         torturedSec++;
         stopTimer(seltool);
     } else {
-        //update the displayed countdown, if the tool is currently running
+        
+        //Update the displayed countdown, if the tool is currently running
         if (toolsArr[seltool-1] == 1){
             document.getElementById('Countdown').innerHTML  = t;
             torturedSec++;
@@ -90,28 +97,27 @@ function decrementTimer(t, seltool){
 }
 
 
-//stops Timer when reaching 0
+// Stops Timer when reaching 0
 function stopTimer(seltool){
-    //activate cooldown state
+    // Activate cooldown state
     toolsArr[seltool-1] = 2;
-    //stop running tool
+    // Stop running tool
     tool(0);
-    //reenables tool after the cooldown
+    // Reenables tool after the cooldown
     reenableTool(seltool);
     console.log('stopping tool');
-    
     document.getElementById('Countdown').innerHTML  = '';
 }
 
 
-//deletes cooldown status for the selected tool
+// Deletes cooldown status for the selected tool
 function reenableTool(seltool){
     console.log("tool " + seltool + " will be reactivated in 30s");
     
-    //visualizes cooldown
+    // Visualizes cooldown
     showCooldown(seltool);
     
-    //cooldown time defined here, check if cooldown is upgraded
+    // Cooldown time defined here, check if cooldown is upgraded
     var cooldowntime = 30000;
     switch(shorterCooldowns){
         case 0: cooldowntime = 30000;
@@ -119,13 +125,14 @@ function reenableTool(seltool){
         case 1: cooldowntime = 15000;
                 break;
     }
-    //hide the cooldown, when the tool can be used again
+    
+    // Hide the cooldown, when the tool can be used again
     setTimeout(function(){toolsArr[seltool-1] = 0; hideCooldown(seltool)}, cooldowntime);
 }
 
 
-/* visualizes cooldown
-* shows and a translucent red box for the selected tool*/
+/* Visualizes cooldown
+* Shows and a translucent red box for the selected tool*/
 function showCooldown(seltool){
     switch(seltool){
             case 1: document.getElementById('cooldown_fire').style.display = "block";
@@ -140,7 +147,7 @@ function showCooldown(seltool){
                     break;
     }
 }
-//hides the cooldown box
+// Hides the cooldown box
 function hideCooldown(seltool){
     switch(seltool){
             case 1: document.getElementById('cooldown_fire').style.display = "none";
