@@ -247,17 +247,17 @@ if ($_SESSION['loggedin'] !== TRUE){
                 <!-- Start timer with click on icons, pass information: selected tool, if tool is upgraded, if cooldown is upgraded -->
                 <li><img class="drill" src="img/drill.png" onclick="startTimer(5,<?php echo $drillup ?>,<?php echo $upcoold ?>)"></li>
                 <?php } else { ?>
-                <li><a href="shop.php"><img class="drill" src="img/drill_lock.png"></a></li>
+                <li><a href="shop.php" onclick="quitTorture()"><img class="drill" src="img/drill_lock.png"></a></li>
 
                 <?php } if(in_array(4, $array_orders)){ ?>
                 <li><img class="acid" src="img/acid.png" onclick="startTimer(3,<?php echo $acidup ?>,<?php echo $upcoold ?>)"></li>
                 <?php } else { ?>
-                <li><a href="shop.php"><img class="acid" src="img/acid_lock.png"></a></li>
+                <li><a href="shop.php" onclick="quitTorture()"><img class="acid" src="img/acid_lock.png"></a></li>
 
                 <?php } if(in_array(3, $array_orders)){ ?>
                 <li><img class="bolt" src="img/bolt.png" onclick="startTimer(2,<?php echo $boltup ?>,<?php echo $upcoold ?>)"></li>
                 <?php } else{ ?>
-                <li><a href="shop.php"><img class="bolt" src="img/bolt_lock.png"></a></li>
+                <li><a href="shop.php" onclick="quitTorture()"><img class="bolt" src="img/bolt_lock.png"></a></li>
                 <?php } ?>
 
                 <!-- Wind and fire are always available -->
