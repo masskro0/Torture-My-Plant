@@ -168,7 +168,7 @@ if(isset($_POST['submit'])) {
 
         // Check if the two new passwords are the same
         if($_POST['password_new1'] !== $_POST['password_new2']) {
-                array_push($errors, "The new passwords do not match.");
+            array_push($errors, "The new passwords do not match.");
         }
 
         // Check, if passwords have the right length
