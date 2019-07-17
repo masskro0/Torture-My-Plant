@@ -6,31 +6,11 @@
 // Start the session
 session_start();
 
+// Get all orders from a user
+include('getinfo_index.php');
+
 // Connect to the database
 include('db_connect.php');
-
-// Prepare statement to prevent sql injection. Get all orders from the user of the database
-if($stmt = $connect->prepare("SELECT item_id FROM Orders WHERE user_id = ?")){
-    
-    // Replace the questionmark with the user id (i := integer)
-    $stmt->bind_param('i', $_SESSION['user_id']);
-    
-    // Execute the query above
-    $stmt->execute();
-    
-    // Empty array to store the orders
-    $array_orders = [];
-    
-    // Stores the result of the condition
-    foreach($stmt->get_result() as $row) {
-        $array_orders[] = $row['item_id'];
-    }
-} else{
-    die('An error occured when we tried to connect to the database.');
-}
-
-// Close the statement
-$stmt->close();
 
 // Get all the information from the item table
 if($stmt = $connect->prepare("SELECT * FROM Item")){

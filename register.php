@@ -93,7 +93,7 @@ if(isset($_POST['submit'])) {
     }
     
     // Prepare statement to prevent sql injection. Check if there is already an existing account with that username
-    if ($stmt_username = $connect->prepare('SELECT user_id, password FROM User WHERE username = ?')) {
+    if ($stmt_username = $connect->prepare('SELECT user_id FROM User WHERE username = ?')) {
         
         // Replace the questionmark with the username (s := string)
         $stmt_username->bind_param('s', $_POST['username']);

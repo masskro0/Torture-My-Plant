@@ -34,8 +34,10 @@ date_default_timezone_set("Europe/Berlin");
 // Get the current date in year-month-day
 $current_date = date('Y-m-d');
 echo $current_date;
+
 // Update the user's balance when he claims his daily bonus. Also update the current date. Prepare statement to prevent sql injection
 if($stmt = $connect->prepare("UPDATE User SET coins = ? , last_login = ? WHERE user_id = ? ")){
+    
     // i := integer, s := string
     $stmt->bind_param('isi', $coins, $current_date, $_SESSION['user_id']);
     
