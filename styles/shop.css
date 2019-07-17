@@ -91,17 +91,17 @@ figure{
     position: fixed;
     display: block;
     left: 82.2%;
-    top: -10px;
+    top: -6px;
     width: 56px;
     height: 56px;
     border: 2px solid white;
-    overflow:hidden; 
+    overflow: hidden; 
     z-index: 1;
 }
 figure img{
     width: 100%;
     height: 130%;
-    margin:-21.875% 0;
+    margin: -21.875% 0;
     object-fit: cover;
     z-index: 1;
 }   
