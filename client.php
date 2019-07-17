@@ -10,8 +10,6 @@
 session_start();
 
 // Check if the user is logged in, if not redirect him to the startpage
-session_start();
-
 if(!$_SESSION['loggedin']){
     header('Location: index.php');
     die();
