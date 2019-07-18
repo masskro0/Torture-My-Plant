@@ -25,7 +25,6 @@ def boltOn():
     toolsOff()
     global boltStatus
     boltStatus = 1
-    print('bolt on')
     u = threading.Thread(target=boltBlink, args=())
     u.start()
                
@@ -44,7 +43,6 @@ def boltBlink():
 #disable bolt
 def boltOff():
     GPIO.output(24, GPIO.LOW)
-    print('bolt off')
     global boltStatus
     boltStatus = 0
 
@@ -53,7 +51,6 @@ def flameOn():
     toolsOff()
     global flameStatus
     flameStatus = 1
-    print('flame on')
     t = threading.Thread(target=flameBlink, args=())
     t.start()
 
@@ -72,7 +69,6 @@ def flameBlink():
 #disable flame
 def flameOff():
     GPIO.output(23, GPIO.LOW)
-    print('flame off')
     global flameStatus
     flameStatus = 0
     
@@ -80,29 +76,36 @@ def flameOff():
 def windOn():
     toolsOff()
     GPIO.output(27, GPIO.HIGH)
-    print('wind on')
     global windStatus
     windStatus = 1
     
 #disable wind
 def windOff():
     GPIO.output(27, GPIO.LOW)
-    print('wind off')
     global windStatus
     windStatus = 0
 
 #enable acid
 def acidOn():
     toolsOff()
-    GPIO.output(18, GPIO.HIGH)
-    print('acid on')
     global acidStatus
     acidStatus = 1
+    s = threading.Thread(target=acidBlink, args=())
+    s.start()
+
+def acidBlink():
+    s = threading.currentThread()
+    while getattr(s, "do_run", True):
+        GPIO.output(18, GPIO.HIGH)
+        time.sleep(2.5)
+        GPIO.output(18, GPIO.LOW)
+        time.sleep(1)
+        if(acidStatus == 0):
+           s.do_run = False
     
 #disable acid
 def acidOff():
     GPIO.output(18, GPIO.LOW)
-    print('acid off')
     global acidStatus
     acidStatus = 0
  
@@ -116,7 +119,6 @@ def drillOn():
     time.sleep(0.2)
     #schalte Bohrer an
     GPIO.output(22, GPIO.HIGH)
-    print('drill on')
     global drillStatus
     drillStatus = 1
         
@@ -128,7 +130,6 @@ def drillOff():
     p.ChangeDutyCycle(7)
     time.sleep(0.5)
     p.ChangeDutyCycle(0)
-    print('drill off')
     global drillStatus
     drillStatus = 0
 
@@ -189,20 +190,6 @@ options = {
         4: windOn,
         5: drillOn
 }
-
-
-###----------------TEST----------------###
-
-#while True:
-        
-    #try: eingabe = int(input('Wähle ein Werkzeug aus: '))
-    #except ValueError: print('Input not a number')
-        
-    #try: options[eingabe]()
-    #except: print('invalid input. Number betweend 0 and 10 expected')
-  
-###----------------TEST----------------###
-
     
 
 # Function for handling connections. This will be used to create threads

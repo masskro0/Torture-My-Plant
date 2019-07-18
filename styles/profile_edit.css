@@ -68,9 +68,10 @@ a{
     width: 165px;
     z-index: 2;
 }
-/* Add border on hover */W
+/* Add border on hover */
 #rectangle:hover{
     border: 2px solid white;
+    z-index: 2;
 }
 /* Generic user picture */
 .profilepic{

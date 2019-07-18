@@ -106,7 +106,7 @@ nav a{
 }
 #shopbutton:hover{
     border: 2px solid white;
-    z-index: 1;
+    z-index: 2;
 }
 .links{
     position: relative;
