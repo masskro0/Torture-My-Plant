@@ -9,7 +9,7 @@ body{
     position: fixed;
     top: 0px;
     left: -100px;
-    width: 106.5%;
+    width: 106.6%;
     height: 85px;
     background-color: black;
     z-index: 1;
@@ -80,7 +80,7 @@ a{
 #profilepic{
     position: fixed;
     display: block;
-    left: 84.75%;
+    left: 84.65%;
     top: -30px;
     width: 56px;
     border: 2px solid white;
@@ -97,7 +97,6 @@ a{
     position: fixed;
     display: block;
     left: 82.2%;
-    top: -10px;
     width: 56px;
     height: 56px;
     overflow: hidden; 
@@ -131,7 +130,7 @@ a{
     position: fixed;
     color: white;
     z-index: 1;
-    left: 71.5%;
+    left: 71.55%;
     top: -5px;
 }
 #coins{
@@ -148,7 +147,7 @@ a{
     font-weight: bold;
     position: fixed;
     color: white;
-    left: 52.9%;
+    left: 52.95%;
     top: -5px;
     z-index: 1;
 }

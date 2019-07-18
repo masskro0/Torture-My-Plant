@@ -76,7 +76,7 @@ a{
 #profilepic{
     position: fixed;
     display: block;
-    left: 84.8%;
+    left: 84.85%;
     top: 10px;
     width: 56px;
     border: 2px solid white;
@@ -141,7 +141,7 @@ figure:hover{
     font-weight: bold;
     position: fixed;
     color: white;
-    left: 52.9%;
+    left: 52.95%;
     top: -5px;
     z-index: 1;
 }

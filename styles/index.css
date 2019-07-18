@@ -121,7 +121,7 @@ figure{
     width: 56px;
     height: 56px;
     border: 2px solid white;
-    overflow:hidden; 
+    overflow: hidden; 
     z-index: 1;
 }
 figure img{
