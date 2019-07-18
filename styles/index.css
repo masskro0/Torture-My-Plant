@@ -91,12 +91,12 @@ nav a{
     left: 66.45%;
     height: 56px;
     width: 165px;
-    z-index: 2;
+    z-index: 1;
 }
 /* Add border on hover */
 #rectangle:hover{
     border: 2px solid white;
-    z-index: 2;
+    z-index: 1;
 }
 /* Default profile picture */
 #profilepic{
@@ -347,7 +347,7 @@ button:hover {
 }
 .stream{
     position: relative;
-    left: 5%;
+
 }
 /* Close button */
 .closetorture {
@@ -366,8 +366,10 @@ button:hover {
 /* Live stream */
 iframe{
     height: 600px;
-    width: 89.7%;
+    width: 800px;
     border: 2px solid black;
+    display: block;
+    margin: 0 auto;
 }
 /* Quit Torture button */
 .Quittorture{
@@ -407,7 +409,7 @@ iframe{
 .tortureul{
     position: absolute;
     right: 23.8%;
-    top: 650px;
+    top: 645px;
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -415,7 +417,7 @@ iframe{
     margin-bottom: 30px;
 }
 .tortureul li{
-    float:right;
+    float: right;
     border: 5px solid black;
     margin-left: 45px;
     cursor: pointer;
